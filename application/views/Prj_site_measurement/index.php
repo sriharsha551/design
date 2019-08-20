@@ -1,0 +1,49 @@
+<div class="layout-content">
+    <div class="container-fluid flex-grow-1 container-p-y">
+        <h4 class="font-weight-bold py-2 mb-4">
+            <span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
+            <?php echo $breadcrumb; ?>
+        </h4>
+
+        <div class="box card">
+            <div class="card-body">
+                <div class="box-body card-datatable">
+                    <div class="box-tools">
+                    <a href="<?php echo site_url('Prj_site_measurements/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
+                    </div>
+
+                    <table class="datatables-demo table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Project name</th>
+                            <th>name</th>
+                            <th>attachnemt</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                       </thead>
+             <tbody>
+                    <?php foreach($site as $d) {?>
+                        <tr>
+                        <td><?php echo $d['id']; ?></td>
+                            <td><?php echo $d['prj_name']; ?></td>
+                            <td><?php echo $d['name']; ?></td>
+                            <td><a href="<?php echo site_url('Prj_site_measurements/image_view/'.$d['id']);?>"><?php echo $d['attach_name']; ?></a></td>
+                            <td><?php echo $d['remarks']; ?></td>
+                                <td>
+                                    <a href="<?php echo site_url('Prj_site_measurements/edit/' .$d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                     <a href="<?php echo site_url('Prj_site_measurements/delete/'.$d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                            </td> 
+                            </tr>         
+                             <?php } ?>
+                    </tbody>
+                
+            </table>
+      </div>
+     </div>
+     </div>
+     </div>
+  </div>
+  
+ 
