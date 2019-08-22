@@ -165,6 +165,11 @@
             <div>Enquries</div>
           </a>
         </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Project_List") {echo "active";}?>">
+          <a href="<?php echo site_url('Project_List'); ?>" class="sidenav-link">
+            <div>Projects Summary</div>
+          </a>
+        </li>
         <li class="sidenav-item">
           <a href="tables_datatables.html" class="sidenav-link">
             <div>HR Percentage</div>
@@ -356,78 +361,7 @@
     <?php
   }?>
 
-    <!--Project Design-->  
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "project_design") {echo "open active";}?>" >
-      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
-        <div>Project Design</div>
-      </a>
-
-      <ul class="sidenav-menu">
-        <li class="sidenav-item <?php if ($this->uri->segment(2) == "types") {echo "active";}?>">
-          <a href="<?php echo site_url('Prj_dsg_stage'); ?>" class="sidenav-link">
-            <div>Project Stages</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
-          <a href="<?php echo site_url('Prj_dsg_concept'); ?>" class="sidenav-link">
-            <div>Project Design Concept</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
-          <a href="<?php echo site_url('Prj_dsg_render'); ?>" class="sidenav-link">
-            <div>Project Design Render</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
-          <a href="<?php echo site_url('Design_layout'); ?>" class="sidenav-link">
-            <div>Project Design Layout</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
-          <a href="<?php echo site_url('Design_ddrawings'); ?>" class="sidenav-link">
-            <div>Project Design Drawings</div>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-<!-- Configs -->
-<li class="sidenav-item <?php if ($this->uri->segment(1) == "Type" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
-      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs"></i>
-        <div>Configs</div>
-      </a>
-
-      <ul class="sidenav-menu">
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
-          <a href="<?php echo site_url('Type'); ?>" class="sidenav-link">
-            <div>Type Config</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Status") {echo "active";}?>">
-          <a href="<?php echo site_url('Status'); ?>" class="sidenav-link">
-            <div>Status Config</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Stage") {echo "active";}?>">
-          <a href="<?php echo site_url('Stage'); ?>" class="sidenav-link">
-            <div>Stage Config</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Category") {echo "active";}?>">
-          <a href="<?php echo site_url('Category'); ?>" class="sidenav-link">
-            <div>Category Config</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Project_List") {echo "active";}?>">
-          <a href="<?php echo site_url('Project_List'); ?>" class="sidenav-link">
-            <div>Projects List</div>
-          </a>
-        </li>
-
-      </ul>
-    </li>
-
-    <!-- Configs -->
+      <!-- Site Management -->
 <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs"></i>
         <div>Site Management</div>
@@ -447,6 +381,72 @@
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Stage") {echo "active";}?>">
           <a href="<?php echo site_url('Prj_site_measurements'); ?>" class="sidenav-link">
             <div>Site Measurements</div>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+    <!--Project Design-->  
+    <li class="sidenav-item <?php if ($this->uri->segment(1) == "project_design") {echo "open active";}?>" >
+      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
+        <div>Design</div>
+      </a>
+
+      <ul class="sidenav-menu">
+        <li class="sidenav-item <?php if ($this->uri->segment(2) == "types") {echo "active";}?>">
+          <a href="<?php echo site_url('Prj_dsg_stage'); ?>" class="sidenav-link">
+            <div>Stages Config</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
+          <a href="<?php echo site_url('Prj_dsg_concept'); ?>" class="sidenav-link">
+            <div>Concept</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
+          <a href="<?php echo site_url('Prj_dsg_render'); ?>" class="sidenav-link">
+            <div>Render</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
+          <a href="<?php echo site_url('Design_layout'); ?>" class="sidenav-link">
+            <div>Layout</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
+          <a href="<?php echo site_url('Design_ddrawings'); ?>" class="sidenav-link">
+            <div>Detailed Drawings</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+<!-- Project Settings -->
+<li class="sidenav-item <?php if ($this->uri->segment(1) == "Type" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
+      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs"></i>
+        <div>Project Settings</div>
+      </a>
+
+      <ul class="sidenav-menu">
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Type'); ?>" class="sidenav-link">
+            <div>Project Type</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Status") {echo "active";}?>">
+          <a href="<?php echo site_url('Status'); ?>" class="sidenav-link">
+            <div>Project Status</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Stage") {echo "active";}?>">
+          <a href="<?php echo site_url('Stage'); ?>" class="sidenav-link">
+            <div>Project Stage</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Category") {echo "active";}?>">
+          <a href="<?php echo site_url('Category'); ?>" class="sidenav-link">
+            <div>Project Category</div>
           </a>
         </li>
 

@@ -4,7 +4,7 @@ class Project_List extends User_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('Project_List_model');
-        $this->page_title->push('Project List');
+        $this->page_title->push('Project Summary');
         $this->data['pagetitle'] = $this->page_title->show();
 
         $this->breadcrumbs->unshift(1, 'Project List', 'Project List');

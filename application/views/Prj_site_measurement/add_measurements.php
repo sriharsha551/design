@@ -39,11 +39,6 @@
 							</div>	
 						</div>
 					</div>
-					<div class="form-group">
-                                <label for="remarks" class="form-label"><span class="text-danger">*</span>Remarks</label>
-								<input type="textarea" name="remarks" value="<?php echo $this->input->post('remarks'); ?>" class="form-control" id="remarks" />
-								<span class="text-danger"><?php echo form_error('remarks');?></span>
-		                    </div>
 					<div class="box-footer">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-check"></i> Save

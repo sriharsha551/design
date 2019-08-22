@@ -88,7 +88,6 @@ class Prj_site_measurements extends User_Controller
         $this->load->library('form_validation');
         $this->form_validation->set_rules('project_id','Project','required');
         $this->form_validation->set_rules('name','Name','required');
-        $this->form_validation->set_rules('remarks','Remarks','required');
         if (empty($_FILES['attach_name']['name']))
         {
          

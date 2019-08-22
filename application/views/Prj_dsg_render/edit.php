@@ -45,10 +45,10 @@
 						</div>
                         <div class="col-md-6">
 							<label for="attach_name" class="form-label"><span class="text-danger">*</span>Attach name</label>
-							<div class="form-group">
-								<input type="text" name="attach_name"  value="<?php echo ($this->input->post('attach_name') ? $this->input->post('attach_name') : $render['attach_name']); ?>" class="form-control" id="attach_name" />
+							<div class="form-control">
+        						<input type="file" name="attach_name"  value="<?php echo $this->input->post('attach_name') ? $this->input->post('attach_name') : $render['attach_name']; ?>"/>
 								<span class="text-danger"><?php echo form_error('attach_name');?></span>
-							</div>
+     						</div>
 						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Percentage</label>
