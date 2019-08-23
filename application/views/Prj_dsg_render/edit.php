@@ -26,7 +26,7 @@
 						        </select>
 							</div>
 						</div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="desing_stage_id" class="form-label"><span class="text-danger">*</span>Design Stage</label>
 							<div class="form-group">
                                 <select class="form-control" name="design_stage_id" value='<?php echo ($this->input->post('design_stage_id') ? $this->input->post('design_stage_id') : $render['design_stage_id']);?>' >
@@ -35,9 +35,9 @@
 							        <?php }?>
 						        </select>
 							</div>
-						</div>
+						</div> -->
                         <div class="col-md-6">
-							<label for="name" class="form-label"><span class="text-danger">*</span>render Name</label>
+							<label for="name" class="form-label"><span class="text-danger">*</span>Render Name</label>
 							<div class="form-group">
 								<input type="text" name="name"  value="<?php echo ($this->input->post('name') ? $this->input->post('name') : $render['name']); ?>" class="form-control" id="name" />
 								<span class="text-danger"><?php echo form_error('name');?></span>

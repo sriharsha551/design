@@ -20,11 +20,11 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>PROJECT Name</th>
-                            <th>SITE VISIT DATE</th>
-                            <th>SITE VISIT TIME</th>
-                            <th>SITE ENGINEER ID</th>
-                            <th>REMARKS</th>
+                            <th>Project Name</th>
+                            <th>Site Visit Date</th>
+                            <th>Site Visit Time</th>
+                            <th>Site Engineer Id</th>
+                            <th>Remarks</th>
                             <th>Actions</th>
                         </tr>
                         </thead>

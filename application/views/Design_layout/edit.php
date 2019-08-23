@@ -32,14 +32,14 @@
 								<input type="text" name="name" value="<?php echo $this->input->post('name') ?  $this->input->post('name') : $Design_layout['name']; ?>" class="form-control" id="name" />
 								<span class="text-danger"><?php echo form_error('name');?></span>
 							</div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                             <label for="design_stage_id" class="form-label"><span class="text-danger">*</span>Design state</label>
                             <select name="design_stage_id" class="form-control" id="design_stage_id">
                                 <?php foreach ($design_stages as $design_stage) {?>
                                 <option value="<?php echo $design_stage['id'] ?>" <?php echo ($Design_layout['design_stage_id'] == $design_stage['id']) ? 'selected="selected"' : "" ?> ><?php echo $design_stage['design_stage'] ?></option>
                                 <?php } ?>
                             </select>
-                            </div>
+                            </div> -->
                             <div class="form-group">
 								<label for="attach_name" class="form-label"><span class="text-danger">*</span>Attachment</label>
 								<input type="file" name="attach_name" value="<?php echo $this->input->post('attach_name'); ?>" class="form-control" id="attach_name" />

@@ -20,9 +20,9 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>PROJECT NAME</th>
-                            <th>image name</th>
-                            <th>REMARKS</th>
+                            <th>Project Name</th>
+                            <th>Image Name</th>
+                            <th>Remarks</th>
                             <th>Actions</th>
                         </tr>
                         </thead>

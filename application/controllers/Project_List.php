@@ -27,36 +27,43 @@ class Project_List extends User_Controller{
         $this->template->public_render('Proj_List/index', $this->data);
     }
 
-public function add()
-{   
-    $this->breadcrumbs->unshift(2, 'Add', 'add');
-    $this->data['breadcrumb'] = $this->breadcrumbs->show();
-    $this->load->library('form_validation');
-
-    $this->form_validation->set_rules('cat_name','Category','required');
-    $this->form_validation->set_rules('type','Type','required');
-    $this->form_validation->set_rules('pro_name','Project Name','required|max_length[255]');
-    $this->form_validation->set_rules('stage','Stage','required');
-    
-    if($this->form_validation->run())     
+    public function add()
     {   
-        $params = array(
-            'cat_id'=> $this->input->post('cat_name'),
-            'type_id'=> $this->input->post('type'),
-            'name' => $this->input->post('pro_name'),
-            'stage' => $this->input->post('stage'),
-            'remarks' => $this->input->post('remarks'),
-            'delete_status'=>'0'
-        );
+        $this->breadcrumbs->unshift(2, 'Add', 'add');
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $this->load->library('form_validation');
+    
+        $this->form_validation->set_rules('cat_name','Category','required');
+        $this->form_validation->set_rules('type','Type','required');
+        $this->form_validation->set_rules('pro_name','Project Name','required|max_length[255]');
+        $this->form_validation->set_rules('stage','Stage','required');
         
-        $category_id = $this->Project_List_model->addProject($params);
-        redirect('Project_List/index');
-    }
-    else
-    {      
-        $this->template->public_render('Proj_List/add', $this->data);
-    }
-}  
+        if($this->form_validation->run())     
+        {   
+            $projectName = $this->input->post('pro_name');
+            $params = array(
+                'cat_id'=> $this->input->post('cat_name'),
+                'type_id'=> $this->input->post('type'),
+                'name' => $this->input->post('pro_name'),
+                'stage' => $this->input->post('stage'),
+                'remarks' => $this->input->post('remarks'),
+                'delete_status'=>'0'
+            );
+            
+            $category_id = $this->Project_List_model->addProject($params);
+            if(is_dir('upload/'.$projectName)!=1){
+                mkdir('./upload/'.$projectName);
+                mkdir('./upload/'.$projectName.'/Site Measurements');
+                mkdir('./upload/'.$projectName.'/Site Pics');
+                mkdir('./upload/'.$projectName.'/Design');
+            }
+            redirect('Project_List/index');
+        }
+        else
+        {      
+            $this->template->public_render('Proj_List/add', $this->data);
+        }
+    }  
 
 /*
  * Editing a category

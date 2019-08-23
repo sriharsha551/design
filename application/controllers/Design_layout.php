@@ -39,7 +39,7 @@ class Design_layout extends Admin_Controller {
         $this->load->library('form_validation');
 		$this->form_validation->set_rules('name','Name','required');
         $this->form_validation->set_rules('prj_id','Project','required');
-        $this->form_validation->set_rules('design_stage_id','Design Stage','required');
+        // $this->form_validation->set_rules('design_stage_id','Design Stage','required');
         // $this->form_validation->set_rules('attach_name','Attachment','required');
         if (empty($_FILES['attach_name']['name']))
         {
@@ -99,7 +99,7 @@ class Design_layout extends Admin_Controller {
 
             $this->form_validation->set_rules('name','Name','required');
             $this->form_validation->set_rules('prj_id','Project','required');
-            $this->form_validation->set_rules('design_stage_id','Design Stage','required');
+            // $this->form_validation->set_rules('design_stage_id','Design Stage','required');
             // $this->form_validation->set_rules('attach_name','Attachment','required');
             $this->form_validation->set_rules('review_status','Review Status','required');
             $this->form_validation->set_rules('percentage','Percentage','required');

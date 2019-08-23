@@ -18,7 +18,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Project Name</th>
-                            <th>Design Stage</th>
+                            <!-- <th>Design Stage</th> -->
                             <th>Attachment</th>
                             <th>Percentage</th>
                             <th>Review status</th>
@@ -32,7 +32,7 @@
                             <td><?php echo $d['id']; ?></td>
                             <td><?php echo $d['layout_name']; ?></td>
                             <td><?php echo $d['proj_name']; ?></td>
-                            <td><?php echo $d['design_stage']; ?></td>
+                            <!-- <td><?php echo $d['design_stage']; ?></td> -->
                             <td><a href="<?php echo site_url('Design_layout/image_view/'.$d['id']);?>"><?php echo $d['attach_name']; ?></a></td>
                             <td><?php echo $d['percentage']; ?></td>
                             <td><?php echo $d['review_status_name']; ?></td>

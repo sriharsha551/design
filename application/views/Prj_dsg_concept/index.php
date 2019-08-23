@@ -19,7 +19,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Project Name</th>
-                            <th>Design Stage</th>
+                            <!-- <th>Design Stage</th> -->
                             <th>Name</th>
                             <th>Attach Link</th>
                             <th>Percentage</th>
@@ -33,7 +33,7 @@
                         <tr>
                             <td><?php echo $s['id']; ?></td>
                             <td><?php echo $s['prj_name']; ?></td>
-                            <td><?php echo $s['design_stage']; ?></td>
+                            <!-- <td><?php echo $s['design_stage']; ?></td> -->
                             <td><?php echo $s['name']; ?></td>
                             <td><a href='//<?php echo $s['attach_link']; ?>' target="_blank">Click here</a></td>
                             <td><?php echo $s['percentage']; ?></td>

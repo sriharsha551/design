@@ -16,9 +16,9 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Project name</th>
-                            <th>name</th>
-                            <th>attachnemt</th>
+                            <th>Project Name</th>
+                            <th>Name</th>
+                            <th>Attachments</th>
                             <th>Remarks</th>
                             <th>Actions</th>
                         </tr>

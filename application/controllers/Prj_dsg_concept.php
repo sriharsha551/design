@@ -36,7 +36,7 @@ class Prj_dsg_concept extends Admin_Controller
         $this->load->library('form_validation');
         
         $this->form_validation->set_rules('prj_id','Project_id','required');
-        $this->form_validation->set_rules('design_stage_id','Design stage id','required');
+        // $this->form_validation->set_rules('design_stage_id','Design stage id','required');
         $this->form_validation->set_rules('name','Name','required');
         $this->form_validation->set_rules('attach_link','Attach link','required');
         $this->form_validation->set_rules('percentage','Percentage','required');
@@ -48,7 +48,7 @@ class Prj_dsg_concept extends Admin_Controller
         {   
             $params = array(
                 'prj_id' => $this->input->post('prj_id'),
-                'design_stage_id'=>$this->input->post('design_stage_id'),
+                // 'design_stage_id'=>$this->input->post('design_stage_id'),
                 'name'=> $this->input->post('name'),
                 'attach_link'=>$this->input->post('attach_link'),
                 'percentage'=>$this->input->post('percentage'),

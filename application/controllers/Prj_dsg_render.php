@@ -55,7 +55,7 @@ class Prj_dsg_render extends Admin_Controller
 		}
         
         $this->form_validation->set_rules('prj_id','Project_id','required');
-        $this->form_validation->set_rules('design_stage_id','Design stage id','required');
+        // $this->form_validation->set_rules('design_stage_id','Design stage id','required');
         $this->form_validation->set_rules('name','Name','required');
         if (empty($_FILES['attach_name']))
         {
@@ -69,7 +69,7 @@ class Prj_dsg_render extends Admin_Controller
         {   
             $params = array(
                 'prj_id' => $this->input->post('prj_id'),
-                'design_stage_id'=>$this->input->post('design_stage_id'),
+                // 'design_stage_id'=>$this->input->post('design_stage_id'),
                 'name'=> $this->input->post('name'),
                 'attach_name' => $this->upload->data()['file_name'],
                 'percentage'=>$this->input->post('percentage'),
@@ -102,7 +102,7 @@ class Prj_dsg_render extends Admin_Controller
         {
             $this->load->library('form_validation');
             $this->form_validation->set_rules('prj_id','Project_id','required');
-            $this->form_validation->set_rules('design_stage_id','Design stage id','required');
+            // $this->form_validation->set_rules('design_stage_id','Design stage id','required');
             $this->form_validation->set_rules('name','Name','required');
             $this->form_validation->set_rules('attach_name','Attach name','required');
             $this->form_validation->set_rules('percentage','Percentage','required');
@@ -113,7 +113,7 @@ class Prj_dsg_render extends Admin_Controller
             {   
                 $params = array(
                     'prj_id' => $this->input->post('prj_id'),
-                    'design_stage_id' => $this->input->post('design_stage_id'),
+                    // 'design_stage_id' => $this->input->post('design_stage_id'),
                     'name' => $this->input->post('name'),
                     'attach_name' => $this->input->post('attach_name'),
                     'percentage' => $this->input->post('percentage'),

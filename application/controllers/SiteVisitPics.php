@@ -10,11 +10,11 @@ class SiteVisitPics extends Admin_Controller{
         parent::__construct();
         $this->load->model('SiteVisitPics_model');
          /* Title Page :: Common */
-         $this->page_title->push('SiteVisitPics');
+         $this->page_title->push('Site Visit Pictures');
          $this->data['pagetitle'] = $this->page_title->show();
  
          /* Breadcrumbs :: Common */
-         $this->breadcrumbs->unshift(1, 'SiteVisitPics', 'SiteVisitPics');
+         $this->breadcrumbs->unshift(1, 'Site Visit Pictures', 'SiteVisitPics');
     } 
 
     /*

@@ -28,7 +28,7 @@
 						</select>
 						</div>
 						</div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 						<label for="design_stage_id" class="form-label"><span class="text-danger">*</span>Design Stage</label>
 						<div class='form-group'>
 						<select class="form-control" name="design_stage_id">
@@ -38,7 +38,7 @@
 							<?php }?>
 						</select>
 						</div>
-						</div>
+						</div> -->
                         <div class="col-md-6">
 							<label for="name" class="form-label"><span class="text-danger">*</span>render Name</label>
 							<div class="form-group">

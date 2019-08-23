@@ -375,7 +375,7 @@
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Status") {echo "active";}?>">
           <a href="<?php echo site_url('SiteVisitPics'); ?>" class="sidenav-link">
-            <div>Site Visit Pics</div>
+            <div>Site Visit Pictures</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Stage") {echo "active";}?>">
