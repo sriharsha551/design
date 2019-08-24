@@ -39,6 +39,18 @@
             return $this->db->get()->result_array();        
         }
 
+        public function getPercentages($id){
+            $res = $this->db->query("select percentage FROM prj_dsg_layout where prj_id='$id' ORDER BY id DESC LIMIT 1");
+            $drawings = $res->row()->percentage;
+            $res = $this->db->query("select percentage from prj_dsg_concept where prj_id='$id' ORDER BY id DESC LIMIT 1");
+            $concept = $res->row()->percentage;
+            $res = $this->db->query("select percentage from prj_dsg_layout where prj_id='$id' ORDER BY id DESC LIMIT 1");
+            $layout = $res->row()->percentage;
+            $res = $this->db->query("select percentage from prj_dsg_render where prj_id='$id' ORDER BY id DESC LIMIT 1");
+            $render = $res->row()->percentage;
+            return ($drawings+$concept+$layout+$render)/4;
+        }
+
 
         public function getProject($id){
             $this->db->where('p.id',$id);

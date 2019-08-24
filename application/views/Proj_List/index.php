@@ -8,6 +8,7 @@
             <span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
             <?php echo $breadcrumb;?> 
         </h4>
+        <?php print_r($percentage);?>
         <div class="box card">
             <div class="card-body">
                 <div class="box-body card-datatable">
@@ -24,10 +25,13 @@
                             <th>Name</th>
                             <th>Stage</th>
                             <th>Remarks</th>
+                            <th>Percentage</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <?php foreach ($projects as $d) {?>
+                        <?php
+                        $itr = 0; 
+                        foreach ($projects as $d) {?>
                         <tr>
                             <td><?php echo $d['id']; ?></td>
                             <td><?php echo $d['category']; ?></td>
@@ -35,12 +39,15 @@
                             <td><?php echo $d['name']?></td>     
                             <td><?php echo $d['stage_name']?></td> 
                             <td><?php echo $d['remarks']?></td> 
+                            <td><?php echo $percentage[$itr]?></td>
                             <td>
                                 <a href="<?php echo site_url('Project_List/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
                                 <a href="<?php echo site_url('Project_List/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <?php }?>
+                        <?php
+                        $itr++;
+                    }?>
                     </table>
                 </div>   
             </div>
