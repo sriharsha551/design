@@ -40,15 +40,24 @@
         }
 
         public function getPercentages($id){
+            $percent = 0;
             $res = $this->db->query("select percentage FROM prj_dsg_layout where prj_id='$id' ORDER BY id DESC LIMIT 1");
-            $drawings = $res->row()->percentage;
+            if($res->num_rows()){
+                $percent = $percent + $res->row()->percentage;
+            }
             $res = $this->db->query("select percentage from prj_dsg_concept where prj_id='$id' ORDER BY id DESC LIMIT 1");
-            $concept = $res->row()->percentage;
+            if($res->num_rows()){
+                $percent = $percent + $res->row()->percentage;
+            }
             $res = $this->db->query("select percentage from prj_dsg_layout where prj_id='$id' ORDER BY id DESC LIMIT 1");
-            $layout = $res->row()->percentage;
+            if($res->num_rows()){
+               $percent = $percent + $res->row()->percentage;
+            }
             $res = $this->db->query("select percentage from prj_dsg_render where prj_id='$id' ORDER BY id DESC LIMIT 1");
-            $render = $res->row()->percentage;
-            return ($drawings+$concept+$layout+$render)/4;
+            if($res->num_rows()){
+               $percent = $percent + $res->row()->percentage;
+            }
+            return $percent/4;
         }
 
 

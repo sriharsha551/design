@@ -8,7 +8,7 @@
             <span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
             <?php echo $breadcrumb;?> 
         </h4>
-        <?php print_r($percentage);?>
+        <!-- <?php print_r($percentage);?> -->
         <div class="box card">
             <div class="card-body">
                 <div class="box-body card-datatable">
