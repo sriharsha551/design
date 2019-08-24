@@ -24,6 +24,10 @@ class Project_List extends User_Controller{
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['projects'] = $this->Project_List_model->getAllProjects();
+        $this->data['percentage'] = array();
+        foreach($this->data['projects'] as $pro){
+            array_push($this->data['percentage'],$this->Project_List_model->getPercentages($pro['id']));
+        }
         $this->template->public_render('Proj_List/index', $this->data);
     }
 

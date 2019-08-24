@@ -18,7 +18,7 @@
 
                     <table class="datatables-demo table table-striped table-bordered">
                         <thead>
-                        <tr>
+                       <tr>
                             <th>ID</th>
                             <th>Category</th>
                             <th>Type</th>
