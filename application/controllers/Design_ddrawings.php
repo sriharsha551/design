@@ -25,6 +25,7 @@ class Design_ddrawings extends Admin_Controller {
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['design_ddrawings'] = $this->Design_ddrawings_model->get_all_design_ddrawings($params);
+        $this->data['prj_names'] = $this->Design_ddrawings_model->get_all_project_list();
         $this->template->public_render('Design_ddrawings/index', $this->data);
 
     }
@@ -47,8 +48,8 @@ class Design_ddrawings extends Admin_Controller {
         }
         $this->form_validation->set_rules('review_status','Review Status','required');
         $this->form_validation->set_rules('percentage','Percentage','required');
-        $this->form_validation->set_rules('remarks','Remarks','required');
-        $this->form_validation->set_rules('revisions','Revision','required');
+        // $this->form_validation->set_rules('remarks','Remarks','required');
+        // $this->form_validation->set_rules('revisions','Revision','required');
 
         $config = array(
             'upload_path' => "./upload/",
@@ -62,6 +63,7 @@ class Design_ddrawings extends Admin_Controller {
 		if($this->form_validation->run() && $this->upload->do_upload('attach_name'))     
         {   
             $data = $this->input->post();
+            $data['revisions'] = "R0";
             $data['attach_name'] = $this->upload->data()['file_name'];
             $design_ddrawings_id = $this->Design_ddrawings_model->add_design_ddrawings($data);
             redirect('Design_ddrawings/index');
@@ -76,6 +78,8 @@ class Design_ddrawings extends Admin_Controller {
 
     function edit($id)
     {   
+        $_SESSION['drawing_filter_id'] = $this->input->post('prj_id');         
+
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         // check if the Design layout exists before trying to edit it
@@ -103,8 +107,8 @@ class Design_ddrawings extends Admin_Controller {
             // $this->form_validation->set_rules('attach_name','Attachment','required');
             $this->form_validation->set_rules('review_status','Review Status','required');
             $this->form_validation->set_rules('percentage','Percentage','required');
-            $this->form_validation->set_rules('remarks','Remarks','required');
-            $this->form_validation->set_rules('revisions','Revision','required');
+            // $this->form_validation->set_rules('remarks','Remarks','required');
+            // $this->form_validation->set_rules('revisions','Revision','required');
 			
 		
 			if($this->form_validation->run() && $this->upload->do_upload('attach_name'))     
@@ -149,8 +153,16 @@ class Design_ddrawings extends Admin_Controller {
     }
 
     function update_remarks($id) {
-        $this->Design_ddrawings_model->update_design_ddrawings($id,$this->input->post());            
-        redirect('Design_ddrawings/index');
+        $data = array("remarks"=>$this->input->post('remarks'));
+        if(isset($_POST['check']))
+        {
+            $this->Design_ddrawings_model->update_design_revision($id,$data);   
+            redirect('Design_ddrawings/index');
+        }
+        else{
+            $this->Design_ddrawings_model->update_design_ddrawings($id,$this->input->post());            
+            redirect('Design_ddrawings/index');
+        }
 
     }
 }

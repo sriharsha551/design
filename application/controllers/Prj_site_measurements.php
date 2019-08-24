@@ -23,6 +23,8 @@ class Prj_site_measurements extends User_Controller
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['site'] = $this->Prj_site_measurements_model->get_all_prj_site_measurements($params);
+        $this->data['prj_names'] = $this->Prj_site_measurements_model->get_all_project_list();
+
         $this->template->public_render('Prj_site_measurement/index', $this->data);
     }
     function image_view($id) {
@@ -37,6 +39,8 @@ class Prj_site_measurements extends User_Controller
     }
     function edit($id)
     {   
+        $_SESSION['measurement_filter_id'] = $this->input->post('prj_id');         
+
         $this->breadcrumbs->unshift(2, 'Edit', 'edit_measurements'); 
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         // check if the site measurement exists before trying to edit it
@@ -81,7 +85,8 @@ class Prj_site_measurements extends User_Controller
         redirect("Prj_site_measurements/");
     }
     function add()
-    {   $this->data['proj_list'] = $this->Prj_site_measurements_model->get_all_project_list();
+    {   
+        $this->data['proj_list'] = $this->Prj_site_measurements_model->get_all_project_list();
 
         $this->breadcrumbs->unshift(2, 'Add', 'add_measurement');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();

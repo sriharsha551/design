@@ -28,9 +28,8 @@ class Prj_dsg_concept_model extends CI_Model
         {
             $this->db->limit($params['limit'], $params['offset']);
         }
-        $this->db->select('prj_dsg_concept.*,prj_list.name as prj_name,prj_dsg_stage.design_stage as design_stage');
+        $this->db->select('prj_dsg_concept.*,prj_list.name as prj_name');
         $this->db->join('prj_list', 'prj_list.id = prj_dsg_concept.prj_id', 'inner');
-        $this->db->join('prj_dsg_stage','prj_dsg_stage.id=prj_dsg_concept.design_stage_id','inner');
         return $this->db->get_where('Prj_dsg_concept',array('prj_dsg_concept.delete_status'=>'0'))->result_array();
     }
 
@@ -46,6 +45,13 @@ class Prj_dsg_concept_model extends CI_Model
         return $this->db->get_where('prj_dsg_concept',array('id'=>$id,"delete_status"=>'0'))->row_array();
     }
 
+    function get_all_review_status() {
+        $this->db->select('id, review_status_name');
+        $this->db->from('prj_review_status');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
     function add_concept($params)
     {
         $params['created_at'] =  $timestamp =date("Y-m-d H:i:s");
@@ -58,6 +64,19 @@ class Prj_dsg_concept_model extends CI_Model
         $params['updated_at'] = date("Y-m-d H:i:s");
         $this->db->where('id',$id);
         return $this->db->update('prj_dsg_concept',$params);
+    }
+
+    function update_concept_revision($id,$params)
+    {
+        $params['updated_at'] = date("Y-m-d H:i:s");
+        $this->db->where('id',$id);
+        $this->db->update('prj_dsg_concept',$params);
+        $this->db->select('prj_id,name,percentage,revisions');
+        $data = $this->db->get_where('prj_dsg_render',array("id"=>$id,'delete_status'=>'0'))->result_array();
+        $data[0]['revisions']=($data['0']['revisions'][0].((int)$data['0']['revisions'][1]+1));
+        $data[0]['created_at'] = date("Y-m-d H:i:s");
+        $this->db->insert('prj_dsg_concept',$data[0]);
+        return $this->db->insert_id();
     }
 
     function delete_concept($id)

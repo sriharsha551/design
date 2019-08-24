@@ -39,7 +39,7 @@ class SiteVisitPics_model extends CI_Model
             $this->db->limit($params['limit'], $params['offset']);
         }
         $this->db->where('t1.delete_status', '0');
-        $this->db->select('t1.id as id, t2.name as project_name, t1.name, t1.remarks');    
+        $this->db->select('t1.id as id, t2.id as prj_id, t2.name as project_name, t1.name, t1.remarks');    
         $this->db->from('prj_site_pics as t1');
         $this->db->join('prj_list as t2', 't1.project_id = t2.id');
         return($this->db->get()->result_array());

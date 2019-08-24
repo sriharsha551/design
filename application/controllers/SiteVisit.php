@@ -31,6 +31,11 @@ class SiteVisit extends Admin_Controller{
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['sitevisit'] = $this->SiteVisit_model->get_all_SiteVisit($params);
+        $query = $this->SiteVisit_model->select(); 
+         $this->data['prj_names'] = null;
+         if($query){
+          $this->data['prj_names'] =  $query;
+         }
         
         $this->template->public_render('SiteVisit/index', $this->data);
 
@@ -82,6 +87,8 @@ class SiteVisit extends Admin_Controller{
      */
     function edit($id)
     {   
+        $_SESSION['visit_filter_id'] = $this->input->post('prj_id');         
+
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         // check if the SiteVisit exists before trying to edit it

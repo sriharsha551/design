@@ -40,7 +40,7 @@
 						</div>
 						</div> -->
                         <div class="col-md-6">
-							<label for="name" class="form-label"><span class="text-danger">*</span>render Name</label>
+							<label for="name" class="form-label"><span class="text-danger">*</span>Render Name</label>
 							<div class="form-group">
 								<input type="text" name="name" value="<?php echo $this->input->post('name'); ?>" class="form-control" id="name" />
 								<span class="text-danger"><?php echo form_error('name');?></span>
@@ -67,13 +67,13 @@
 								<span class="text-danger"><?php echo form_error('review_status');?></span>
 							</div>
 						</div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="revisions" class="form-label"><span class="text-danger">*</span>Revisions</label>
 							<div class="form-group">
 								<input type="text" name="revisions" value="<?php echo $this->input->post('revisions'); ?>" class="form-control" id="revisions" />
 								<span class="text-danger"><?php echo form_error('revisions');?></span>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="box-footer">
 						<button type="submit" class="btn btn-success">

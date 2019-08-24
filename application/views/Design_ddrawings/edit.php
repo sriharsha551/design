@@ -12,7 +12,7 @@
 		</h4>
     
 		<div class="card mb-4">
-            <h6 class="card-header">ADD</h6>
+            <h6 class="card-header">Edit</h6>
 			<div class="card-body"> 
 				<div class="box-body"> 
             		<?php echo  form_open_multipart('Design_ddrawings/edit/'.$design_ddrawings['id']); ?>
@@ -53,12 +53,13 @@
                             <div class="form-group">
                                 <label for="review_status" class="form-label"><span class="text-danger">*</span>Review Status</label>
                                 <select name="review_status" value="<?php echo $this->input->post('review_status')?>" class="form-control" id="review_status">
+								<option value="">Select Status</option>
                                 	<?php foreach ($review_statuses as $review_status) {?>
                                 	<option value="<?php echo $review_status['id'] ?>" <?php echo ($design_ddrawings['review_status'] == $review_status['id']) ? 'selected="selected"' : "" ?> ><?php echo $review_status['review_status_name'] ?></option>
                                 	<?php } ?>
                             	</select>
 							</div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="remarks" class="form-label"><span class="text-danger">*</span>Remarks</label>
 								<input type="textarea" name="remarks" value="<?php echo $this->input->post('remarks') ? $this->input->post('remarks') : $design_ddrawings['remarks'] ; ?>" class="form-control" id="remarks" />
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
@@ -67,7 +68,7 @@
                                 <label for="revisions" class="form-label"><span class="text-danger">*</span>Revision</label>
 								<input type="text" name="revisions" value="<?php echo $this->input->post('revisions') ? $this->input->post('revisions') : $design_ddrawings['revisions']; ?>" class="form-control" id="revisions" />
 								<span class="text-danger"><?php echo form_error('revisions');?></span>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				

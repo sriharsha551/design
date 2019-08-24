@@ -25,7 +25,7 @@ class Prj_dsg_concept extends Admin_Controller
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['concepts'] = $this->Prj_dsg_concept_model->get_all_concepts($params);
-
+        $this->data['prj_names'] = $this->Prj_dsg_concept_model->get_prj_names();
         $this->template->public_render('Prj_dsg_concept/index',$this->data);
     }
 
@@ -41,8 +41,8 @@ class Prj_dsg_concept extends Admin_Controller
         $this->form_validation->set_rules('attach_link','Attach link','required');
         $this->form_validation->set_rules('percentage','Percentage','required');
         $this->form_validation->set_rules('review_status','Review status','required');
-        $this->form_validation->set_rules('remarks','Remarks','required');
-        $this->form_validation->set_rules('revisions','Revisions','required');
+        // $this->form_validation->set_rules('remarks','Remarks','required');
+        // $this->form_validation->set_rules('revisions','Revisions','required');
 
         if($this->form_validation->run())     
         {   
@@ -53,8 +53,8 @@ class Prj_dsg_concept extends Admin_Controller
                 'attach_link'=>$this->input->post('attach_link'),
                 'percentage'=>$this->input->post('percentage'),
                 'review_status'=>$this->input->post('review_status'),
-                'remarks'=>$this->input->post('remarks'),
-                'revisions'=>$this->input->post('revisions')
+                // 'remarks'=>$this->input->post('remarks'),
+                'revisions'=>"R0"
             );
             $concept_id = $this->Prj_dsg_concept_model->add_concept($params);
             redirect('Prj_dsg_concept/index');
@@ -69,11 +69,15 @@ class Prj_dsg_concept extends Admin_Controller
 
     function edit($id)
     {
+
+        $_SESSION['concept_filter_id'] = $this->input->post('prj_id');         
+
         $this->data['prj_names'] = $this->Prj_dsg_concept_model->get_prj_names();
         $this->data['dsg_names'] = $this->Prj_dsg_concept_model->get_dsg_names();
         $this->data['spl'] = array_values($this->data['dsg_names']);
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $this->data['review_statuses'] = $this->Prj_dsg_model->get_all_review_status();
 
         $this->data['concept'] = $this->Prj_dsg_concept_model->get_concept($id);
 
@@ -81,13 +85,13 @@ class Prj_dsg_concept extends Admin_Controller
         {
             $this->load->library('form_validation');
             $this->form_validation->set_rules('prj_id','Project_id','required');
-            $this->form_validation->set_rules('design_stage_id','Design stage id','required');
+            // $this->form_validation->set_rules('design_stage_id','Design stage id','required');
             $this->form_validation->set_rules('name','Name','required');
             $this->form_validation->set_rules('attach_link','Attach link','required');
             $this->form_validation->set_rules('percentage','Percentage','required');
             $this->form_validation->set_rules('review_status','Review status','required');
             $this->form_validation->set_rules('remarks','Remarks','required');
-            $this->form_validation->set_rules('revisions','Revisions','required');
+            // $this->form_validation->set_rules('revisions','Revisions','required');
             if($this->form_validation->run())     
             {   
                 $params = array(
@@ -98,11 +102,18 @@ class Prj_dsg_concept extends Admin_Controller
                     'percentage' => $this->input->post('percentage'),
                     'review_status' => $this->input->post('review_status'),
                     'remarks' => $this->input->post('remarks'),
-                    'revisions' => $this->input->post('revisions'),
+                    // 'revisions' => $this->input->post('revisions'),
                 );
-
-                $this->Prj_dsg_concept_model->update_concept($id,$params);            
+                if(isset($_POST['check']))
+                {
+                    $this->Prj_dsg_concept_model->update_concept_revision($id,$params);
+                    redirect('Prj_dsg_concept/index');
+                }
+                else{
+                    
+                $this->Prj_dsg_concept_model->update_concept($id,$params);   
                 redirect('Prj_dsg_concept/index');
+                }
             }
             else
             {

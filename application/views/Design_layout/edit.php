@@ -12,7 +12,7 @@
 		</h4>
     
 		<div class="card mb-4">
-            <h6 class="card-header">ADD</h6>
+            <h6 class="card-header">Edit</h6>
 			<div class="card-body"> 
 				<div class="box-body"> 
             		<?php echo  form_open_multipart('Design_layout/edit/'.$Design_layout['id']); ?>
@@ -57,8 +57,9 @@
                                 	<option value="<?php echo $review_status['id'] ?>" <?php echo ($Design_layout['review_status'] == $review_status['id']) ? 'selected="selected"' : "" ?> ><?php echo $review_status['review_status_name'] ?></option>
                                 	<?php } ?>
                             	</select>
+								<!-- <input type="textarea" name="review_status" value="<?php echo $this->input->post('review_status') ? $this->input->post('review_status') : $Design_layout['review_status'] ; ?>" class="form-control" id="review_status" /> -->
 							</div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="remarks" class="form-label"><span class="text-danger">*</span>Remarks</label>
 								<input type="textarea" name="remarks" value="<?php echo $this->input->post('remarks') ? $this->input->post('remarks') : $Design_layout['remarks'] ; ?>" class="form-control" id="remarks" />
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
@@ -68,7 +69,7 @@
 								<input type="text" name="revisions" value="<?php echo $this->input->post('revisions') ? $this->input->post('revisions') : $Design_layout['revisions']; ?>" class="form-control" id="revisions" />
 								<span class="text-danger"><?php echo form_error('revisions');?></span>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				
 					<div class="box-footer">

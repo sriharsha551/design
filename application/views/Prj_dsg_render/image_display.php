@@ -25,7 +25,8 @@
                         </div>
                         </div>
 					</div>
-				
+					<label class="checkbox-inline"><input type="checkbox" name="check" value="1">Revision Required</label>
+
 					<div class="box-footer">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-check"></i> Add Remarks

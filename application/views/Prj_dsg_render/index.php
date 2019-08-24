@@ -6,9 +6,33 @@
     <h4 class="font-weight-bold py-2 mb-4">
             <span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
             <?php echo $breadcrumb; ?>
+            <?php
+                $GLOBALS['prj_filter_id'] = null;
+                if(isset($_SESSION['concept_filter_id']))
+                {
+                    $GLOBALS['prj_filter_id'] = $_SESSION['concept_filter_id'];
+                    unset($_SESSION['concept_filter_id']);
+                } 
+                if(isset($_POST['prj_filter_id']))
+                {
+                    $GLOBALS['prj_filter_id'] = $_POST['prj_filter_id'];
+                }
+            ?>
         </h4>
         <div class="box card">
             <div class="card-body">
+            <form action="" method="post" name="prj_form">
+                <div class="col-md-6">
+						<label for="prj_filter_id" class="form-label"><span class="text-danger"></span>Project Filter</label>
+						<div class='form-group'>
+						<select class="form-control" name="prj_filter_id" onchange="this.form.submit()" >
+							<option value=''>select name</option>
+							<?php foreach($prj_names as $row) {?>
+  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+							<?php }?>
+						</select>
+						</div>
+				</div>
                 <div class="box-body card-datatable">
                     <div class="box-tools">
                         <a href="<?php echo site_url('Prj_dsg_render/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
@@ -29,7 +53,8 @@
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <?php foreach ($renders as $s) {?>
+                        <?php foreach ($renders as $s) {
+                             if($s['prj_id'] == $GLOBALS['prj_filter_id']){?>
                         <tr>
                             <td><?php echo $s['id']; ?></td>
                             <td><?php echo $s['prj_name']; ?></td>
@@ -45,7 +70,7 @@
                                 <a href="<?php echo site_url('Prj_dsg_render/remove/' . $s['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <?php }?>
+                        <?php }}?>
                     </table>
                 </div>   
             </div>

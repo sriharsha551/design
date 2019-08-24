@@ -34,7 +34,7 @@ class Prj_site_measurements_model extends CI_Model
             $this->db->limit($params['limit'], $params['offset']);
         }
         $this->db->where('t1.delete_status', '0');
-        $this->db->select('t1.*,t2.name as prj_name');    
+        $this->db->select('t1.*,t2.id as prj_id,t2.name as prj_name');    
         $this->db->from('prj_site_measurements as t1');
         $this->db->join('prj_list as t2','t1.project_id = t2.id','inner');
         $query = $this->db->get();

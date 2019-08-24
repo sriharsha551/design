@@ -44,11 +44,18 @@
 							</div>
 						</div>
                         <div class="col-md-6">
-							<label for="attach_name" class="form-label"><span class="text-danger">*</span>Attach name</label>
+							<label for="attach_name" class="form-label"><span class="text-danger">*</span>Attach name</label><br/>
+							<?php if($this->input->post('attach_name')){?>
 							<div class="form-control">
-        						<input type="file" name="attach_name"  value="<?php echo $this->input->post('attach_name') ? $this->input->post('attach_name') : $render['attach_name']; ?>"/>
+							<a target="_blank" href=<?php echo site_url('/upload/renders/'.$render['attach_name'])?>><?php echo $render['attach_name']?></a>
+							</div>
+							<?php }
+							else{?>
+							<div class="form-control">
+							<input type="file" name="attach_name"  value="<?php echo $this->input->post('attach_name'); ?>"/>
 								<span class="text-danger"><?php echo form_error('attach_name');?></span>
-     						</div>
+							</div>
+							<?php }?>
 						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Percentage</label>
@@ -64,20 +71,20 @@
 								<span class="text-danger"><?php echo form_error('review_status');?></span>
 							</div>
 						</div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="remarks" class="form-label"><span class="text-danger">*</span>Remarks</label>
 							<div class="form-group">
 								<input type="text" name="remarks" value="<?php echo ($this->input->post('remarks') ? $this->input->post('remarks') : $render['remarks']); ?>" class="form-control" id="remarks" />
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
 							</div>
-						</div>
-                        <div class="col-md-6">
+						</div> -->
+                        <!-- <div class="col-md-6">
 							<label for="revisions" class="form-label"><span class="text-danger">*</span>Revisions</label>
 							<div class="form-group">
 								<input type="text" name="revisions"  value="<?php echo ($this->input->post('revisions') ? $this->input->post('revisions') : $render['revisions']); ?>" class="form-control" id="revisions" />
 								<span class="text-danger"><?php echo form_error('revisions');?></span>
 							</div>
-						</div>
+						</div> -->
 			<div class="box-footer">
             	<button type="submit" class="btn btn-success">
 					<i class="fa fa-check"></i> Save

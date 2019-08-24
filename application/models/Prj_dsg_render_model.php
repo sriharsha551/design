@@ -28,9 +28,8 @@ class Prj_dsg_render_model extends CI_Model
         {
             $this->db->limit($params['limit'], $params['offset']);
         }
-        $this->db->select('prj_dsg_render.*,prj_list.name as prj_name,prj_dsg_stage.design_stage as design_stage');
+        $this->db->select('prj_dsg_render.*,prj_list.name as prj_name');
         $this->db->join('prj_list', 'prj_list.id = prj_dsg_render.prj_id', 'inner');
-        $this->db->join('prj_dsg_stage','prj_dsg_stage.id=prj_dsg_render.design_stage_id','inner');
         return $this->db->get_where('Prj_dsg_render',array('prj_dsg_render.delete_status'=>'0'))->result_array();
     }
 
@@ -60,9 +59,23 @@ class Prj_dsg_render_model extends CI_Model
         return $this->db->update('prj_dsg_render',$params);
     }
 
+    function update_render_revision($id,$remarks)
+    {
+        $remarks['updated_at'] = date("Y-m-d H:i:s");
+        $this->db->set($remarks);
+        $this->db->where('id',$id);
+        $this->db->update('prj_dsg_render');
+        $this->db->select('prj_id,name,percentage,revisions');
+        $data = $this->db->get_where('prj_dsg_render',array("id"=>$id,"delete_status"=>'0'))->result_array();
+        $data[0]['revisions']=($data['0']['revisions'][0].((int)$data['0']['revisions'][1]+1));
+        $data[0]['created_at'] = date("Y-m-d H:i:s");
+        $this->db->insert('prj_dsg_render',$data[0]);
+        return $this->db->insert_id();
+    }
+
     function delete_render($id)
     {
-        $params['deleted_at'] =  $timestamp =date("Y-m-d H:i:s");
+        $params['deleted_at'] = date("Y-m-d H:i:s");
         $this->db->set(array('delete_status'=>'1'));
         $this->db->where('id',$id);
         return $this->db->update('prj_dsg_render');

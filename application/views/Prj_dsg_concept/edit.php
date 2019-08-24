@@ -20,8 +20,7 @@
 							<div class="form-group">
                                 <select class="form-control" name="prj_id" >
 							        <?php foreach($prj_names as $row) {?>
-									<!-- <option value="<?php echo $review_status['id'] ?>" ><?php echo $review_status['review_status_name'] ?></option> -->
-  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $this->input->post('prj_id')) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $concept['prj_id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							        <?php }?>
 						        </select>
 							</div>
@@ -60,7 +59,11 @@
                         <div class="col-md-6">
 							<label for="review_status" class="form-label"><span class="text-danger">*</span>Review Status</label>
 							<div class="form-group">
-								<input type="text" name="review_status"  value="<?php echo ($this->input->post('review_status') ? $this->input->post('review_status') : $concept['review_status']); ?>" class="form-control" id="review_status" />
+							<select name="review_status" value="<?php echo $this->input->post('review_status')?>" class="form-control" id="review_status">
+                                	<?php foreach ($review_statuses as $review_status) {?>
+                                	<option value="<?php echo $review_status['id'] ?>" <?php echo ($concept['review_status'] == $review_status['id']) ? 'selected="selected"' : "" ?> ><?php echo $review_status['review_status_name'] ?></option>
+                                	<?php } ?>
+                            	</select>
 								<span class="text-danger"><?php echo form_error('review_status');?></span>
 							</div>
 						</div>
@@ -71,13 +74,15 @@
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
 							</div>
 						</div>
-                        <div class="col-md-6">
+						<label class="checkbox-inline"><input type="checkbox" name="check" value="1">Revision Required</label>
+
+                        <!-- <div class="col-md-6">
 							<label for="revisions" class="form-label"><span class="text-danger">*</span>Revisions</label>
 							<div class="form-group">
 								<input type="text" name="revisions"  value="<?php echo ($this->input->post('revisions') ? $this->input->post('revisions') : $concept['revisions']); ?>" class="form-control" id="revisions" />
 								<span class="text-danger"><?php echo form_error('revisions');?></span>
-							</div>
-						</div>
+							</div>-->
+						</div> 
 			<div class="box-footer">
             	<button type="submit" class="btn btn-success">
 					<i class="fa fa-check"></i> Save

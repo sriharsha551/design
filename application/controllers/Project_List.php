@@ -50,14 +50,24 @@ class Project_List extends User_Controller{
                 'delete_status'=>'0'
             );
             
-            $category_id = $this->Project_List_model->addProject($params);
-            if(is_dir('upload/'.$projectName)!=1){
-                mkdir('./upload/'.$projectName);
-                mkdir('./upload/'.$projectName.'/Site Measurements');
-                mkdir('./upload/'.$projectName.'/Site Pics');
-                mkdir('./upload/'.$projectName.'/Design');
+            if(is_dir('upload/Projects/'.$projectName)!=1){
+                mkdir('./upload/Projects/'.$projectName);
+                mkdir('./upload/Projects/'.$projectName.'/Design');
+                mkdir('./upload/Projects/'.$projectName.'/Design/Concept');
+                mkdir('./upload/Projects/'.$projectName.'/Design/Layout');
+                mkdir('./upload/Projects/'.$projectName.'/Design/Render');
+                mkdir('./upload/Projects/'.$projectName.'/Design/Detail Drawings');
+                mkdir('./upload/Projects/'.$projectName.'/Site');
+                mkdir('./upload/Projects/'.$projectName.'/Site/Site Measurements');
+                mkdir('./upload/Projects/'.$projectName.'/Site/Site Pics');
+                $category_id = $this->Project_List_model->addProject($params);
+                redirect('Project_List/index');
+            } 
+            else
+            {   
+                $this->data['err'] = 'The '.$projectName.' already in use!!';   
+                $this->template->public_render('Proj_List/add', $this->data);
             }
-            redirect('Project_List/index');
         }
         else
         {      

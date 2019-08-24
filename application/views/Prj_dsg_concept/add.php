@@ -67,21 +67,22 @@
 								<span class="text-danger"><?php echo form_error('review_status');?></span>
 							</div>
 						</div>
-                        <div class="col-md-6">
-							<label for="remarks" class="form-label"><span class="text-danger">*</span>Remarks</label>
+                        <!-- <div class="col-md-6"> -->
+							<!-- <label for="remarks" class="form-label"><span class="text-danger">*</span>Remarks</label>
 							<div class="form-group">
 								<input type="text" name="remarks" value="<?php echo $this->input->post('remarks'); ?>" class="form-control" id="remarks" />
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
 							</div>
-						</div>
-                        <div class="col-md-6">
+						</div> -->
+                        <!-- <div class="col-md-6">
 							<label for="revisions" class="form-label"><span class="text-danger">*</span>Revisions</label>
 							<div class="form-group">
 								<input type="text" name="revisions" value="<?php echo $this->input->post('revisions'); ?>" class="form-control" id="revisions" />
 								<span class="text-danger"><?php echo form_error('revisions');?></span>
 							</div>
-						</div>
+						</div> -->
 					</div>
+					
 					<div class="box-footer">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-check"></i> Save

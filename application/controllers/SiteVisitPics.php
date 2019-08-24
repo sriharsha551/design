@@ -32,6 +32,11 @@ class SiteVisitPics extends Admin_Controller{
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['sitevisitPics'] = $this->SiteVisitPics_model->get_all_SiteVisitPics($params);
+        $query = $this->SiteVisitPics_model->select(); 
+         $this->data['prj_names'] = null;
+         if($query){
+          $this->data['prj_names'] =  $query;
+         }
         
         $this->template->public_render('SiteVisitPics/index', $this->data);
 
@@ -90,6 +95,8 @@ class SiteVisitPics extends Admin_Controller{
      */
     function edit($id)
     {
+        $_SESSION['pics_filter_id'] = $this->input->post('prj_id');         
+
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->load->library('form_validation');

@@ -25,6 +25,7 @@ class Prj_dsg_render extends Admin_Controller
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['renders'] = $this->Prj_dsg_render_model->get_all_renders($params);
+        $this->data['prj_names'] = $this->Prj_dsg_render_model->get_prj_names();
 
         $this->template->public_render('Prj_dsg_render/index',$this->data);
     }
@@ -63,7 +64,7 @@ class Prj_dsg_render extends Admin_Controller
         }
         $this->form_validation->set_rules('percentage','Percentage','required');
         $this->form_validation->set_rules('review_status','Review status','required');
-        $this->form_validation->set_rules('revisions','Revisions','required');
+        // $this->form_validation->set_rules('revisions','Revisions','required');
 
         if($this->form_validation->run())     
         {   
@@ -75,7 +76,7 @@ class Prj_dsg_render extends Admin_Controller
                 'percentage'=>$this->input->post('percentage'),
                 'review_status'=>$this->input->post('review_status'),
                 'remarks'=>$this->input->post('remarks'),
-                'revisions'=>$this->input->post('revisions')
+                'revisions'=>"R0"
             );
             $render_id = $this->Prj_dsg_render_model->add_render($params);
             redirect('Prj_dsg_render/index');
@@ -83,13 +84,15 @@ class Prj_dsg_render extends Admin_Controller
         else
         {
             $this->data['prj_names'] = $this->Prj_dsg_render_model->get_prj_names();
-            $this->data['dsg_names'] = $this->Prj_dsg_render_model->get_dsg_names();
+            // $this->data['dsg_names'] = $this->Prj_dsg_render_model->get_dsg_names();
             $this->template->public_render('Prj_dsg_render/add', $this->data);      
         }
     }
 
     function edit($id)
     {
+        $_SESSION['render_filter_id'] = $this->input->post('prj_id');                    
+
         $this->data['prj_names'] = $this->Prj_dsg_render_model->get_prj_names();
         $this->data['dsg_names'] = $this->Prj_dsg_render_model->get_dsg_names();
         $this->data['spl'] = array_values($this->data['dsg_names']);
@@ -104,11 +107,11 @@ class Prj_dsg_render extends Admin_Controller
             $this->form_validation->set_rules('prj_id','Project_id','required');
             // $this->form_validation->set_rules('design_stage_id','Design stage id','required');
             $this->form_validation->set_rules('name','Name','required');
-            $this->form_validation->set_rules('attach_name','Attach name','required');
+            // $this->form_validation->set_rules('attach_name','Attach name','required');
             $this->form_validation->set_rules('percentage','Percentage','required');
             $this->form_validation->set_rules('review_status','Review status','required');
-            $this->form_validation->set_rules('remarks','Remarks','required');
-            $this->form_validation->set_rules('revisions','Revisions','required');
+            // $this->form_validation->set_rules('remarks','Remarks','required');
+            // $this->form_validation->set_rules('revisions','Revisions','required');
             if($this->form_validation->run())     
             {   
                 $params = array(
@@ -118,11 +121,11 @@ class Prj_dsg_render extends Admin_Controller
                     'attach_name' => $this->input->post('attach_name'),
                     'percentage' => $this->input->post('percentage'),
                     'review_status' => $this->input->post('review_status'),
-                    'remarks' => $this->input->post('remarks'),
-                    'revisions' => $this->input->post('revisions'),
+                    // 'remarks' => $this->input->post('remarks'),
+                    // 'revisions' => $this->input->post('revisions'),
                 );
 
-                $this->Prj_dsg_render_model->update_render($id,$params);            
+                $this->Prj_dsg_render_model->update_render($id,$params); 
                 redirect('Prj_dsg_render/index');
             }
             else
@@ -147,19 +150,26 @@ class Prj_dsg_render extends Admin_Controller
 
     function image_display($img,$id)
     {
+        $this->breadcrumbs->unshift(2, 'Image View', 'image_display');
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->load->library('form_validation');
         $this->form_validation->set_rules('remarks','Remarks','required');
         if($this->form_validation->run())
         {
             $data = array("remarks"=>$this->input->post('remarks'));
-            $this->Prj_dsg_render_model->update_render($id,$data);
-            redirect('Prj_dsg_render/index');
+            if(isset($_POST['check']))
+            {
+                $this->Prj_dsg_render_model->update_render_revision($id,$data);
+                redirect('Prj_dsg_render/index');
+            }
+            else{
+                $this->Prj_dsg_render_model->update_render($id,$data);
+                redirect('Prj_dsg_render/index');
+            }
         }
         else{
             $this->data['img']=$img;
             $this->data['id']=$id;
-            $this->breadcrumbs->unshift(2, 'Image', 'image_display');
-            $this->data['breadcrumb'] = $this->breadcrumbs->show();
             $this->template->public_render('Prj_dsg_render/image_display',$this->data);
         }
     }

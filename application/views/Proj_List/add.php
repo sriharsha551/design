@@ -46,6 +46,12 @@
 							<div class="form-group">
 								<input type="text" name="pro_name" value="<?php echo $this->input->post('pro_name'); ?>" class="form-control" id="pro_name" />
 								<span class="text-danger"><?php echo form_error('pro_name');?></span>
+								<span class='text-danger'>
+								<?php
+									if(isset($err)){
+										echo $err;	
+									} 
+								?></span>
 							</div>
 						</div>
                         <div class="col-md-6">
