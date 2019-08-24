@@ -60,7 +60,7 @@
                             <td><?php echo $d['proj_name']; ?></td>
                             <!-- <td><?php echo $d['design_stage']; ?></td> -->
                             <td><a href="<?php echo site_url('Design_ddrawings/image_view/'.$d['id']);?>"><?php echo $d['attach_name']; ?></a></td>                            <td><?php echo $d['percentage']; ?></td>
-                            <td><?php echo $d['review_status']; ?></td>
+                            <td><?php echo $d['review_status_name']; ?></td>
                             <td><?php echo $d['remarks']; ?></td>
                             <td><?php echo $d['revisions']; ?></td>
 

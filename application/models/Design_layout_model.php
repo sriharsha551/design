@@ -54,9 +54,10 @@ class Design_layout_model extends CI_Model {
             $this->db->limit($params['limit'], $params['offset']);
         }
         $this->db->where('t1.delete_status', '0');
-        $this->db->select('t1.id,t1.name as layout_name,t2.id as prj_id, t2.name as proj_name, t1.attach_name, t1.percentage, t1.review_status, t1.revisions, t1.remarks');    
+        $this->db->select('t1.name as layout_name,t2.id as prj_id, t2.name as proj_name, t1.id, t1.attach_name, t1.percentage, t1.review_status, t1.revisions, t1.remarks, t4.review_status_name');    
         $this->db->from('prj_dsg_layout as t1');
         $this->db->join('prj_list as t2', 't1.prj_id = t2.id');
+        $this->db->join('prj_review_status as t4', 't1.review_status = t4.id');
         $query = $this->db->get();
         return $query->result_array();
     }

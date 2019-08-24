@@ -17,7 +17,7 @@ class Design_layout extends Admin_Controller
     }
 
     public function index()
-    {
+    { 
         $params['limit'] = RECORDS_PER_PAGE;
         $params['offset'] = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
 

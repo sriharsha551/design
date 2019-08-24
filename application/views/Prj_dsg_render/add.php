@@ -60,13 +60,13 @@
 								<span class="text-danger"><?php echo form_error('percentage');?></span>
 							</div>
 						</div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="review_status" class="form-label"><span class="text-danger">*</span>Review Status</label>
 							<div class="form-group">
 								<input type="text" name="review_status" value="<?php echo $this->input->post('review_status'); ?>" class="form-control" id="review_status" />
 								<span class="text-danger"><?php echo form_error('review_status');?></span>
 							</div>
-						</div>
+						</div> -->
                         <!-- <div class="col-md-6">
 							<label for="revisions" class="form-label"><span class="text-danger">*</span>Revisions</label>
 							<div class="form-group">

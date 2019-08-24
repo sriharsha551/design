@@ -63,7 +63,7 @@
                             <td><?php echo $s['name']; ?></td>
                             <td><a href='//<?php echo $s['attach_link']; ?>' target="_blank">Click here</a></td>
                             <td><?php echo $s['percentage']; ?></td>
-                            <td><?php echo $s['review_status']; ?></td>
+                            <td><?php echo $s['review_status_name']; ?></td>
                             <td><?php echo $s['remarks']; ?></td>
                             <td><?php echo $s['revisions']; ?></td>
                             <td>

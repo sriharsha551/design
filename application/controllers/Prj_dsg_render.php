@@ -63,7 +63,7 @@ class Prj_dsg_render extends Admin_Controller
             $this->form_validation->set_rules('attach_name','Attach name','required');
         }
         $this->form_validation->set_rules('percentage','Percentage','required');
-        $this->form_validation->set_rules('review_status','Review status','required');
+        // $this->form_validation->set_rules('review_status','Review status','required');
         // $this->form_validation->set_rules('revisions','Revisions','required');
 
         if($this->form_validation->run())     
@@ -74,7 +74,7 @@ class Prj_dsg_render extends Admin_Controller
                 'name'=> $this->input->post('name'),
                 'attach_name' => $this->upload->data()['file_name'],
                 'percentage'=>$this->input->post('percentage'),
-                'review_status'=>$this->input->post('review_status'),
+                'review_status'=>1,
                 'remarks'=>$this->input->post('remarks'),
                 'revisions'=>"R0"
             );

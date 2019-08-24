@@ -62,7 +62,7 @@
                             <td><?php echo $s['name']; ?></td>
                             <td><a target="_blank" href=<?php echo site_url('Prj_dsg_render/image_display/'.$s['attach_name'].'/'.$s['id'])?>><?php echo $s['attach_name']?></a></td>
                             <td><?php echo $s['percentage']; ?></td>
-                            <td><?php echo $s['review_status']; ?></td>
+                            <td><?php echo $s['review_status_name']; ?></td>
                             <td><?php echo $s['remarks']; ?></td>
                             <td><?php echo $s['revisions']; ?></td>
                             <td>

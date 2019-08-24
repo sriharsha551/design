@@ -10,8 +10,7 @@ class Prj_dsg_render_model extends CI_Model
     function get_prj_names()
     {
         $this->db->select('id,name');
-        $this->db->from('prj_list');
-        return $this->db->get()->result();
+        return $this->db->get_where('prj_list',array('delete_status'=>'0'))->result();
     }
 
     function get_dsg_names()
@@ -23,14 +22,15 @@ class Prj_dsg_render_model extends CI_Model
 
     function get_all_renders($params = array())
     {
-        $this->db->order_by('prj_dsg_render.id', 'desc');
+        $this->db->order_by('t1.id', 'desc');
         if(isset($params) && !empty($params))
         {
             $this->db->limit($params['limit'], $params['offset']);
         }
-        $this->db->select('prj_dsg_render.*,prj_list.name as prj_name');
-        $this->db->join('prj_list', 'prj_list.id = prj_dsg_render.prj_id', 'inner');
-        return $this->db->get_where('Prj_dsg_render',array('prj_dsg_render.delete_status'=>'0'))->result_array();
+        $this->db->select('t1.*,t2.name as prj_name,t3.review_status_name');
+        $this->db->join('prj_list as t2', 't2.id = t1.prj_id', 'inner');
+        $this->db->join('prj_review_status as t3','t3.id=t1.review_status','inner');
+        return $this->db->get_where('prj_dsg_render t1',array('t1.delete_status'=>'0'))->result_array();
     }
 
     function get_all_renders_count()
