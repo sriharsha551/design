@@ -387,6 +387,32 @@
       </ul>
     </li>
 
+<!--Material-->
+
+<li class="sidenav-item">
+      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-calculator"></i>
+        <div>Materials </div>
+      </a>
+
+      <ul class="sidenav-menu">
+        <li class="sidenav-item ">
+          <a href="<?php echo site_url('MaterialCategory'); ?>" class="sidenav-link">
+            <div>Material Category</div>
+          </a>
+        </li>
+        <li class="sidenav-item ">
+          <a href="<?php echo site_url('MaterialItems'); ?>" class="sidenav-link">
+            <div>Material Items</div>
+          </a>
+        </li>
+        <li class="sidenav-item ">
+          <a href="<?php echo site_url('MaterialSpecification'); ?>" class="sidenav-link">
+            <div>Material Specifications</div>
+          </a>
+        </li>
+
+      </ul>
+    </li>
     <!--Project Design-->  
     <li class="sidenav-item <?php if ($this->uri->segment(1) == "project_design") {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
