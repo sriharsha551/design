@@ -67,7 +67,11 @@
                         <div class="col-md-6">
 							<label for="review_status" class="form-label"><span class="text-danger">*</span>Review Status</label>
 							<div class="form-group">
-								<input type="text" name="review_status"  value="<?php echo ($this->input->post('review_status') ? $this->input->post('review_status') : $render['review_status']); ?>" class="form-control" id="review_status" />
+							<select name="review_status" value="<?php echo $this->input->post('review_status')?>" class="form-control" id="review_status">
+                                	<?php foreach ($review_statuses as $review_status) {?>
+                                	<option value="<?php echo $review_status['id'] ?>" <?php echo ($render['review_status'] == $review_status['id']) ? 'selected="selected"' : "" ?> ><?php echo $review_status['review_status_name'] ?></option>
+                                	<?php } ?>
+                            	</select>
 								<span class="text-danger"><?php echo form_error('review_status');?></span>
 							</div>
 						</div>

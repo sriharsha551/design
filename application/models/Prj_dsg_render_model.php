@@ -40,6 +40,13 @@ class Prj_dsg_render_model extends CI_Model
         return $this->db->count_all_results();
     }
 
+    function get_all_review_status() {
+        $this->db->select('id, review_status_name');
+        $this->db->from('prj_review_status');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
     function get_render($id)
     {
         return $this->db->get_where('prj_dsg_render',array('id'=>$id,"delete_status"=>'0'))->row_array();

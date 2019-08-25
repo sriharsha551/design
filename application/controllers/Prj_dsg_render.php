@@ -98,6 +98,8 @@ class Prj_dsg_render extends Admin_Controller
         $this->data['spl'] = array_values($this->data['dsg_names']);
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $this->data['review_statuses'] = $this->Prj_dsg_render_model->get_all_review_status();
+
 
         $this->data['render'] = $this->Prj_dsg_render_model->get_render($id);
 
@@ -111,7 +113,8 @@ class Prj_dsg_render extends Admin_Controller
             $this->form_validation->set_rules('percentage','Percentage','required');
             $this->form_validation->set_rules('review_status','Review status','required');
             // $this->form_validation->set_rules('remarks','Remarks','required');
-            // $this->form_validation->set_rules('revisions','Revisions','required');
+            // $this->form_validation->set_rules('revisions','Revisions','required');			
+
             if($this->form_validation->run())     
             {   
                 $params = array(

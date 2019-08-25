@@ -8,10 +8,10 @@
             <?php echo $breadcrumb; ?>
             <?php
                 $GLOBALS['prj_filter_id'] = null;
-                if(isset($_SESSION['concept_filter_id']))
+                if(isset($_SESSION['render_filter_id']))
                 {
-                    $GLOBALS['prj_filter_id'] = $_SESSION['concept_filter_id'];
-                    unset($_SESSION['concept_filter_id']);
+                    $GLOBALS['prj_filter_id'] = $_SESSION['render_filter_id'];
+                    unset($_SESSION['render_filter_id']);
                 } 
                 if(isset($_POST['prj_filter_id']))
                 {
