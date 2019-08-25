@@ -28,7 +28,7 @@
 						<select class="form-control" name="prj_filter_id" onchange="this.form.submit()" >
 							<option value=''>select name</option>
 							<?php foreach($prj_names as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+                            <option value='<?php echo $row->id?>' <?php echo ($row->id == $GLOBALS['prj_filter_id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							<?php }?>
 						</select>
 						</div>
