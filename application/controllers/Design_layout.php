@@ -45,36 +45,34 @@ class Design_layout extends Admin_Controller
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('prj_id', 'Project', 'required');
-        // if (empty($_FILES['attach_name']['name'])) {
-        //     $this->form_validation->set_rules('attach_name', 'Document', 'required');
-        // }
+        if (empty($_FILES['attach_name']['name'])) {
+            $this->form_validation->set_rules('attach_name', 'Document', 'required');
+        }
         $this->form_validation->set_rules('percentage', 'Percentage', 'required');
-        if ($this->form_validation->run()) {
-            echo "Project id is set";
-            $prj_name = $this->Design_layout_model->get_proj_name($this->input->post('prj_id'))['0']['name'];
-            $config = array(
-                'upload_path' => "./upload/Projects" . $prj_name . "/Design/Layout/",
-                'allowed_types' => "gif|jpg|png|jpeg|pdf",
-                'overwrite' => true,
-                'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-                'max_height' => "5000",
-                'max_width' => "5000",
-            );
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload('attach_name')) {
+
+        $prj_name = $this->Design_layout_model->get_proj_name($this->input->post('prj_id'));
+        $config = array(
+            'upload_path' => "./upload/Projects/" . $prj_name . "/Design/Layout/",
+            'allowed_types' => "gif|jpg|png|jpeg|pdf",
+            'overwrite' => true,
+            'max_size' => "2048000",  
+            'max_height' => "5000",
+            'max_width' => "5000",
+        );
+        $this->load->library('upload', $config);
+
+        if ($this->form_validation->run() && $this->upload->do_upload('attach_name')) {
+             
                 $data = $this->input->post();
                 $data['revisions'] = "R0";
                 $data['attach_name'] = $this->upload->data()['file_name'];
-                $data['review_status'] = 1; // id of  'For Review'
+                $data['review_status'] = 1; 
                 $Design_layout_id = $this->Design_layout_model->add_design_layout($data);
-                // redirect('Design_layout/index');
-            }
-            $GLOBALS['error'] = array('error' => $this->upload->display_errors());
-
+                redirect('Design_layout/index');
         } else {
-
-            // $this->template->public_render('Design_layout/add', $this->data);
-            // echo $error;
+            
+            $this->data['upload_error'] = $this->upload->display_errors();
+            $this->template->public_render('Design_layout/add', $this->data);
         }
     }
 
@@ -88,10 +86,10 @@ class Design_layout extends Admin_Controller
         $this->data['Design_layout'] = $this->Design_layout_model->get_design_layout($id);
         $this->data['proj_list'] = $this->Design_layout_model->get_all_project_list();
         $this->data['design_stages'] = $this->Design_layout_model->get_all_design_stage();
-        // $this->data['review_statuses'] = $this->Design_layout_model->get_all_review_status();
-
+        $this->data['review_statuses'] = $this->Design_layout_model->get_all_review_status();
+        $prj_name = $this->Design_layout_model->get_proj_name($this->input->post('prj_id'));
         $config = array(
-            'upload_path' => "./upload/",
+            'upload_path' =>"./upload/Projects/" . $prj_name . "/Design/Layout/",
             'allowed_types' => "gif|jpg|png|jpeg|pdf",
             'overwrite' => true,
             'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -115,9 +113,11 @@ class Design_layout extends Admin_Controller
                 $data = $this->input->post();
                 print_r($data);
                 $data['attach_name'] = $this->upload->data()['file_name'];
+                print_r($this->input->post());
                 $this->Design_layout_model->update_design_layout($id, $data);
                 redirect('Design_layout/index');
             } else {
+                $this->data['upload_error'] = $this->upload->display_errors();
                 $this->template->public_render('Design_layout/edit', $this->data);
             }
         } else {
@@ -146,7 +146,8 @@ class Design_layout extends Admin_Controller
         $this->breadcrumbs->unshift(2, 'Image View', 'image_view');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $Design_layout = $this->Design_layout_model->get_design_layout($id);
-        $this->data['imagepath'] = "upload/" . $Design_layout['attach_name'];
+        $prj_name = $this->Design_layout_model->get_proj_name($Design_layout['prj_id']);
+        $this->data['imagepath'] =  "/upload/Projects/" . $prj_name . "/Design/Layout/" . $Design_layout['attach_name'];
         $this->data['id'] = $id;
         $this->template->public_render('Design_layout/image_view', $this->data);
 

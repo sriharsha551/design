@@ -23,7 +23,11 @@ class Design_layout_model extends CI_Model {
         $this->db->where('delete_status', '0');
         $this->db->select('name');
         $this->db->from('prj_list');
-        return $this->db->get()->result_array();
+        $query = $this->db->get();
+        if($query->num_rows() == 1) {
+            return $query->row()->name;
+        }
+        return null;
     }
 
     function get_all_design_stage() {
@@ -34,6 +38,7 @@ class Design_layout_model extends CI_Model {
     }
 
     function get_all_review_status() {
+        $this->db->where('delete_status', '0');
         $this->db->select('id, review_status_name');
         $this->db->from('prj_review_status');
         $query = $this->db->get();
@@ -42,6 +47,7 @@ class Design_layout_model extends CI_Model {
     
     function get_all_design_layout_count()
     {
+        $this->db->where('delete_status', '0');
         $this->db->from('prj_dsg_layout');
         return $this->db->count_all_results();
     }
@@ -92,6 +98,7 @@ class Design_layout_model extends CI_Model {
         $data = $this->db->get_where('prj_dsg_layout',array("id"=>$id,"delete_status"=>'0'))->result_array();
         $data[0]['revisions']=($data['0']['revisions'][0].((int)$data['0']['revisions'][1]+1));
         $data[0]['created_at'] = date("Y-m-d H:i:s");
+        $data[0]['review_status'] = 1;
         $this->db->insert('prj_dsg_layout',$data[0]);
         return $this->db->insert_id();
 

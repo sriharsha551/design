@@ -46,13 +46,13 @@ class Design_ddrawings extends Admin_Controller {
         {
             $this->form_validation->set_rules('attach_name', 'Document', 'required');
         }
-        $this->form_validation->set_rules('review_status','Review Status','required');
+        // $this->form_validation->set_rules('review_status','Review Status','required');
         $this->form_validation->set_rules('percentage','Percentage','required');
         // $this->form_validation->set_rules('remarks','Remarks','required');
         // $this->form_validation->set_rules('revisions','Revision','required');
-
+        $prj_name = $this->Design_ddrawings_model->get_proj_name($this->input->post('prj_id'));
         $config = array(
-            'upload_path' => "./upload/",
+            'upload_path' =>  "./upload/Projects/" . $prj_name . "/Design/Detail Drawings/",
             'allowed_types' => "gif|jpg|png|jpeg|pdf",
             'overwrite' => TRUE,
             'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -64,13 +64,14 @@ class Design_ddrawings extends Admin_Controller {
         {   
             $data = $this->input->post();
             $data['revisions'] = "R0";
+            $data['review_status'] = 1; 
             $data['attach_name'] = $this->upload->data()['file_name'];
             $design_ddrawings_id = $this->Design_ddrawings_model->add_design_ddrawings($data);
             redirect('Design_ddrawings/index');
         }
         else
         {   
-            $error = array('error' => $this->upload->display_errors());
+            $this->data['upload_error'] = $this->upload->display_errors();
             $this->template->public_render('Design_ddrawings/add', $this->data);      
            
         }
@@ -87,9 +88,9 @@ class Design_ddrawings extends Admin_Controller {
         $this->data['proj_list'] = $this->Design_ddrawings_model->get_all_project_list();
         $this->data['design_stages'] = $this->Design_ddrawings_model->get_all_design_stage();
         $this->data['review_statuses'] = $this->Design_ddrawings_model->get_all_review_status();
-
+        $prj_name = $this->Design_ddrawings_model->get_proj_name($this->input->post('prj_id'));
         $config = array(
-            'upload_path' => "./upload/",
+            'upload_path' =>  "./upload/Projects/" . $prj_name . "/Design/Detail Drawings/",
             'allowed_types' => "gif|jpg|png|jpeg|pdf",
             'overwrite' => TRUE,
             'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -120,6 +121,7 @@ class Design_ddrawings extends Admin_Controller {
             }
             else
             {
+                $this->data['upload_error'] = $this->upload->display_errors();
                 $this->template->public_render('Design_ddrawings/edit', $this->data); 
             }
         }
@@ -142,11 +144,12 @@ class Design_ddrawings extends Admin_Controller {
     }
 
     function image_view($id) {
-
+ 
         $this->breadcrumbs->unshift(2, 'Image View', 'image_view');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $design_ddrawing = $this->Design_ddrawings_model->get_design_ddrawings($id);
-        $this->data['imagepath'] = "upload/".$design_ddrawing['attach_name'];
+        $prj_name = $this->Design_ddrawings_model->get_proj_name($design_ddrawing['prj_id']);
+        $this->data['imagepath'] = "./upload/Projects/" . $prj_name . "/Design/Detail Drawings/".$design_ddrawing['attach_name'];
         $this->data['id'] = $id;
         $this->template->public_render('Design_ddrawings/image_view', $this->data);
 
