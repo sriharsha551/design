@@ -80,7 +80,7 @@ class Design_layout_model extends CI_Model {
     
     /*
      * function to update Design layout
-     */
+     */ 
     function update_design_layout($id,$params)
     {
         $params['updated_at'] = date('Y-m-d H:i:s');

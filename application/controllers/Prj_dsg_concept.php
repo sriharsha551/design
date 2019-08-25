@@ -126,6 +126,7 @@ class Prj_dsg_concept extends Admin_Controller
 
     function remove($id)
     {
+        $_SESSION['concept_filter_id'] = $this->input->post('prj_id'); 
         $concept = $this->Prj_dsg_concept_model->get_concept($id);
         // check if the stage exists before trying to delete it
         if(isset($concept['id']))

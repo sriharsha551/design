@@ -35,9 +35,9 @@ class Prj_dsg_render extends Admin_Controller
         $this->breadcrumbs->unshift(2, 'Add', 'add');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->load->library('form_validation');
-
+        $prj_name = $this->Prj_dsg_render_model->get_proj_name($this->input->post('prj_id'));
         $config = array(
-			'upload_path' => "./upload/renders",
+			'upload_path' => "./upload/Projects/" . $prj_name . "/Design/Render/",
 			'allowed_types' => "jpg|png|jpeg",
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -102,6 +102,7 @@ class Prj_dsg_render extends Admin_Controller
 
 
         $this->data['render'] = $this->Prj_dsg_render_model->get_render($id);
+        $prj_name = $this->Prj_dsg_render_model->get_proj_name($this->input->post('prj_id'));
 
         if(isset($this->data['render']['id']))
         {
@@ -142,6 +143,8 @@ class Prj_dsg_render extends Admin_Controller
 
     function remove($id)
     {
+        $_SESSION['render_filter_id'] = $this->input->post('prj_id');
+        $prj_name = $this->Prj_dsg_render_model->get_proj_name($this->input->post('prj_id'));
         $render = $this->Prj_dsg_render_model->get_render($id);
         // check if the stage exists before trying to delete it
         if(isset($render['id']))
@@ -153,6 +156,8 @@ class Prj_dsg_render extends Admin_Controller
 
     function image_display($img,$id)
     {
+        $_SESSION['render_filter_id'] = $this->input->post('prj_id');
+        $prj_name = $this->Prj_dsg_render_model->get_proj_name($this->input->post('prj_id'));
         $this->breadcrumbs->unshift(2, 'Image View', 'image_display');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->load->library('form_validation');
