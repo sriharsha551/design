@@ -128,6 +128,7 @@ class Design_layout extends Admin_Controller
 
     public function remove($id)
     {
+        $_SESSION['layout_filter_id'] = $this->input->post('prj_id'); 
         $Design_layout = $this->Design_layout_model->get_design_layout($id);
 
         // check if the Design layout exists before trying to delete it
@@ -142,7 +143,7 @@ class Design_layout extends Admin_Controller
 
     public function image_view($id)
     {
-
+        $_SESSION['layout_filter_id'] = $this->input->post('prj_id'); 
         $this->breadcrumbs->unshift(2, 'Image View', 'image_view');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $Design_layout = $this->Design_layout_model->get_design_layout($id);

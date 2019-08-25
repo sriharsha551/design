@@ -131,6 +131,7 @@ class Design_ddrawings extends Admin_Controller {
 
     function remove($id)
     {
+        $_SESSION['drawing_filter_id'] = $this->input->post('prj_id'); 
         $design_ddrawings = $this->Design_ddrawings_model->get_design_ddrawings($id);
 
         // check if the Design layout exists before trying to delete it
@@ -144,7 +145,7 @@ class Design_ddrawings extends Admin_Controller {
     }
 
     function image_view($id) {
- 
+        $_SESSION['drawing_filter_id'] = $this->input->post('prj_id'); 
         $this->breadcrumbs->unshift(2, 'Image View', 'image_view');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $design_ddrawing = $this->Design_ddrawings_model->get_design_ddrawings($id);

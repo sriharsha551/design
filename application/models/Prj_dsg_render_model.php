@@ -6,11 +6,23 @@ class Prj_dsg_render_model extends CI_Model
     {
         parent::__construct();
     }
-
+ 
     function get_prj_names()
     {
         $this->db->select('id,name');
         return $this->db->get_where('prj_list',array('delete_status'=>'0'))->result();
+    }
+
+    function get_proj_name($id) {
+        $this->db->where('id', $id);
+        $this->db->where('delete_status', '0');
+        $this->db->select('name');
+        $this->db->from('prj_list');
+        $query = $this->db->get();
+        if($query->num_rows() == 1) {
+            return $query->row()->name;
+        }
+        return null;
     }
 
     function get_dsg_names()
