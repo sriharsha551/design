@@ -475,6 +475,11 @@
             <div>Project Category</div>
           </a>
         </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Review Status") {echo "active";}?>">
+          <a href="<?php echo site_url('Prj_Review'); ?>" class="sidenav-link">
+            <div>Review Status</div>
+          </a>
+        </li>
 
       </ul>
     </li>

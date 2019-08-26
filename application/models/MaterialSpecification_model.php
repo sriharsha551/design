@@ -132,12 +132,7 @@ class MaterialSpecification_model extends CI_Model
         $this->db->where('id',$id);
         return($this->db->update('prj_mtrl_spec',$params));
     }
-    function update_SiteVisitPic($id,$params)
-    { 
-        $this->db->set('remarks',$params['remarks']);
-        $this->db->where('id',$id);
-        return($this->db->update('prj_mtrl_spec',$params));
-    }
+
     
     /*
      * function to delete MaterialSpecification

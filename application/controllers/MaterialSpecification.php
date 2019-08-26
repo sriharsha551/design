@@ -153,6 +153,7 @@ class MaterialSpecification extends Admin_Controller{
 		if(!empty($_FILES['attach_name']['name'])&&$this->upload->do_upload('attach_name'))     
         {   
             $data = $this->input->post();
+            $data['updated_at'] = date("Y-m-d H:i:s");
             // print_r($data);
             $data['material_actual_image'] = $this->upload->data()['file_name'];
             if(!empty($_FILES['attach_name_design']['name']) && $this->upload->do_upload('attach_name_design')){     
