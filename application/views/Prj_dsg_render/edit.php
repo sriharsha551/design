@@ -12,7 +12,7 @@
           <div class="box card">
                                     <div class="card-body"> 
                                     	<div class="box-body"> 
-			<?php echo form_open('Prj_dsg_render/edit/'.$render['id']); ?>
+			<?php echo form_open_multipart('Prj_dsg_render/edit/'.$render['id']); ?>
 		
 				<div class="row clearfix">
                         <div class="col-md-6">
@@ -43,19 +43,13 @@
 								<span class="text-danger"><?php echo form_error('name');?></span>
 							</div>
 						</div>
-                        <div class="col-md-6">
-							<label for="attach_name" class="form-label"><span class="text-danger">*</span>Attach name</label><br/>
-							<?php if($this->input->post('attach_name')){?>
-							<div class="form-control">
-							<a target="_blank" href=<?php echo site_url('/upload/renders/'.$render['attach_name'])?>><?php echo $render['attach_name']?></a>
-							</div>
-							<?php }
-							else{?>
-							<div class="form-control">
-							<input type="file" name="attach_name"  value="<?php echo $this->input->post('attach_name'); ?>"/>
+						<div class="col-md-6">
+							<label for="attach_name" class="form-label"><span class="text-danger">*</span>Attach name</label>
+							<div class="form-group">
+        						<input type="file" name="attach_name"  value="<?php echo $this->input->post('attach_name'); ?>" id="attach_name" class="form-control"/>
 								<span class="text-danger"><?php echo form_error('attach_name');?></span>
-							</div>
-							<?php }?>
+								<span class="text-danger"><?php echo $upload_error;?></span>
+     						</div>
 						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Percentage</label>

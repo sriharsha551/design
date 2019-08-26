@@ -18,7 +18,7 @@
 
 					<div class="row clearfix">
 						<div class="col-md-6">
-                        <a target="_blank" href="<?php echo site_url('upload/renders/'.$img) ;?>"><img src="<?php echo site_url('upload/renders/'.$img) ;?>" class="img-fluid" /></a>
+                        <a target="_blank" href="<?php echo site_url('/upload/Projects/' . $prj_name . '/Design/Render/'.$img) ;?>"><img src="<?php echo site_url('/upload/Projects/' . $prj_name . '/Design/Render/'.$img) ;?>" class="img-fluid" /></a>
                         <div class="form-group">
                             <label class="form-label">Remarks</label>
                             <input type="text" name="remarks" class="form-control"/>
