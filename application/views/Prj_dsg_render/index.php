@@ -8,10 +8,10 @@
             <?php echo $breadcrumb; ?>
             <?php
                 $GLOBALS['prj_filter_id'] = null;
-                if(isset($_SESSION['concept_filter_id']))
+                if(isset($_SESSION['render_filter_id']))
                 {
-                    $GLOBALS['prj_filter_id'] = $_SESSION['concept_filter_id'];
-                    unset($_SESSION['concept_filter_id']);
+                    $GLOBALS['prj_filter_id'] = $_SESSION['render_filter_id'];
+                    unset($_SESSION['render_filter_id']);
                 } 
                 if(isset($_POST['prj_filter_id']))
                 {
@@ -28,7 +28,7 @@
 						<select class="form-control" name="prj_filter_id" onchange="this.form.submit()" >
 							<option value=''>select name</option>
 							<?php foreach($prj_names as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+                                <option value='<?php echo $row->id?>' <?php echo ($row->id == $GLOBALS['prj_filter_id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							<?php }?>
 						</select>
 						</div>
@@ -62,7 +62,7 @@
                             <td><?php echo $s['name']; ?></td>
                             <td><a target="_blank" href=<?php echo site_url('Prj_dsg_render/image_display/'.$s['attach_name'].'/'.$s['id'])?>><?php echo $s['attach_name']?></a></td>
                             <td><?php echo $s['percentage']; ?></td>
-                            <td><?php echo $s['review_status']; ?></td>
+                            <td><?php echo $s['review_status_name']; ?></td>
                             <td><?php echo $s['remarks']; ?></td>
                             <td><?php echo $s['revisions']; ?></td>
                             <td>

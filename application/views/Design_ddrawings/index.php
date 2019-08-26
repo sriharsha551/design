@@ -26,7 +26,7 @@
 						<select class="form-control" name="prj_filter_id" onchange="this.form.submit()" >
 							<option value=''>select name</option>
 							<?php foreach($prj_names as $row) {?>
-  							<option value='<?php echo $row['id']?>'><?php echo $row['name']?></option>
+                                <option value='<?php echo $row['id']?>' <?php echo ($row['id'] == $GLOBALS['prj_filter_id']) ? 'selected="selected"' : "" ?> ><?php echo $row['name']?></option>
 							<?php }?>
 						</select>
 						</div>
@@ -60,7 +60,7 @@
                             <td><?php echo $d['proj_name']; ?></td>
                             <!-- <td><?php echo $d['design_stage']; ?></td> -->
                             <td><a href="<?php echo site_url('Design_ddrawings/image_view/'.$d['id']);?>"><?php echo $d['attach_name']; ?></a></td>                            <td><?php echo $d['percentage']; ?></td>
-                            <td><?php echo $d['review_status']; ?></td>
+                            <td><?php echo $d['review_status_name']; ?></td>
                             <td><?php echo $d['remarks']; ?></td>
                             <td><?php echo $d['revisions']; ?></td>
 

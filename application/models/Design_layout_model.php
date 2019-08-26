@@ -23,7 +23,11 @@ class Design_layout_model extends CI_Model {
         $this->db->where('delete_status', '0');
         $this->db->select('name');
         $this->db->from('prj_list');
-        return $this->db->get()->result_array();
+        $query = $this->db->get();
+        if($query->num_rows() == 1) {
+            return $query->row()->name;
+        }
+        return null;
     }
 
     function get_all_design_stage() {
@@ -34,6 +38,7 @@ class Design_layout_model extends CI_Model {
     }
 
     function get_all_review_status() {
+        $this->db->where('delete_status', '0');
         $this->db->select('id, review_status_name');
         $this->db->from('prj_review_status');
         $query = $this->db->get();
@@ -42,6 +47,7 @@ class Design_layout_model extends CI_Model {
     
     function get_all_design_layout_count()
     {
+        $this->db->where('delete_status', '0');
         $this->db->from('prj_dsg_layout');
         return $this->db->count_all_results();
     }
@@ -54,9 +60,10 @@ class Design_layout_model extends CI_Model {
             $this->db->limit($params['limit'], $params['offset']);
         }
         $this->db->where('t1.delete_status', '0');
-        $this->db->select('t1.id,t1.name as layout_name,t2.id as prj_id, t2.name as proj_name, t1.attach_name, t1.percentage, t1.review_status, t1.revisions, t1.remarks');    
+        $this->db->select('t1.name as layout_name,t2.id as prj_id, t2.name as proj_name, t1.id, t1.attach_name, t1.percentage, t1.review_status, t1.revisions, t1.remarks, t4.review_status_name');    
         $this->db->from('prj_dsg_layout as t1');
         $this->db->join('prj_list as t2', 't1.prj_id = t2.id');
+        $this->db->join('prj_review_status as t4', 't1.review_status = t4.id');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -73,7 +80,7 @@ class Design_layout_model extends CI_Model {
     
     /*
      * function to update Design layout
-     */
+     */ 
     function update_design_layout($id,$params)
     {
         $params['updated_at'] = date('Y-m-d H:i:s');
@@ -91,6 +98,7 @@ class Design_layout_model extends CI_Model {
         $data = $this->db->get_where('prj_dsg_layout',array("id"=>$id,"delete_status"=>'0'))->result_array();
         $data[0]['revisions']=($data['0']['revisions'][0].((int)$data['0']['revisions'][1]+1));
         $data[0]['created_at'] = date("Y-m-d H:i:s");
+        $data[0]['review_status'] = 1;
         $this->db->insert('prj_dsg_layout',$data[0]);
         return $this->db->insert_id();
 

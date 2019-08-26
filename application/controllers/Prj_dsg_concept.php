@@ -40,7 +40,7 @@ class Prj_dsg_concept extends Admin_Controller
         $this->form_validation->set_rules('name','Name','required');
         $this->form_validation->set_rules('attach_link','Attach link','required');
         $this->form_validation->set_rules('percentage','Percentage','required');
-        $this->form_validation->set_rules('review_status','Review status','required');
+        // $this->form_validation->set_rules('review_status','Review status','required');
         // $this->form_validation->set_rules('remarks','Remarks','required');
         // $this->form_validation->set_rules('revisions','Revisions','required');
 
@@ -52,7 +52,7 @@ class Prj_dsg_concept extends Admin_Controller
                 'name'=> $this->input->post('name'),
                 'attach_link'=>$this->input->post('attach_link'),
                 'percentage'=>$this->input->post('percentage'),
-                'review_status'=>$this->input->post('review_status'),
+                'review_status'=>1,
                 // 'remarks'=>$this->input->post('remarks'),
                 'revisions'=>"R0"
             );
@@ -77,7 +77,7 @@ class Prj_dsg_concept extends Admin_Controller
         $this->data['spl'] = array_values($this->data['dsg_names']);
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        $this->data['review_statuses'] = $this->Prj_dsg_model->get_all_review_status();
+        $this->data['review_statuses'] = $this->Prj_dsg_concept_model->get_all_review_status();
 
         $this->data['concept'] = $this->Prj_dsg_concept_model->get_concept($id);
 
@@ -126,6 +126,7 @@ class Prj_dsg_concept extends Admin_Controller
 
     function remove($id)
     {
+        $_SESSION['concept_filter_id'] = $this->input->post('prj_id'); 
         $concept = $this->Prj_dsg_concept_model->get_concept($id);
         // check if the stage exists before trying to delete it
         if(isset($concept['id']))
