@@ -31,6 +31,11 @@ class MaterialItems extends Admin_Controller{
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['MaterialItems'] = $this->MaterialItems_model->get_all_MaterialItems($params);
+        $query = $this->MaterialItems_model->select(); 
+         $this->data['MATERIALS'] = null;
+         if($query){
+          $this->data['MATERIALS'] =  $query;
+         }
         
         $this->template->public_render('MaterialItems/index', $this->data);
 
@@ -45,8 +50,8 @@ class MaterialItems extends Admin_Controller{
         $this->breadcrumbs->unshift(2, 'Add', 'add');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->load->library('form_validation');
-
         $this->form_validation->set_rules('remarks','remarks','required|max_length[255]');
+
         $query = $this->MaterialItems_model->select(); 
          $this->data['MATERIALS'] = null;
          if($query){
@@ -59,20 +64,22 @@ class MaterialItems extends Admin_Controller{
          } 
 		if($this->form_validation->run())     
         {   
+            for($i=0;$i<$this->input->post('count');$i++){
             $params = array(
-                'material_cat_id' => $this->input->post('category_id'),  
+            'material_cat_id' => $this->input->post('category_id'),  
             'material_name'  => $this->input->post('name'),  
-            'price'   => $this->input->post('price'), 
+            'price'   => $this->input->post('price['.$i.']'), 
             'dimensions'   => $this->input->post('dimensions'),  
-            'supplier_id'   =>$this->input->post('supplier'),
+            'supplier_id'   =>$this->input->post('supplier['.$i.']'),
 				'remarks' => $this->input->post('remarks'),
             );
             
             $MaterialItems_id = $this->MaterialItems_model->add_MaterialItems($params);
+        }
             redirect('MaterialItems/index');
         }
         else
-        {      
+        {   
             $this->template->public_render('MaterialItems/add', $this->data);      
            
         }
