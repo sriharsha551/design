@@ -410,6 +410,21 @@
             <div>Material Specifications</div>
           </a>
         </li>
+        <li class="sidenav-item ">
+          <a href="<?php echo site_url('Prj_Mtrl_Status'); ?>" class="sidenav-link">
+            <div>Material Status</div>
+          </a>
+        </li>
+        <li class="sidenav-item ">
+          <a href="<?php echo site_url('Prj_Mtrl_Payment'); ?>" class="sidenav-link">
+            <div>Material Payment</div>
+          </a>
+        </li>
+        <li class="sidenav-item ">
+          <a href="<?php echo site_url('Prj_Mtrl_OrderType'); ?>" class="sidenav-link">
+            <div>Material Order Type</div>
+          </a>
+        </li>
 
       </ul>
     </li>

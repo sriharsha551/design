@@ -67,7 +67,22 @@
                                 <a href="<?php echo site_url('SiteVisit/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <?php }}?>
+                        <?php }
+                        else{ ?>
+                          <tr>
+                            <td><?php echo $d['id']; ?></td>
+                            <td><?php echo $d['project_name']; ?></td>
+                            <td><?php echo $d['site_visit_date']; ?></td>
+                            <td><?php echo $d['site_visit_time']; ?></td>
+                            <td><?php echo $d['empName']; ?></td>
+                            <td><?php echo $d['remarks']; ?></td>
+                            <td>
+                                <a href="<?php echo site_url('SiteVisit/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                <a href="<?php echo site_url('SiteVisit/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                            </td>
+                        </tr>
+                        <?php }
+                    }?>                                      
                     </table>
                 </div>   
             </div>

@@ -69,7 +69,25 @@
                                 <a href="<?php echo site_url('Design_ddrawings/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <?php }}?>
+                        <?php }
+                        else{ ?>
+                            <tr>
+                            <td><?php echo $d['id']; ?></td>
+                            <td><?php echo $d['dsg_ddrawing_name']; ?></td>
+                            <td><?php echo $d['proj_name']; ?></td>
+                            <!-- <td><?php echo $d['design_stage']; ?></td> -->
+                            <td><a href="<?php echo site_url('Design_ddrawings/image_view/'.$d['id']);?>"><?php echo $d['attach_name']; ?></a></td>                            <td><?php echo $d['percentage']; ?></td>
+                            <td><?php echo $d['review_status_name']; ?></td>
+                            <td><?php echo $d['remarks']; ?></td>
+                            <td><?php echo $d['revisions']; ?></td>
+
+                            <td>
+                                <a href="<?php echo site_url('Design_ddrawings/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                <a href="<?php echo site_url('Design_ddrawings/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                            </td>
+                        </tr>
+                        <?php }
+                    }?>                                    
                     </table>
                 </div>   
             </div>
