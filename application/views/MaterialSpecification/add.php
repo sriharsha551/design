@@ -18,7 +18,7 @@
             		<?php echo form_open_multipart('MaterialSpecification/add'); ?>
 					
 					<div class="row clearfix">
-						<div class="col-md-6">
+						<div class="form-group col-md-6">
 						<label class="form-label">Project Name</label>
 						<select class="custom-select" name="project_id" required>
 						<option value="">Select project</option>
@@ -28,7 +28,7 @@
         				<?php }?>
 						</select>
 						</div>
-						<div class="col-md-6">
+						<div class="form-group col-md-6">
 						<label class="form-label">Category Name</label>
 						<select class="custom-select" name="material_cat_id" required>
 						<option value="">Select Category</option>
@@ -38,7 +38,7 @@
         				<?php }?>
 						</select>
 						</div>
-						<div class="col-md-6">
+						<div class="form-group col-md-6">
 						<label class="form-label">Item Name</label>
 						<select class="custom-select" name="material_item_id" required>
 						<option value="">Select Item</option>
@@ -70,7 +70,7 @@
 						<label class="form-label">Price</label>
 						<input type="text" class="form-control" name="price" value="" required>
 						</div>
-						<div class="col-md-6">
+						<div class="form-group col-md-6">
 						<label class="form-label">Supplier</label>
 						<select class="custom-select" name="supplier_id" required>
 						<option value="">Select Supplier</option>
@@ -81,7 +81,6 @@
 						</select>
 						</div>
 					</div>
-				
 					<div class="box-footer">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-check"></i> Save

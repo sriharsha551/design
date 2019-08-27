@@ -11,13 +11,12 @@
 
         <div class="box card">
             <div class="card-body">
-                <div class="box-body card-datatable">
+                <div class="box-body card-datatable" style="overflow-x:auto">
                     <div class="box-tools">
                         <a href="<?php echo site_url('MaterialSpecification/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
                     </div>
-
-                    <table class="datatables-demo table table-striped table-bordered" style="width:100%">
-                        <thead>
+                    <table class="datatables-demo table table-striped table-bordered" >
+                        <thead >
                         <tr>
                             <th>Id</th>
                             <th>Project Name</th>
@@ -29,8 +28,6 @@
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Supplier</th>
-                            <th>Created At</th>
-                            <th>Updated At</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -46,8 +43,6 @@
                             <td><?php echo $d['quantity']; ?></td>
                             <td><?php echo $d['price']; ?></td>
                             <td><?php echo $d['supplier_name']; ?></td>
-                            <td><?php echo $d['created_at']; ?></td>
-                            <td><?php echo $d['updated_at']; ?></td>
 
                             <td>
                                 <a href="<?php echo site_url('MaterialSpecification/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>

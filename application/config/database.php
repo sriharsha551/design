@@ -78,7 +78,6 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	// 'port'=>3080,
 	'database' => 'purple_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
