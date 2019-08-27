@@ -70,7 +70,25 @@
                                 <a href="<?php echo site_url('Prj_dsg_render/remove/' . $s['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <?php }}?>
+                        <?php }
+                        else{ ?>
+                            <tr>
+                            <td><?php echo $s['id']; ?></td>
+                            <td><?php echo $s['prj_name']; ?></td>
+                            <!-- <td><?php echo $s['design_stage']; ?></td> -->
+                            <td><?php echo $s['name']; ?></td>
+                            <td><a href='//<?php echo $s['attach_link']; ?>' target="_blank">Click here</a></td>
+                            <td><?php echo $s['percentage']; ?></td>
+                            <td><?php echo $s['review_status_name']; ?></td>
+                            <td><?php echo $s['remarks']; ?></td>
+                            <td><?php echo $s['revisions']; ?></td>
+                            <td>
+                                <a href="<?php echo site_url('Prj_dsg_render/edit/' . $s['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                <a href="<?php echo site_url('Prj_dsg_render/remove/' . $s['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                            </td>
+                        </tr>
+                        <?php }
+                    }?>
                     </table>
                 </div>   
             </div>

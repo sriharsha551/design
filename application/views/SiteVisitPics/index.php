@@ -64,8 +64,21 @@
                                 <a href="<?php echo site_url('SiteVisitPics/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <?php }}?>
-                    </table>
+                        <?php }
+                        else{ ?>
+                        <tr>
+                            <td><?php echo $d['id']; ?></td>
+                            <td><?php echo $d['project_name']; ?></td>
+                            <td><a href="<?php echo site_url('SiteVisitPics/image_view/'.$d['id']);?>"><?php echo $d['name']; ?></a></td>
+                            <td><?php echo $d['remarks']; ?></td>
+                            <td>
+                                <a href="<?php echo site_url('SiteVisitPics/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                <a href="<?php echo site_url('SiteVisitPics/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                            </td>
+                        </tr>
+                        <?php }
+                    }?>                                     
+                     </table>
                 </div>   
             </div>
         </div>
