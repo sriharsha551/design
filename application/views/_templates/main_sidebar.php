@@ -401,6 +401,11 @@
           </a>
         </li>
         <li class="sidenav-item ">
+          <a href="<?php echo site_url('Suppliers'); ?>" class="sidenav-link">
+            <div>Suppliers</div>
+          </a>
+        </li>
+        <li class="sidenav-item ">
           <a href="<?php echo site_url('MaterialItems'); ?>" class="sidenav-link">
             <div>Material Items</div>
           </a>

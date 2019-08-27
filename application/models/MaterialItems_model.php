@@ -70,7 +70,7 @@ class MaterialItems_model extends CI_Model
     {
         $this->db->insert('prj_mtrl_items',$params);
         return $this->db->insert_id();
-    }
+    }  
     public function select()  
       {  
         $this->db->select("id,material_category");
