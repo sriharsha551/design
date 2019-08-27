@@ -44,6 +44,7 @@
 
                     <table class="datatables-demo table table-striped table-bordered">
                         <thead>
+                        <?=$_POST['category_id']==''?>
                         <tr>
                             <th>ID</th>
                             <th>Material Category</th>
@@ -56,7 +57,7 @@
                         </tr>
                         </thead>
                         <?php foreach ($MaterialItems as $d) {
-                            if($d['material_cat_id'] == $GLOBALS['category_id']){?>
+                            if($d['material_cat_id'] == $GLOBALS['category_id']|| $_POST['category_id']==''){?>
                         <tr>
                             <td><?php echo $d['id']; ?></td>
                             <td><?php echo $d['material_category']; ?></td>
