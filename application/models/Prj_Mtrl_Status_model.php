@@ -26,7 +26,7 @@
         public function checkEdit($id,$data){
             $this->db->where('delete_status','0');
             $this->db->where('id !=',$id);
-            $this->db->where('status_name',$data);
+            $this->db->where('mtrl_status',$data);
             return $this->db->get('prj_mtrl_status')->num_rows();
         }
 
