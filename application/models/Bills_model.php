@@ -28,6 +28,41 @@ class Bills_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    function get_credit()
+    {
+        $this->db->from('act_cr_days');
+        $this->db->select('id,name');
+        return $this->db->get()->result();
+    }
+
+    function get_tax()
+    {
+        $this->db->from('act_tax');
+        $this->db->select('id,name');
+        return $this->db->get()->result();
+    }
+
+    function get_bill_items()
+    {
+        $this->db->from('act_bill_items');
+        $this->db->select('id,item_name');
+        return $this->db->get()->result();
+    }
+
+    function get_bill_status()
+    {
+        $this->db->from('act_bill_status');
+        $this->db->select('id,name');
+        return $this->db->get()->result();
+    }
+
+    function get_order()
+    {
+        $this->db->from('act_purchase_order');
+        $this->db->select('id,ponumber');
+        return $this->db->get()->result();
+    }
+
     function get_bills($id)
     {
         return $this->db->get_where('act_bills',array('id'=>$id,"delete_status"=>'0'))->row_array();

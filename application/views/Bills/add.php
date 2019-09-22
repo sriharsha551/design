@@ -92,14 +92,24 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Order Number</label>
 							<div class="form-group">
-								<input type="text" name="order_num" value="<?php echo $this->input->post('order_num'); ?>" class="form-control" id="order_num" />
+							<select class="form-control" name="order_num">
+							<option value=''>select name</option>
+							<?php foreach($order_num as $row) {?>
+  							<option value='<?php echo $row->id?>'><?php echo $row->ponumber?></option>
+							<?php }?>
+							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('order_num');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Bill Status</label>
 							<div class="form-group">
-								<input type="text" name="bill_status" value="<?php echo $this->input->post('bill_status'); ?>" class="form-control" id="bill_status" />
+							<select class="form-control" name="bill_status">
+							<option value=''>select name</option>
+							<?php foreach($bill_status as $row) {?>
+  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+							<?php }?>
+							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('bill_status');?></span>
 							</div>
                         </div>
@@ -113,14 +123,24 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Credit Days</label>
 							<div class="form-group">
-								<input type="text" name="cr_days_id" value="<?php echo $this->input->post('cr_days_id'); ?>" class="form-control" id="cr_days_id" />
+							<select class="form-control" name="cr_days_id">
+							<option value=''>select name</option>
+							<?php foreach($credit as $row) {?>
+  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+							<?php }?>
+							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('cr_days_id');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Bill Item</label>
 							<div class="form-group">
-								<input type="text" name="bill_item" value="<?php echo $this->input->post('bill_item'); ?>" class="form-control" id="bill_item" />
+							<select class="form-control" name="bill_item">
+							<option value=''>select name</option>
+							<?php foreach($bill_item as $row) {?>
+  							<option value='<?php echo $row->id?>'><?php echo $row->item_name?></option>
+							<?php }?>
+							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('bill_item');?></span>
 							</div>
                         </div>
@@ -141,7 +161,12 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Tax</label>
 							<div class="form-group">
-								<input type="text" name="tax_id" value="<?php echo $this->input->post('tax_id'); ?>" class="form-control" id="tax_id" />
+							<select class="form-control" name="tax_id">
+							<option value=''>select name</option>
+							<?php foreach($tax as $row) {?>
+  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+							<?php }?>
+							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('tax_id');?></span>
 							</div>
                         </div>

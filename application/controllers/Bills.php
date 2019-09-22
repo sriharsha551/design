@@ -33,6 +33,12 @@ class Bills extends Admin_Controller
         $this->breadcrumbs->unshift(2, 'Add', 'add');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['suppliers'] = $this->Bills_model->get_sup();
+        $this->data['credit'] = $this->Bills_model->get_credit();
+        $this->data['tax'] = $this->Bills_model->get_tax();
+        $this->data['bill_item'] = $this->Bills_model->get_bill_items();
+        $this->data['bill_status'] = $this->Bills_model->get_bill_status();
+        $this->data['order_num'] = $this->Bills_model->get_order();
+
         $this->load->library('form_validation');
 
         // $this->form_validation->set_rules('sup_id', 'Supplier Id', 'required');
