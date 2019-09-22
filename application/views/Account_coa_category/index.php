@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="box-body card-datatable">
                     <div class="box-tools">
-                        <a href="<?php echo site_url('Account_cao_category/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
+                        <a href="<?php echo site_url('Account_coa_category/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
                     </div>
 
                     <table class="datatables-demo table table-striped table-bordered">
@@ -25,7 +25,7 @@
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <?php foreach ($Account_cao_category as $d) {
+                        <?php foreach ($Account_coa_category as $d) {
                             if($d['enabled']=='0')
                             {
                                 $d['enabled']='Yes';
@@ -40,8 +40,8 @@
                             <td><?php echo $d['name']; ?></td>
                             <td><?php echo $d['enabled'];?></td>
                             <td>
-                                <a href="<?php echo site_url('Account_cao_category/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
-                                <a href="<?php echo site_url('Account_cao_category/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                                <a href="<?php echo site_url('Account_coa_category/edit/' . $d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                <a href="<?php echo site_url('Account_coa_category/remove/' . $d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
                         <?php }?>
