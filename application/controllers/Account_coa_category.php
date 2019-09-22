@@ -4,21 +4,21 @@
  * www.crudigniter.com
  */
  
-class Account_cao_category extends Admin_Controller{
+class Account_coa_category extends Admin_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Account_cao_category_model');
+        $this->load->model('Account_coa_category_model');
          /* Title Page :: Common */
          $this->page_title->push('Chartered Account Category');
          $this->data['pagetitle'] = $this->page_title->show();
  
          /* Breadcrumbs :: Common */
-         $this->breadcrumbs->unshift(1, 'Chartered_account_category', 'Account_cao_category');
+         $this->breadcrumbs->unshift(1, 'Chartered_account_category', 'Account_coa_category');
     } 
 
     /*
-     * Listing of Account_cao_category
+     * Listing of Account_coa_category
      */
     function index()
     {
@@ -26,20 +26,20 @@ class Account_cao_category extends Admin_Controller{
         $params['offset'] = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
         
         $config = $this->config->item('pagination');
-        $config['base_url'] = site_url('Account_cao_category/index?');
-        $config['total_rows'] = $this->Account_cao_category_model->get_all_Account_cao_category_count();
+        $config['base_url'] = site_url('Account_coa_category/index?');
+        $config['total_rows'] = $this->Account_coa_category_model->get_all_Account_coa_category_count();
         $this->pagination->initialize($config);
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        $this->data['Account_cao_category'] = $this->Account_cao_category_model->get_all_Account_cao_category($params);
+        $this->data['Account_coa_category'] = $this->Account_coa_category_model->get_all_Account_coa_category($params);
         
-        $this->template->public_render('Account_cao_category/index', $this->data);
+        $this->template->public_render('Account_coa_category/index', $this->data);
 
    
     }
 
     /*
-     * Adding a new Account_cao_category
+     * Adding a new Account_coa_category
      */
     function add()
     {   
@@ -55,27 +55,27 @@ class Account_cao_category extends Admin_Controller{
 				'name' => $this->input->post('name'),
             );
             
-            $Account_cao_category_id = $this->Account_cao_category_model->add_Account_cao_category($params);
-            redirect('Account_cao_category/index');
+            $Account_coa_category_id = $this->Account_coa_category_model->add_Account_coa_category($params);
+            redirect('Account_coa_category/index');
         }
         else
         {      
-            $this->template->public_render('Account_cao_category/add', $this->data);      
+            $this->template->public_render('Account_coa_category/add', $this->data);      
            
         }
     }  
 
     /*
-     * Editing a Account_cao_category
+     * Editing a Account_coa_category
      */
     function edit($id)
     {   
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        // check if the Account_cao_category exists before trying to edit it
-        $this->data['Account_cao_category'] = $this->Account_cao_category_model->get_Account_cao_category($id);
+        // check if the Account_coa_category exists before trying to edit it
+        $this->data['Account_coa_category'] = $this->Account_coa_category_model->get_Account_coa_category($id);
         
-        if(isset($this->data['Account_cao_category']['id']))
+        if(isset($this->data['Account_coa_category']['id']))
         {
             $this->load->library('form_validation');
 
@@ -88,37 +88,37 @@ class Account_cao_category extends Admin_Controller{
                     'enabled' => $this->input->post('enabled'),
                     'updated_at' => date("Y-m-d H:i:s"),
                 );
-                $this->Account_cao_category_model->update_Account_cao_category($id,$params);            
-                redirect('Account_cao_category/index');
+                $this->Account_coa_category_model->update_Account_coa_category($id,$params);            
+                redirect('Account_coa_category/index');
             }
             else
             {
-                $this->template->public_render('Account_cao_category/edit', $this->data); 
+                $this->template->public_render('Account_coa_category/edit', $this->data); 
             }
         }
         else
-            show_error('The Account_cao_category you are trying to edit does not exist.');
+            show_error('The Account_coa_category you are trying to edit does not exist.');
     } 
 
     /*
-     * Deleting Account_cao_category
+     * Deleting Account_coa_category
      */
     function remove($id)
     {
-        $Account_cao_category = $this->Account_cao_category_model->get_Account_cao_category($id);
+        $Account_coa_category = $this->Account_coa_category_model->get_Account_coa_category($id);
 
-        // check if the Account_cao_category exists before trying to delete it
-        if(isset($Account_cao_category['id']))
+        // check if the Account_coa_category exists before trying to delete it
+        if(isset($Account_coa_category['id']))
         {
             $params = array(
                 'deleted_at' => date("Y-m-d H:i:s"),
                 'delete_status'=> '1',
             );
-            $this->Account_cao_category_model->delete_Account_cao_category($id,$params);
-            redirect('Account_cao_category/index');
+            $this->Account_coa_category_model->delete_Account_coa_category($id,$params);
+            redirect('Account_coa_category/index');
         }
         else
-            show_error('The Account_cao_category you are trying to delete does not exist.');
+            show_error('The Account_coa_category you are trying to delete does not exist.');
     }
     
 }

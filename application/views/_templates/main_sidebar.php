@@ -253,10 +253,16 @@
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
-          <a href="<?php echo site_url('Account_cao_category'); ?>" class="sidenav-link">
-            <div>Chartered Accounts Category</div>
+          <a href="<?php echo site_url('Account_coa'); ?>" class="sidenav-link">
+            <div>Charted Accounts</div>
           </a>
         </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_coa_category'); ?>" class="sidenav-link">
+            <div>Chartered  Accounts Category</div>
+          </a>
+        </li>
+
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Status") {echo "active";}?>">
           <a href="<?php echo site_url('Account_items'); ?>" class="sidenav-link">
             <div>Account Items</div>
@@ -267,6 +273,22 @@
             <div>Account Customer</div>
           </a>
         </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_inv_status'); ?>" class="sidenav-link">
+            <div>Invoice Status</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_payment_method'); ?>" class="sidenav-link">
+            <div>Payment Methods</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_trans_type'); ?>" class="sidenav-link">
+            <div>Transaction Types</div>
+          </a>
+        </li>
+
       </ul>
     </li>
 
