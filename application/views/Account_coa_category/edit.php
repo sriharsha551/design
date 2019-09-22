@@ -24,16 +24,16 @@
 					</div>
 					<?php if($Account_coa_category['enabled']=='0')
                             {
-                                $Account_coa_category['enabled']='Yes';
+                                $Account_coa_category['enabled1']='Yes';
                             }
                             else
                             {
-                                $Account_coa_category['enabled']='No';
+                                $Account_coa_category['enabled1']='No';
                             }?>
 					<div class="form-group col-md-6">
 					<label class="form-label">Enabled</label>
 						<select class="custom-select" name="enabled" required>
-						<option value="<?= $Account_coa_category['enabled'];?>" ><?= $Account_coa_category['enabled'];?></option>
+						<option value="<?= $Account_coa_category['enabled'];?>" ><?= $Account_coa_category['enabled1'];?></option>
                 			<option value="0">Yes</option>
 							<option value="1">No</option>    
 						</select>
