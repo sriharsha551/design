@@ -252,9 +252,23 @@
             <div>Bill Payments</div>
           </a>
         </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_cao_category'); ?>" class="sidenav-link">
+            <div>Charted Accounts Category</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Status") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_items'); ?>" class="sidenav-link">
+            <div>Account Items</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Stage") {echo "active";}?>">
+          <a href="<?php echo site_url('Account_customer'); ?>" class="sidenav-link">
+            <div>Account Customer</div>
+          </a>
+        </li>
       </ul>
     </li>
-
 
     <li class="sidenav-item <?php if ($this->uri->segment(1) == "Designation" || $this->uri->segment(1) == "Department" || $this->uri->segment(1) == "Leave_type" || $this->uri->segment(1) == "holiday" ||$this->uri->segment(1) == "visitor" ) {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-tools"></i>

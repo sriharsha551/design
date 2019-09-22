@@ -51,6 +51,7 @@
                             <th>Material Name</th>
                             <th>Price</th>
                             <th>Dimensions</th>
+                            <th>Quantity</th>
                             <th>Supplier</th>
                             <th>REMARKS</th>
                             <th>Actions</th>
@@ -64,6 +65,7 @@
                             <td><?php echo $d['material_name']; ?></td>
                             <td><?php echo $d['price']; ?></td>
                             <td><?php echo $d['dimensions']; ?></td>
+                            <td><?php echo $d['qty']; ?></td>
                             <td><?php echo $d['name'];?></td>
                             <td><?php echo $d['remarks']; ?></td>
                             <td>
