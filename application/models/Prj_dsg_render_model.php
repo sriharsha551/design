@@ -88,6 +88,7 @@ class Prj_dsg_render_model extends CI_Model
         $data = $this->db->get_where('prj_dsg_render',array("id"=>$id,"delete_status"=>'0'))->result_array();
         $data[0]['revisions']=($data['0']['revisions'][0].((int)$data['0']['revisions'][1]+1));
         $data[0]['created_at'] = date("Y-m-d H:i:s");
+        $data[0]['review_status'] = 1;
         $this->db->insert('prj_dsg_render',$data[0]);
         return $this->db->insert_id();
     }

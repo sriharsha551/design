@@ -90,7 +90,7 @@ class Design_layout_model extends CI_Model {
 
     function update_layout_revision($id,$params)
     {
-        $remarks['updated_at'] = date("Y-m-d H:i:s");
+        $params['updated_at'] = date("Y-m-d H:i:s");
         $this->db->set($params);
         $this->db->where('id',$id);
         $this->db->update('prj_dsg_layout');

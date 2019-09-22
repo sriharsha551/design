@@ -90,7 +90,7 @@ class Prj_dsg_concept extends Admin_Controller
             $this->form_validation->set_rules('attach_link','Attach link','required');
             $this->form_validation->set_rules('percentage','Percentage','required');
             $this->form_validation->set_rules('review_status','Review status','required');
-            $this->form_validation->set_rules('remarks','Remarks','required');
+            // $this->form_validation->set_rules('remarks','Remarks','required');
             // $this->form_validation->set_rules('revisions','Revisions','required');
             if($this->form_validation->run())     
             {   

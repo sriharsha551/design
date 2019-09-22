@@ -230,6 +230,31 @@
       </ul>
     </li>
 
+    <!-- Accounts -->
+  <li class="sidenav-item <?php if ($this->uri->segment(1) == "Accounts") {echo "open active";}?>" >
+      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
+        <div>Accounts</div>
+      </a>
+
+      <ul class="sidenav-menu">
+        <li class="sidenav-item <?php if ($this->uri->segment(2) == "types") {echo "active";}?>">
+          <a href="<?php echo site_url('Invoice_payments'); ?>" class="sidenav-link">
+            <div>Invoice Payments</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
+          <a href="<?php echo site_url('Bills'); ?>" class="sidenav-link">
+            <div>Bills</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "categories" && $this->uri->segment(2) == "") {echo "active";}?>">
+          <a href="<?php echo site_url('Bill_payments'); ?>" class="sidenav-link">
+            <div>Bill Payments</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
 
     <li class="sidenav-item <?php if ($this->uri->segment(1) == "Designation" || $this->uri->segment(1) == "Department" || $this->uri->segment(1) == "Leave_type" || $this->uri->segment(1) == "holiday" ||$this->uri->segment(1) == "visitor" ) {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-tools"></i>
@@ -503,7 +528,6 @@
 
       </ul>
     </li>
-
 
   </ul>
 </div>

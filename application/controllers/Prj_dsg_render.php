@@ -167,7 +167,8 @@ class Prj_dsg_render extends Admin_Controller
         } else {
             $this->data['img'] = $img;
             $this->data['id'] = $id;
-            $this->data['prj_name'] = $this->Prj_dsg_render_model->get_proj_name($id);
+            $render = $this->Prj_dsg_render_model->get_render($id);
+            $this->data['prj_name'] = $this->Prj_dsg_render_model->get_proj_name($render['prj_id']);
             $this->template->public_render('Prj_dsg_render/image_display', $this->data);
         }
     }

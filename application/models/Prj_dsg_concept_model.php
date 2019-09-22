@@ -11,6 +11,7 @@ class Prj_dsg_concept_model extends CI_Model
     {
         $this->db->select('id,name');
         $this->db->from('prj_list');
+        $this->db->where(array('delete_status'=>'0'));
         return $this->db->get()->result();
     }
 
@@ -73,9 +74,10 @@ class Prj_dsg_concept_model extends CI_Model
         $this->db->where('id',$id);
         $this->db->update('prj_dsg_concept',$params);
         $this->db->select('prj_id,name,percentage,revisions');
-        $data = $this->db->get_where('prj_dsg_render',array("id"=>$id,'delete_status'=>'0'))->result_array();
+        $data = $this->db->get_where('prj_dsg_concept',array("id"=>$id,'delete_status'=>'0'))->result_array();
         $data[0]['revisions']=($data['0']['revisions'][0].((int)$data['0']['revisions'][1]+1));
         $data[0]['created_at'] = date("Y-m-d H:i:s");
+        $data[0]['review_status'] = 1;
         $this->db->insert('prj_dsg_concept',$data[0]);
         return $this->db->insert_id();
     }
