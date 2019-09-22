@@ -34,6 +34,9 @@ class Invoice_payments extends Admin_Controller
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['inv_ids'] = $this->Invoice_payments_model->get_inv_ids();
         $this->data['coa_ids'] = $this->Invoice_payments_model->get_coa_ids();
+        $this->data['tran_ids'] = $this->Invoice_payments_model->get_tran_ids();
+        $this->data['pay_ids'] = $this->Invoice_payments_model->get_pay_ids();
+        
         $this->load->library('form_validation');
         // print_r($this->data['inv_ids']);
         $this->form_validation->set_rules('inv_id','Invoice Id','required');

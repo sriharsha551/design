@@ -35,10 +35,25 @@ class Bill_payments_model extends CI_Model
 
     function get_coa_ids()
     {
-        $this->db->select('id');
+        $this->db->select('id,name');
         $this->db->from('act_coa');
         return $this->db->get()->result();
     }
+
+    function get_tran_ids()
+    {
+        $this->db->select('id, trans_type as name');
+        $this->db->from('act_trans_type');
+        return $this->db->get()->result();
+    }
+
+    function get_pay_ids()
+    {
+        $this->db->select('id,name ');
+        $this->db->from('act_payment_method');
+        return $this->db->get()->result();
+    }
+
 
     function add_bill_pay($params)
     {

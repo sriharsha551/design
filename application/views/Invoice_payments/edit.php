@@ -58,7 +58,11 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Pay Method</label>
 							<div class="form-group">
-								<input type="text" name="pay_method" value="<?php echo ($this->input->post('pay_method') ? $this->input->post('pay_method') : $invoice['pay_method']); ?>" class="form-control" id="pay_method" />
+							<select class="form-control" name="payment_method" >
+							        <?php foreach($pay_ids as $row) {?>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
+							        <?php }?>
+								</select>
 								<span class="text-danger"><?php echo form_error('pay_method');?></span>
 							</div>
                         </div>
@@ -72,7 +76,11 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Transaction Type</label>
 							<div class="form-group">
-								<input type="text" name="tran_type_id" value="<?php echo ($this->input->post('tran_type_id') ? $this->input->post('tran_type_id') : $invoice['tran_type_id']); ?>"" class="form-control" id="tran_type_id" />
+							<select class="form-control" name="tran_type_id" >
+							        <?php foreach($tran_ids as $row) {?>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $incoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
+							        <?php }?>
+								</select>
 								<span class="text-danger"><?php echo form_error('tran_type_id');?></span>
 							</div>
                         </div>

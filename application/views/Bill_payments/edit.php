@@ -28,7 +28,7 @@
 							<div class="form-group">
 							<select class="form-control" name="coa_id" >
 							        <?php foreach($coa_ids as $row) {?>
-  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $bill['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->id?></option>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $bill['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							        <?php }?>
 								</select>	
 								<span class="text-danger"><?php echo form_error('coa_id');?></span>
@@ -42,37 +42,45 @@
 							</div>
 						</div>
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Amount</label>
+							<label  class="form-label"><span class="text-danger">*</span>Amount</label>
 							<div class="form-group">
 								<input type="text" name="amount" value="<?php echo ($this->input->post('amount') ? $this->input->post('amount') : $bill['amount']); ?>" class="form-control" id="amount" />
 								<span class="text-danger"><?php echo form_error('amount');?></span>
 							</div>
 						</div>
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Description</label>
+							<label  class="form-label"><span class="text-danger">*</span>Description</label>
 							<div class="form-group">
 								<input type="text" name="description" value="<?php echo ($this->input->post('description') ? $this->input->post('description') : $bill['description']); ?>" class="form-control" id="description" />
 								<span class="text-danger"><?php echo form_error('description');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Pay Method</label>
+							<label  class="form-label"><span class="text-danger">*</span>Pay Method</label>
 							<div class="form-group">
-								<input type="text" name="payment_method" value="<?php echo ($this->input->post('payment_method') ? $this->input->post('payment_method') : $bill['payment_method']); ?>" class="form-control" id="payment_method" />
+							<select class="form-control" name="payment_method" >
+							        <?php foreach($pay_ids as $row) {?>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $bill['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
+							        <?php }?>
+								</select>
 								<span class="text-danger"><?php echo form_error('payment_method');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Remarks</label>
+							<label  class="form-label"><span class="text-danger">*</span>Remarks</label>
 							<div class="form-group">
 								<input type="text" name="remarks" value="<?php echo ($this->input->post('remarks') ? $this->input->post('remarks') : $bill['remarks']); ?>" class="form-control" id="remarks" />
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Transaction Type</label>
+							<label  class="form-label"><span class="text-danger">*</span>Transaction Type</label>
 							<div class="form-group">
-								<input type="text" name="tran_type_id" value="<?php echo ($this->input->post('tran_type_id') ? $this->input->post('tran_type_id') : $bill['tran_type_id']); ?>"" class="form-control" id="tran_type_id" />
+							<select class="form-control" name="tran_type_id" >
+							        <?php foreach($tran_ids as $row) {?>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $bill['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
+							        <?php }?>
+								</select>
 								<span class="text-danger"><?php echo form_error('tran_type_id');?></span>
 							</div>
                         </div>

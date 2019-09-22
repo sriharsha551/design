@@ -254,7 +254,7 @@
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
           <a href="<?php echo site_url('Account_cao_category'); ?>" class="sidenav-link">
-            <div>Charted Accounts Category</div>
+            <div>Chartered Accounts Category</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Status") {echo "active";}?>">
