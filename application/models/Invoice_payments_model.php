@@ -16,9 +16,12 @@ class Invoice_payments_model extends CI_Model
     
     function get_all_invoice()
     {
-        $this->db->from('act_inv_payment');
-        $this->db->where(array('delete_status'=>'0'));
-        return $this->db->get()->result_array();
+        $this->db->select('t1.*,t2.name as coa_id,t3.name as pay_method,t4.trans_type as tran_type_id,t5.invoice_num as inv_id');
+        $this->db->join('act_coa as t2', 't2.id = t1.coa_id', 'inner');
+        $this->db->join('act_payment_method as t3','t1.pay_method = t3.id','inner');
+        $this->db->join('act_trans_type as t4', 't1.tran_type_id = t4.id', 'inner');
+        $this->db->join('act_invoices as t5', 't5.id = t1.inv_id', 'inner');
+        return $this->db->get_where('act_inv_payment t1',array('t1.delete_status'=>'0'))->result_array();
     }
 
     function get_invoice($id)
@@ -28,14 +31,14 @@ class Invoice_payments_model extends CI_Model
 
     function get_inv_ids()
     {
-        $this->db->select('id');
+        $this->db->select('id,invoice_num');
         $this->db->from('act_invoices');
         return $this->db->get()->result();
     }
 
     function get_coa_ids()
     {
-        $this->db->select('id');
+        $this->db->select('id,name');
         $this->db->from('act_coa');
         return $this->db->get()->result();
     }

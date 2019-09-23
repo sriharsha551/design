@@ -23,7 +23,7 @@
 						<select class="form-control" name="bill_id">
 							<option value=''>select name</option>
 							<?php foreach($bill_ids as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->id?></option>
+  							<option value='<?php echo $row->id?>'><?php echo $row->bill_num?></option>
 							<?php }?>
 						</select>
 						<span class="text-danger"><?php echo form_error('bill_id');?></span>
@@ -35,7 +35,7 @@
 							<select class="form-control" name="coa_id">
 							<option value=''>select name</option>
 							<?php foreach($coa_ids as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->id?></option>
+  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
 							<?php }?>
 						    </select>		
 							<span class="text-danger"><?php echo form_error('coa_id');?></span>

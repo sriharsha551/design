@@ -17,7 +17,7 @@
 						<div class='form-group'>
 						<select class="form-control" name="bill_id" >
 							        <?php foreach($bill_ids as $row) {?>
-  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $bill['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->id?></option>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $bill['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->bill_num?></option>
 							        <?php }?>
 								</select>	
 						<span class="text-danger"><?php echo form_error('bill_id');?></span>

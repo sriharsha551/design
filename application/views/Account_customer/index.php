@@ -45,7 +45,7 @@
                             <td><?php echo $d['email']; ?></td>
                             <td><?php echo $d['phone']; ?></td>
                             <td><?php echo $d['address']; ?></td>
-                            <td><?php echo $d['tax_number']; ?></td>
+                            <td><?php echo $d['tax_name']; ?></td>
                             <td><?php echo $d['enabled']; ?></td>
 
                             <td>

@@ -23,12 +23,12 @@
                             <th>Customer Email</th>
                             <th>Customer Phone</th>
                             <th>Customer Address</th>
-                            <th>invoice Number</th>
+                            <th>Invoice Number</th>
                             <th>Order Number</th>
-                            <th>invoice Status</th>
-                            <th>invoice Date</th>
+                            <th>Invoice Status</th>
+                            <th>Invoice Date</th>
                             <th>Credit days</th>
-                            <th>invoice Item</th>
+                            <th>Invoice Item</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Tax</th>

@@ -69,6 +69,8 @@ class Invoice_payments extends Admin_Controller
         $this->data['invoice'] = $this->Invoice_payments_model->get_invoice($id);
         $this->data['inv_ids'] = $this->Invoice_payments_model->get_inv_ids();
         $this->data['coa_ids'] = $this->Invoice_payments_model->get_coa_ids();
+        $this->data['tran_ids'] = $this->Invoice_payments_model->get_tran_ids();
+        $this->data['pay_ids'] = $this->Invoice_payments_model->get_pay_ids();
 
         if(isset($this->data['invoice']['id']))
         {

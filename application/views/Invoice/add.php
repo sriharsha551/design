@@ -34,7 +34,7 @@
 				<div class="col-md-6">
 					<label for="customer_id" class="form-label"><span class="text-danger">*</span>Customer Id</label>
 					<div class='form-group'>
-						<select class="form-control" name="customer_id" onchange="this.form.submit();">
+						<select class="form-control" name="customer_id"  onchange="this.form.submit();">
 							<option value=''>select name</option>
 							<?php foreach($Customers as $row) {?>
 							<option value='<?php echo $row->id?>' <?php echo ($row->id == $GLOBALS['Customer_id']) ? 'selected="selected"' : "" ?> ><?php echo $row->id." - ".$row->name?></option>
@@ -92,7 +92,7 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Order Number</label>
 							<div class="form-group">
-							<select class="form-control" name="order_num">
+							<select class="form-control" name="order_num" required>
 							<option value=''>select name</option>
 							<?php foreach($order_num as $row) {?>
   							<option value='<?php echo $row->id?>'><?php echo $row->ponumber?></option>
@@ -104,7 +104,7 @@
 						<div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Status</label>
 							<div class="form-group">
-							<select class="form-control" name="invoice_status">
+							<select class="form-control" name="invoice_status" required>
 							<option value=''>select name</option>
 							<?php foreach($inv_status as $row) {?>
   							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
@@ -124,7 +124,7 @@
 						<div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Credit Days</label>
 							<div class="form-group">
-							<select class="form-control" name="cr_days_id">
+							<select class="form-control" name="cr_days_id" required>
 							<option value=''>select name</option>
 							<?php foreach($credit as $row) {?>
   							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
@@ -138,7 +138,7 @@
 						<div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Item</label>
 							<div class="form-group">
-							<select class="form-control" name="invoice_item">
+							<select class="form-control" name="invoice_item" required>
 							<option value=''>select name</option>
 							<?php foreach($invoice_item as $row) {?>
   							<option value='<?php echo $row->id?>'><?php echo $row->item_name?></option>
@@ -174,7 +174,7 @@
 						<div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Tax</label>
 							<div class="form-group">
-							<select class="form-control" name="tax_id">
+							<select class="form-control" name="tax_id" required>
 							<option value=''>select name</option>
 							<?php foreach($tax as $row) {?>
   							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>

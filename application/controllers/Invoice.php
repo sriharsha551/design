@@ -44,7 +44,7 @@ class Invoice extends Admin_Controller
 
    
         $this->form_validation->set_rules('remarks', 'Remarks', 'required');
-      
+       
 
         if ($this->form_validation->run()) {
             $params = $this->input->post();
@@ -74,6 +74,8 @@ class Invoice extends Admin_Controller
         
   
         $this->form_validation->set_rules('remarks', 'Remarks', 'required');
+        $this->form_validation->set_rules('quantity', 'Quantity', 'required');
+        $this->form_validation->set_rules('price', 'Price', 'required');
     
 
             if ($this->form_validation->run()) {

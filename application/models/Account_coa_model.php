@@ -62,6 +62,7 @@ class Account_coa_model extends CI_Model
 
     function delete_act_coa($id)
     {
+        $this->db->where('id',$id);
         $params['deleted_at'] = date('Y-m-d H:i:s');
         return $this->db->update('act_coa',$params);
     } 

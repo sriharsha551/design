@@ -17,7 +17,7 @@
 						<div class='form-group'>
 						<select class="form-control" name="inv_id" >
 							        <?php foreach($inv_ids as $row) {?>
-  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->id?></option>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->invoice_num?></option>
 							        <?php }?>
 								</select>						
 								<span class="text-danger"><?php echo form_error('inv_id');?></span>
@@ -28,7 +28,7 @@
 							<div class="form-group">
 							<select class="form-control" name="coa_id" >
 							        <?php foreach($coa_ids as $row) {?>
-  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->id?></option>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							        <?php }?>
 								</select>	
 								<span class="text-danger"><?php echo form_error('coa_id');?></span>
@@ -58,7 +58,7 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Pay Method</label>
 							<div class="form-group">
-							<select class="form-control" name="payment_method" >
+							<select class="form-control" name="pay_method" >
 							        <?php foreach($pay_ids as $row) {?>
   							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							        <?php }?>
@@ -78,7 +78,7 @@
 							<div class="form-group">
 							<select class="form-control" name="tran_type_id" >
 							        <?php foreach($tran_ids as $row) {?>
-  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $incoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
+  							        <option value='<?php echo $row->id?>' <?php echo ($row->id == $invoice['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							        <?php }?>
 								</select>
 								<span class="text-danger"><?php echo form_error('tran_type_id');?></span>

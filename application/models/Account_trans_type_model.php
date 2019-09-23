@@ -51,6 +51,7 @@ class Account_trans_type_model extends CI_Model
 
     function delete_trans_type($id)
     {
+        $this->db->where('id',$id);
         $params['deleted_at'] = date('Y-m-d H:i:s');
         return $this->db->update('act_trans_type',$params);
     } 

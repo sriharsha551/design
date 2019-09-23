@@ -18,8 +18,8 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Bill Id</th>
-                            <th>Coa Id</th>
+                            <th>Bill</th>
+                            <th>Coa</th>
                             <th>Paid Date</th>
                             <th>Amount</th>
                             <th>Description</th>

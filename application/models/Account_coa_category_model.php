@@ -64,9 +64,10 @@ class Account_coa_category_model extends CI_Model
     /*
      * function to delete Account_coa_category
      */
-    function delete_Account_coa_category($id,$params)
+    function delete_Account_coa_category($id)
     {
         $this->db->where('id',$id);
+        $params['deleted_at'] = date('Y-m-d H:i:s');
         return $this->db->update('act_coa_category',$params);
     }
 }

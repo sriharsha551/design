@@ -51,6 +51,7 @@ class Account_inv_status_model extends CI_Model
 
     function delete_invoice_status($id)
     {
+        $this->db->where('id',$id);
         $params['deleted_at'] = date('Y-m-d H:i:s');
         return $this->db->update('act_inv_status',$params);
     } 

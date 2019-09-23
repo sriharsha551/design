@@ -16,6 +16,7 @@ class Account_customer_model extends CI_Model
      */
     function get_Account_customer($id)
     {
+
         return $this->db->get_where('act_customer',array('id'=>$id))->row_array();
     }
     
@@ -25,7 +26,7 @@ class Account_customer_model extends CI_Model
     function get_all_Account_customer_count()
     {
         $this->db->where('delete_status','0');
-        $this->db->from('act_customer');
+        $this->db->from('act_customer as t1');
         return $this->db->count_all_results();
     }
       /*
@@ -46,13 +47,15 @@ class Account_customer_model extends CI_Model
      */
     function get_all_Account_customer($params = array())
     {
-        $this->db->where('delete_status','0');
+        $this->db->where('t1.delete_status','0');
         $this->db->order_by('id', 'desc');
+        $this->db->select('t1.*,t2.name as tax_name');
+        $this->db->join('act_tax as t2','t1.tax_number=t2.id');
         if(isset($params) && !empty($params))
         {
             $this->db->limit($params['limit'], $params['offset']);
         }
-        return $this->db->get('act_customer')->result_array();
+        return $this->db->get('act_customer as t1')->result_array();
     }
         
     /*
@@ -79,6 +82,6 @@ class Account_customer_model extends CI_Model
     function delete_Account_customer($id,$params)
     {
         $this->db->where('id',$id);
-        return $this->db->update('act_customer',$params);
+        return $this->db->update('act_customer',array('delete_status' => '1'));
     }
 }

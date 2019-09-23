@@ -8,7 +8,7 @@
 
 		<h4 class="font-weight-bold py-2 mb-4">
 			<span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
-			<?php echo $breadcrumb; ?>
+			<?php echo $breadcrumb;?>
 		</h4>
     
 		<div class="card mb-4">
@@ -23,7 +23,7 @@
 						<select class="form-control" name="inv_id">
 							<option value=''>select name</option>
 							<?php foreach($inv_ids as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->id?></option>
+  							<option value='<?php echo $row->id?>'><?php echo $row->invoice_num?></option>
 							<?php }?>
 						</select>
 						<span class="text-danger"><?php echo form_error('inv_id');?></span>
@@ -35,7 +35,7 @@
 							<select class="form-control" name="coa_id">
 							<option value=''>select name</option>
 							<?php foreach($coa_ids as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->id?></option>
+  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
 							<?php }?>
 						</select>		
 						<span class="text-danger"><?php echo form_error('coa_id');?></span>
@@ -65,7 +65,7 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Pay Method</label>
 							<div class="form-group">
-							<select class="form-control" name="payment_method">
+							<select class="form-control" name="pay_method">
 							<option value=''>select name</option>
 							<?php foreach($pay_ids as $row) {?>
   							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>

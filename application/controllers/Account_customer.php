@@ -124,10 +124,7 @@ class Account_customer extends Admin_Controller{
         // check if the Account_customer exists before trying to delete it
         if(isset($Account_customer['id']))
         {
-            $params = array(
-                'deleted_at' => date("Y-m-d H:i:s"),
-                'delete_status'=> '1',
-            );
+            
             $this->Account_customer_model->delete_Account_customer($id,$params);
             redirect('Account_customer/index');
         }
