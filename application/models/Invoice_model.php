@@ -27,7 +27,36 @@ class Invoice_model extends CI_Model
         $this->db->select('id,name,email_id,address,contact_no_1');
         return $this->db->get()->result();
     }
-
+    function get_credit()
+    {
+        $this->db->from('act_cr_days');
+        $this->db->select('id,name');
+        return $this->db->get()->result();
+    }
+    function get_tax()
+    {
+        $this->db->from('act_tax');
+        $this->db->select('id,name');
+        return $this->db->get()->result();
+    }
+    function get_invoice_items()
+    {
+        $this->db->from('act_bill_items');
+        $this->db->select('id,item_name');
+        return $this->db->get()->result();
+    }
+    function get_inv_status()
+    {
+        $this->db->from('act_bill_status');
+        $this->db->select('id,name');
+        return $this->db->get()->result();
+    }
+    function get_order()
+    {
+        $this->db->from('act_purchase_order');
+        $this->db->select('id,ponumber');
+        return $this->db->get()->result();
+    }
     function get_invoice($id)
     {
         return $this->db->get_where('act_invoices',array('id'=>$id,"lock_st"=>'0'))->row_array();

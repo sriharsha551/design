@@ -35,6 +35,11 @@ class Invoice extends Admin_Controller
         $this->breadcrumbs->unshift(2, 'Add', 'add');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['Customers'] = $this->Invoice_model->get_cut();
+        $this->data['credit'] = $this->Invoice_model->get_credit();
+        $this->data['tax'] = $this->Invoice_model->get_tax();
+        $this->data['invoice_item'] = $this->Invoice_model->get_Invoice_items();
+        $this->data['inv_status'] = $this->Invoice_model->get_inv_status();
+        $this->data['order_num'] = $this->Invoice_model->get_order();
         $this->load->library('form_validation');
 
    
@@ -56,10 +61,16 @@ class Invoice extends Admin_Controller
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
-        $this->data['bills'] = $this->Invoice_model->get_invoice($id);
+        $this->data['invoices'] = $this->Invoice_model->get_invoice($id);
         $this->data['Customers'] = $this->Invoice_model->get_cut();
+        $this->data['credit'] = $this->Invoice_model->get_credit();
+        $this->data['tax'] = $this->Invoice_model->get_tax();
+        $this->data['invoice_item'] = $this->Invoice_model->get_Invoice_items();
+        $this->data['inv_status'] = $this->Invoice_model->get_inv_status();
+        $this->data['order_num'] = $this->Invoice_model->get_order();
+        $this->load->library('form_validation');
 
-        if (isset($this->data['bills']['id'])) {
+        if (isset($this->data['invoices']['id'])) {
         
   
         $this->form_validation->set_rules('remarks', 'Remarks', 'required');
