@@ -16,9 +16,13 @@ class Bills_model extends CI_Model
     
     function get_all_bills()
     {
-        $this->db->from('act_bills');
-        $this->db->where(array('delete_status'=>'0'));
-        return $this->db->get()->result_array();
+        $this->db->select('t1.*,t2.name as bill_status,t3.ponumber as order_name,t4.name as supplier,t5.name as cr_days,t6.name as tax');
+        $this->db->join('act_bill_status as t2', 't2.id = t1.bill_status', 'inner');
+        $this->db->join('act_purchase_order as t3','t1.order_num = t3.id','inner');
+        $this->db->join('suppliers as t4', 't1.sup_id = t4.id', 'inner');
+        $this->db->join('act_cr_days as t5', 't1.cr_days_id= t5.id', 'inner');
+        $this->db->join('act_tax as t6', 't6.id = t1.tax_id', 'inner');
+        return $this->db->get_where('act_bills t1',array('t1.delete_status'=>'0'))->result_array();
     }
 
     function get_sup()

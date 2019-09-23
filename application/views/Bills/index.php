@@ -28,7 +28,7 @@
                             <th>Bill Status</th>
                             <th>Bill Date</th>
                             <th>Credit days</th>
-                            <th>Bill Item</th>
+                            <!-- <th>Bill Item</th> -->
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Tax</th>
@@ -40,20 +40,20 @@
                         <?php foreach ($bills as $bills) { ?>
                         <tr>
                             <td><?php echo $bills['id']; ?></td>
-                            <td><?php echo $bills['sup_id']; ?></td>
+                            <td><?php echo $bills['supplier']; ?></td>
                             <td><?php echo $bills['sup_name']; ?></td>
                             <td><?php echo $bills['sup_email']; ?></td>
                             <td><?php echo $bills['sup_phone']; ?></td>
                             <td><?php echo $bills['sup_address']; ?></td>
                             <td><?php echo $bills['bill_num']; ?></td>
-                            <td><?php echo $bills['order_num']; ?></td>
+                            <td><?php echo $bills['order_name']; ?></td>
                             <td><?php echo $bills['bill_status']; ?></td>
                             <td><?php echo $bills['bill_date']; ?></td>
-                            <td><?php echo $bills['cr_days_id']; ?></td>
-                            <td><?php echo $bills['bill_item']; ?></td>
+                            <td><?php echo $bills['cr_days']; ?></td>
+                            <!-- <td><?php echo $bills['bill_item']; ?></td> -->
                             <td><?php echo $bills['qty']; ?></td>
                             <td><?php echo $bills['price']; ?></td>
-                            <td><?php echo $bills['tax_id']; ?></td>
+                            <td><?php echo $bills['tax']; ?></td>
                             <td><?php echo $bills['tax_amt']; ?></td>
                             <td><?php echo $bills['remarks']; ?></td>
                             <td>

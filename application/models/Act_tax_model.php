@@ -18,7 +18,7 @@
 
         public function addDetail($data){
             $data['created_at'] = date('Y-m-d H:i:s');
-            $data['lock_stat']='0';
+            $data['lock_st']='0';
             $this->db->insert('act_tax',$data);
         }    
 

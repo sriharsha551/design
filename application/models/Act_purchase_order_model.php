@@ -33,7 +33,7 @@
         function get_items()
         {
             $this->db->where('delete_status','0');
-            $this->db->select('id,material_name,price,supplier_id');
+            $this->db->select('*');
             return $this->db->get('prj_mtrl_items')->result_array();
         }
 

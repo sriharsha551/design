@@ -116,7 +116,7 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Bill Date</label>
 							<div class="form-group">
-								<input type="text" name="bill_date" value="<?php echo $this->input->post('bill_date'); ?>" class="form-control" id="bill_date" />
+								<input type="date" name="bill_date" value="<?php echo $this->input->post('bill_date'); ?>" class="form-control" id="bill_date" />
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('bill_date');?></span>
 							</div>
                         </div>
@@ -132,7 +132,7 @@
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('cr_days_id');?></span>
 							</div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Bill Item</label>
 							<div class="form-group">
 							<select class="form-control" name="bill_item">
@@ -142,8 +142,8 @@
 							<?php }?>
 							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('bill_item');?></span>
-							</div>
-                        </div>
+							</div> 
+                        </div>-->
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Quantity</label>
 							<div class="form-group">

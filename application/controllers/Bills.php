@@ -52,7 +52,7 @@ class Bills extends Admin_Controller
         $this->form_validation->set_rules('bill_status', 'Bill Status', 'required');
         $this->form_validation->set_rules('bill_date', 'Bill Date', 'required');
         $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
-        $this->form_validation->set_rules('bill_item', 'Bill Item', 'required');
+        // $this->form_validation->set_rules('bill_item', 'Bill Item', 'required');
         $this->form_validation->set_rules('qty', 'Quantity', 'required');
         $this->form_validation->set_rules('price', 'Price', 'required');
         $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
@@ -76,6 +76,11 @@ class Bills extends Admin_Controller
 
         $this->data['bills'] = $this->Bills_model->get_bills($id);
         $this->data['suppliers'] = $this->Bills_model->get_sup();
+        $this->data['credit'] = $this->Bills_model->get_credit();
+        $this->data['tax'] = $this->Bills_model->get_tax();
+        $this->data['bill_item'] = $this->Bills_model->get_bill_items();
+        $this->data['bill_status'] = $this->Bills_model->get_bill_status();
+        $this->data['order_num'] = $this->Bills_model->get_order();
 
         if (isset($this->data['bills']['id'])) {
             $this->form_validation->set_rules('sup_id', 'Supplier Id', 'required');
@@ -88,7 +93,7 @@ class Bills extends Admin_Controller
             $this->form_validation->set_rules('bill_status', 'Bill Status', 'required');
             $this->form_validation->set_rules('bill_date', 'Bill Date', 'required');
             $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
-            $this->form_validation->set_rules('bill_item', 'Bill Item', 'required');
+            // $this->form_validation->set_rules('bill_item', 'Bill Item', 'required');
             $this->form_validation->set_rules('qty', 'Quantity', 'required');
             $this->form_validation->set_rules('price', 'Price', 'required');
             $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
