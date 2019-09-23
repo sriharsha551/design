@@ -15,6 +15,7 @@
 				
 				$GLOBALS['name'] = null;
 				$GLOBALS['dimensions'] = null;
+				$GLOBALS['qty']= null;
                 if(isset($_POST['count']))
                 {
 					
@@ -22,6 +23,8 @@
 					
 					$GLOBALS['name'] = $_POST['name'];
 					$GLOBALS['dimensions'] = $_POST['dimensions'];
+					$GLOBALS['qty'] = $_POST['qty'];
+
 				}
             ?>
 		</h4>
@@ -51,6 +54,10 @@
 						<div class="form-group col-md-6">
 						<label class="form-label">Dimensions </label>
 							<input type="text" class="form-control" placeholder="" name="dimensions" value="<?=$GLOBALS['dimensions']?>" required>
+						</div>
+						<div class="form-group col-md-6">
+						<label class="form-label">Quantity </label>
+							<input type="text" class="form-control" placeholder="" name="qty" value="<?=$GLOBALS['qty']?>" required>
 						</div>
 						
                 <div class="col-md-6">

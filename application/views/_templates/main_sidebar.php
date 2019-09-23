@@ -288,6 +288,26 @@
             <div>Transaction Types</div>
           </a>
         </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_bill_status") {echo "open active";}?>">
+          <a href="<?php echo site_url('Act_bill_status'); ?>" class="sidenav-link">
+            <div>Bill Status</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_tax") {echo "open active";}?>">
+          <a href="<?php echo site_url('Act_tax'); ?>" class="sidenav-link">
+            <div>Taxes</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_accounts") {echo "open active";}?>">
+          <a href="<?php echo site_url('Act_accounts'); ?>" class="sidenav-link">
+            <div>Accounts</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_purchase_order") {echo "open active";}?>">
+          <a href="<?php echo site_url('Act_purchase_order'); ?>" class="sidenav-link">
+            <div>Purchased Orders</div>
+          </a>
+        </li>
 
       </ul>
     </li>

@@ -36,6 +36,10 @@
 						<label class="form-label">Dimensions</label>
 							<input type="text" class="form-control" placeholder="" name="dimensions" value="<?php echo ($this->input->post('dimensions') ? $this->input->post('dimensions') : $MaterialItems['dimensions']); ?>"  >
 						</div>
+						<div class="form-group col-md-6">
+						<label class="form-label">Quantity</label>
+							<input type="text" class="form-control" placeholder="" name="qty" value="<?php echo ($this->input->post('qty') ? $this->input->post('qty') : $MaterialItems['qty']); ?>"  >
+						</div>
 						<div class="form-group col-md-6">	
 							<label class="form-label">Supplier</label>
 						<select class="custom-select" name="supplier" required>

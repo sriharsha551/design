@@ -71,6 +71,7 @@ class MaterialItems extends Admin_Controller{
             'price'   => $this->input->post('price['.$i.']'), 
             'dimensions'   => $this->input->post('dimensions'),  
             'supplier_id'   =>$this->input->post('supplier['.$i.']'),
+            'qty'   => $this->input->post('qty'),
 				'remarks' => $this->input->post('remarks'),
             );
             
@@ -120,6 +121,7 @@ class MaterialItems extends Admin_Controller{
             'price'   => $this->input->post('price'), 
             'dimensions'   => $this->input->post('dimensions'),  
             'supplier_id'   =>$this->input->post('supplier'),
+            'qty'   => $this->input->post('qty'),
 				'remarks' => $this->input->post('remarks'),
                 );
                 // print_r($params);
