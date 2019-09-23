@@ -8,7 +8,7 @@ class  Invoice_items extends Admin_Controller
         $this->page_title->push('Invoice items');
         $this->data['pagetitle'] = $this->page_title->show();
           /* Breadcrumbs :: Common */
-          $this->breadcrumbs->unshift(1, 'invoice items', ' Invoice_items');
+          $this->breadcrumbs->unshift(1, 'invoice items', 'Invoice_items');
 
     }
     public function index()
@@ -42,7 +42,7 @@ class  Invoice_items extends Admin_Controller
         }
         else
         {  
-            $this->template->public_render('invoice_items/add', $this->data);      
+            $this->template->public_render('Invoice_items/add', $this->data);      
            
         }
     

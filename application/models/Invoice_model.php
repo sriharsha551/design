@@ -16,15 +16,20 @@ class Invoice_model extends CI_Model
     
     function get_all_Invoice()
     {
-        $this->db->from('act_invoices');
-        $this->db->where(array('lock_st'=>'0'));
-        return $this->db->get()->result_array();
+        $this->db->select('t1.*,t2.name as invoice_status,t3.ponumber as order_name,t4.name as supplier,t5.name as cr_days,t6.name as tax,t7.item_name');
+        $this->db->join('act_inv_status as t2', 't2.id = t1.invoice_status', 'inner');
+        $this->db->join('act_purchase_order as t3','t1.order_num = t3.id','inner');
+        $this->db->join('act_customer as t4', 't1.customer_id = t4.id', 'inner');
+        $this->db->join('act_cr_days as t5', 't1.cr_days_id= t5.id', 'inner');
+        $this->db->join('act_tax as t6', 't6.id = t1.tax_id', 'inner');
+        $this->db->join('act_inv_items as t7','t1.invoice_item = t7.id');
+        return $this->db->get_where('act_invoices t1',array('t1.delete_status'=>'0'))->result_array();
     }
 
     function get_cut()
     {
-        $this->db->from('suppliers');
-        $this->db->select('id,name,email_id,address,contact_no_1');
+        $this->db->from('act_customer');
+        $this->db->select('id,name,email,address,phone');
         return $this->db->get()->result();
     }
     function get_credit()
@@ -41,13 +46,13 @@ class Invoice_model extends CI_Model
     }
     function get_invoice_items()
     {
-        $this->db->from('act_bill_items');
+        $this->db->from('act_inv_items');
         $this->db->select('id,item_name');
         return $this->db->get()->result();
     }
     function get_inv_status()
     {
-        $this->db->from('act_bill_status');
+        $this->db->from('act_inv_status');
         $this->db->select('id,name');
         return $this->db->get()->result();
     }

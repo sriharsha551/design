@@ -9,7 +9,7 @@
 		$selected = null;
 		foreach($Customers as $supplier)
 		{
-			if($supplier->id == $invoices['cut_id'])
+			if($supplier->id == $invoices['customer_id'])
 			{
 				$selected = $supplier;
 			}
@@ -33,14 +33,14 @@
 				<form action="" method="post">
 				<div class="row clearfix">
 				<div class="col-md-6">
-				<label for="cut_id" class="form-label"><span class="text-danger">*</span>Customer Id</label>
+				<label for="customer_id" class="form-label"><span class="text-danger">*</span>Customer Id</label>
 				<div class="form-group">
 				<select class="form-control" name="supp_id" onchange = "this.form.submit();" >
 						<?php foreach($Customers as $row) {?>
   							<option value='<?php echo $row->id?>' <?php echo ($row->id == $selected->id) ? 'selected="selected"' : "" ?> ><?php echo $row->id.' - ' .$row->name?></option>
 						<?php }?>
 				</select>
-				<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cut_id');?></span>
+				<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('customer_id');?></span>
 				</div>
 				</div>
 				</div>
@@ -48,45 +48,45 @@
             		<?php echo form_open('Invoice/edit/'.$invoices['id']); ?>
 					<div class="row clearfix">
 						<div class="col-md-6" style = "display:none">
-						<label for="cut_id" class="form-label"><span class="text-danger">*</span>Customer Id</label>
+						<label for="customer_id" class="form-label"><span class="text-danger">*</span>Customer Id</label>
 						<div class='form-group'>
-						<input type="hidden" name="cut_id" value="<?php echo $selected->id ? $selected->id : $invoices['cut_id']; ?>" class="form-control" id="cut_id" />
-						<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cut_id');?></span>
+						<input type="hidden" name="customer_id" value="<?php echo $selected->id ? $selected->id : $invoices['customer_id']; ?>" class="form-control" id="customer_id" />
+						<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('customer_id');?></span>
 						</div>
 						</div>
                         <div class="col-md-6">
 							<label for="name" class="form-label"><span class="text-danger">*</span>Customer Name</label>
 							<div class="form-group">
-								<input type="text" name="cut_name" value="<?php echo $selected->name ? $selected->name : $invoices['cut_name']; ?>" class="form-control" id="cut_name" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cut_name');?></span>
+								<input type="text" name="customer_name" value="<?php echo $selected->name ? $selected->name : $invoices['customer_name']; ?>" class="form-control" id="customer_name" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('customer_name');?></span>
 							</div>
 						</div>
                         <div class="col-md-6">
 							<label for="attach_link" class="form-label"><span class="text-danger">*</span>Customer Email</label>
 							<div class="form-group">
-								<input type="text" name="cut_email" value="<?php echo $selected->email_id ? $selected->email_id : $invoices['cut_email']; ?>" class="form-control" id="cut_email" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cut_email');?></span>
+								<input type="text" name="customer_email" value="<?php echo $selected->email ? $selected->email : $invoices['customer_email']; ?>" class="form-control" id="customer_email" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('customer_email');?></span>
 							</div>
 						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Customer Phone</label>
 							<div class="form-group">
-								<input type="text" name="cut_phone" value="<?php echo $selected->contact_no_1 ? $selected->contact_no_1 : $invoices['cut_phone']; ?>" class="form-control" id="cut_phone" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cut_phone');?></span>
+								<input type="text" name="customer_phone" value="<?php echo $selected->phone ? $selected->phone : $invoices['customer_phone']; ?>" class="form-control" id="customer_phone" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('customer_phone');?></span>
 							</div>
 						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Customer Address</label>
 							<div class="form-group">
-								<input type="text" name="cut_address" value="<?php echo $selected->address ? $selected->address : $invoices['cut_address']; ?>" class="form-control" id="cut_address" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cut_address');?></span>
+								<input type="text" name="customer_address" value="<?php echo $selected->address ? $selected->address : $invoices['customer_address']; ?>" class="form-control" id="customer_address" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('customer_address');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Number</label>
 							<div class="form-group">
-								<input type="text" name="inv_num" value="<?php echo ($this->input->post('inv_num') ? $this->input->post('inv_num') : $invoices['inv_num']); ?>" class="form-control" id="inv_num" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('inv_num');?></span>
+								<input type="text" name="invoice_num" value="<?php echo ($this->input->post('invoice_num') ? $this->input->post('invoice_num') : $invoices['invoice_num']); ?>" class="form-control" id="invoice_num" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('invoice_num');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
@@ -114,8 +114,8 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Date</label>
 							<div class="form-group">
-								<input type="text" name="inv_dt" value="<?php echo ($this->input->post('inv_dt') ? $this->input->post('inv_dt') : $invoices['inv_dt']); ?>" class="form-control" id="inv_dt" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('inv_dt');?></span>
+								<input type="text" name="invoice_date" value="<?php echo ($this->input->post('invoice_date') ? $this->input->post('invoice_date') : $invoices['invoice_date']); ?>" class="form-control" id="invoice_date" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('invoice_date');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
@@ -139,8 +139,8 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Quantity</label>
 							<div class="form-group">
-								<input type="text" name="qty" value="<?php echo ($this->input->post('qty') ? $this->input->post('qty') : $invoices['qty']); ?>" class="form-control" id="qty" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('qty');?></span>
+								<input type="text" name="quantity" value="<?php echo ($this->input->post('quantity') ? $this->input->post('quantity') : $invoices['quantity']); ?>" class="form-control" id="quantity" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('quantity');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
@@ -164,8 +164,8 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Tax Amount</label>
 							<div class="form-group">
-								<input type="text" name="tax_amt" value="<?php echo ($this->input->post('tax_amt') ? $this->input->post('tax_amt') : $invoices['tax_amt']); ?>" class="form-control" id="tax_amt" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('tax_amt');?></span>
+								<input type="text" name="tax_amount" value="<?php echo ($this->input->post('tax_amount') ? $this->input->post('tax_amount') : $invoices['tax_amount']); ?>" class="form-control" id="tax_amount" />
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('tax_amount');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">

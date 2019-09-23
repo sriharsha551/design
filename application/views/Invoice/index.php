@@ -40,21 +40,21 @@
                         <?php foreach ($invoice as $invoice) { ?>
                         <tr>
                             <td><?php echo $invoice['id']; ?></td>
-                            <td><?php echo $invoice['cut_id']; ?></td>
-                            <td><?php echo $invoice['cut_name']; ?></td>
-                            <td><?php echo $invoice['cut_email']; ?></td>
-                            <td><?php echo $invoice['cut_phone']; ?></td>
-                            <td><?php echo $invoice['cut_address']; ?></td>
-                            <td><?php echo $invoice['inv_num']; ?></td>
+                            <td><?php echo $invoice['customer_id']; ?></td>
+                            <td><?php echo $invoice['customer_name']; ?></td>
+                            <td><?php echo $invoice['customer_email']; ?></td>
+                            <td><?php echo $invoice['customer_phone']; ?></td>
+                            <td><?php echo $invoice['customer_address']; ?></td>
+                            <td><?php echo $invoice['invoice_num']; ?></td>
                             <td><?php echo $invoice['order_num']; ?></td>
-                            <td><?php echo $invoice['inv_status']; ?></td>
-                            <td><?php echo $invoice['inv_dt']; ?></td>      
-                            <td><?php echo $invoice['cr_days_id']; ?></td>
-                            <td><?php echo $invoice['invoice_item']; ?></td>
-                            <td><?php echo $invoice['qty']; ?></td>
+                            <td><?php echo $invoice['invoice_status']; ?></td>
+                            <td><?php echo $invoice['invoice_date']; ?></td>      
+                            <td><?php echo $invoice['cr_days']; ?></td>
+                            <td><?php echo $invoice['item_name']; ?></td>
+                            <td><?php echo $invoice['quantity']; ?></td>
                             <td><?php echo $invoice['price']; ?></td>
-                            <td><?php echo $invoice['tax_id']; ?></td>
-                            <td><?php echo $invoice['tax_amt']; ?></td>
+                            <td><?php echo $invoice['tax']; ?></td>
+                            <td><?php echo $invoice['tax_amount']; ?></td>
                             <td><?php echo $invoice['remarks']; ?></td>
                             <td>
                                 <a href="<?php echo site_url('invoice/edit/' . $invoice['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>

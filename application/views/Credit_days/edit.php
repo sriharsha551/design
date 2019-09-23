@@ -25,7 +25,7 @@
                             </div>
                 		<div class="box-footer">
 						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check"></i> Sav	</button>
+							<i class="fa fa-check"></i> Save	</button>
 					</div>
             		<?php echo form_close(); ?>
       			</div>
