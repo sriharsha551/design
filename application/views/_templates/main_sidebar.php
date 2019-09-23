@@ -309,6 +309,26 @@
           </a>
         </li>
 
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Credit_days'); ?>" class="sidenav-link">
+            <div>Credit Days</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Transaction'); ?>" class="sidenav-link">
+            <div>Transactions</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Invoice'); ?>" class="sidenav-link">
+            <div>Invoices</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type") {echo "active";}?>">
+          <a href="<?php echo site_url('Invoice_items'); ?>" class="sidenav-link">
+            <div>Invoice Items</div>
+          </a>
+        </li>
       </ul>
     </li>
 
