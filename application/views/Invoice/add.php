@@ -147,7 +147,7 @@
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('invoice_item');?></span>
 							</div>
                         </div>
-
+ 
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Quantity</label>
 							<div class="form-group">
@@ -162,14 +162,6 @@
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('price');?></span>
 							</div>
                         </div>
-                        <!-- <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Tax</label>
-							<div class="form-group">
-								<input type="text" name="tax_id" value="<?php echo $this->input->post('tax_id'); ?>" class="form-control" id="tax_id" />
-								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('tax_id');?></span>
-							</div>
-                        </div> -->
-
 
 						<div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Tax</label>

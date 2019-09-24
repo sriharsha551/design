@@ -38,7 +38,7 @@
                             <td><?php echo $d['remarks']; ?></td>
                                 <td>
                                     <a href="<?php echo site_url('Transaction/edit/' .$d['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
-                                     <a href="<?php echo site_url('Transaction/delete/'.$d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                                     <a href="<?php echo site_url('Transaction/remove/'.$d['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td> 
                             </tr>         
                              <?php } ?>

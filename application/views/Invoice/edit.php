@@ -5,21 +5,21 @@
 	<span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
 	<?php echo $breadcrumb;?>
 	<?php 
-		$GLOBALS['supplier_id'] = null;
+		$GLOBALS['customer_id'] = null;
 		$selected = null;
-		foreach($Customers as $supplier)
+		foreach($Customers as $customer)
 		{
-			if($supplier->id == $invoices['customer_id'])
+			if($customer->id == $invoices['customer_id'])
 			{
-				$selected = $supplier;
+				$selected = $customer;
 			}
 		}
 		if(isset($_POST['supp_id']))
 		{
-			$GLOBALS['supplier_id'] = $_POST['supp_id'];
-			foreach($customers as $supplier){
-				if($supplier->id == $GLOBALS['supplier_id']){
-					$selected = $supplier;
+			$GLOBALS['customer_id'] = $_POST['supp_id'];
+			foreach($Customers as $customer){
+				if($customer->id == $GLOBALS['customer_id']){
+					$selected = $customer;
 					$_SESSION['edit_error'] = false;
 				}
 			}
@@ -108,7 +108,7 @@
   							<option value='<?php echo $row->id?>' <?php echo ($row->id == $invoices['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->name?></option>
 							<?php }?>
 							</select>
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('inv_status');?></span>
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('invoice_status');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
@@ -129,13 +129,25 @@
 								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cr_days_id');?></span>
 							</div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Item</label>
 							<div class="form-group">
 								<input type="text" name="invoice_item" value="<?php echo ($this->input->post('invoice_item') ? $this->input->post('invoice_item') : $invoices['invoice_item']); ?>" class="form-control" id="invoice_item" />
 								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('invoice_item');?></span>
 							</div>
+                        </div> -->
+                        <div class="col-md-6">
+							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Item</label>
+							<div class="form-group">
+							<select class="form-control" name="invoice_item"  >
+							<?php foreach($invoice_item as $row) {?>
+  							<option value='<?php echo $row->id?>' <?php echo ($row->id == $invoices['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->item_name?></option>
+							<?php }?>
+							</select>
+								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('invoice_item');?></span>
+							</div>
                         </div>
+
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Quantity</label>
 							<div class="form-group">

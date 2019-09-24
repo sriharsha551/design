@@ -29,7 +29,10 @@ class Transaction extends Admin_Controller
       $this->breadcrumbs->unshift(2, 'Add', 'add');
       $this->data['breadcrumb'] = $this->breadcrumbs->show();
       $this->load->library('form_validation');
+      $this->form_validation->set_rules('date_transaction','Date of transaction','required');
+      $this->form_validation->set_rules('coa_id','Chart of Accounts name','required');
       $this->form_validation->set_rules('purpose','purpose','required');
+      $this->form_validation->set_rules('payment_amt','Payment amount','required');
       $this->form_validation->set_rules('remarks','remarks','required');
   
       if($this->form_validation->run())     
@@ -55,7 +58,10 @@ class Transaction extends Admin_Controller
     if(isset($this->data['tran_list']['id']))
           {
             $this->load->library('form_validation');
-            $this->form_validation->set_rules('date_transaction','date','required');
+            $this->form_validation->set_rules('date_transaction','Date of transaction','required');
+            $this->form_validation->set_rules('coa_id','coa_id','required');
+            $this->form_validation->set_rules('purpose','purpose','required');
+            $this->form_validation->set_rules('payment_amt','Payment amount','required');
             $this->form_validation->set_rules('remarks','remarks','required');
 
 		   if($this->form_validation->run())     
@@ -76,9 +82,13 @@ class Transaction extends Admin_Controller
             }
 
   }
-  public function delete($id) 
+  public function remove($id)
   {
-      $this->Transaction_model->delete($id);
-      redirect("Transaction/");
+      $inv = $this->Transaction_model->get_transactions_detail($id);
+      // check if the stage exists before trying to delete it
+      if (isset($inv['id'])) {
+          $this->Transaction_model->delete_transactions($id);
+          redirect('Transaction/index');
+      }
   }
-  }
+}

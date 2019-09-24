@@ -79,5 +79,9 @@ public function delete($id)
 {
     $this->Credit_days_model->delete($id);
     redirect("Credit_days/");
+    if (isset($inv['id'])) {
+        $this->Transaction_model->delete_transactions($id);
+        redirect('Credit_days/index');
+}
 }
 }

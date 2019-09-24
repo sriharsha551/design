@@ -1,5 +1,3 @@
-
-
 <?php
 
 class Invoice extends Admin_Controller
@@ -43,7 +41,21 @@ class Invoice extends Admin_Controller
         $this->load->library('form_validation');
 
    
+        $this->form_validation->set_rules('customer_name', 'Customer Name', 'required');
+        $this->form_validation->set_rules('customer_email', 'Customer Email', 'required');
+        $this->form_validation->set_rules('customer_phone', 'Customer Phone', 'required');
+        $this->form_validation->set_rules('customer_address', 'Customer Address', 'required');
+        $this->form_validation->set_rules('invoice_num', 'Invoice Number', 'required');
+        $this->form_validation->set_rules('order_num', 'Order Number', 'required');
         $this->form_validation->set_rules('remarks', 'Remarks', 'required');
+        $this->form_validation->set_rules('invoice_status', 'Invoice Status', 'required');
+        $this->form_validation->set_rules('invoice_date', 'Invoice Date', 'required');
+        $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
+        $this->form_validation->set_rules('invoice_item ', 'Invoice Days', 'required');
+        $this->form_validation->set_rules('quantity', 'Quantity', 'required');
+        $this->form_validation->set_rules('price', 'Price', 'required');
+        $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
+        $this->form_validation->set_rules('tax_amount', 'Tax Amount', 'required');
        
 
         if ($this->form_validation->run()) {
@@ -72,12 +84,20 @@ class Invoice extends Admin_Controller
 
         if (isset($this->data['invoices']['id'])) {
         
-  
-        $this->form_validation->set_rules('remarks', 'Remarks', 'required');
-        $this->form_validation->set_rules('quantity', 'Quantity', 'required');
-        $this->form_validation->set_rules('price', 'Price', 'required');
-    
-
+            $this->form_validation->set_rules('customer_name', 'Customer Name', 'required');
+            $this->form_validation->set_rules('customer_email', 'Customer Email', 'required');
+            $this->form_validation->set_rules('customer_phone', 'Customer Phone', 'required');
+            $this->form_validation->set_rules('customer_address', 'Customer Address', 'required');
+            $this->form_validation->set_rules('invoice_num', 'Invoice Number', 'required');
+            $this->form_validation->set_rules('order_num', 'Order Number', 'required');
+            $this->form_validation->set_rules('remarks', 'Remarks', 'required');
+            $this->form_validation->set_rules('invoice_status', 'Invoice Status', 'required');
+            $this->form_validation->set_rules('invoice_date', 'Invoice Date', 'required');
+            $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
+            $this->form_validation->set_rules('quantity', 'Quantity', 'required');
+            $this->form_validation->set_rules('price', 'Price', 'required');
+            $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
+            $this->form_validation->set_rules('tax_amount', 'Tax Amount', 'required');
             if ($this->form_validation->run()) {
                 $params = $this->input->post();
                 $this->Invoice_model->update($id, $params);
@@ -94,8 +114,11 @@ class Invoice extends Admin_Controller
 
     public function delete($id) 
     {
+        $inv = $this->Invoice_model->get_invoice_detail($id);
+        if (isset($inv['id'])) {
         $this->Invoice_model->delete($id);
         redirect("Invoice/");
+        }
     }
 
 }

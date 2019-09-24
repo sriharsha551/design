@@ -80,7 +80,10 @@ class  Invoice_items extends Admin_Controller
 }
 public function delete($id) 
 {
+    $inv = $this->Invoice_items_model->get_invoice_item_detail($id);
+    if (isset($inv['id'])) {
     $this->Invoice_items_model->delete($id);
     redirect("Invoice_items/");
+    }
 }
 }
