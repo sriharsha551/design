@@ -18,10 +18,11 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Invoice id</th>
-                            <th>Coa Id</th>
+                            <th>Invoice Num</th>
+                            <!-- <th>Coa Id</th> -->
                             <th>Paid Date</th>
                             <th>Amount</th>
+                            <th>Amount Recieved </th>
                             <th>Description</th>
                             <th>Pay Method</th>
                             <th>Remarks</th>
@@ -33,9 +34,10 @@
                         <tr>
                             <td><?php echo $invoice['id']; ?></td>
                             <td><?php echo $invoice['inv_id']; ?></td>
-                            <td><?php echo $invoice['coa_id']; ?></td>
+                            <!-- <td><?php echo $invoice['coa_id']; ?></td> -->
                             <td><?php echo $invoice['paid_dt']; ?></td>
                             <td><?php echo $invoice['amount']; ?></td>
+                            <td><?php echo $invoice['amount_recieved']; ?></td>
                             <td><?php echo $invoice['description']; ?></td>
                             <td><?php echo $invoice['pay_method']; ?></td>
                             <td><?php echo $invoice['remarks']; ?></td>

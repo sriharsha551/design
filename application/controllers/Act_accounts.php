@@ -77,6 +77,7 @@
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
             // check if the status exists before trying to edit it
             $this->data['status'] = $this->Act_accounts_model->getDetail($id);
+            $this->data['coa_id'] = $this->Act_accounts_model->get_coa();
             if(isset($this->data['status']['id']))
             {
                 $this->load->library('form_validation');
