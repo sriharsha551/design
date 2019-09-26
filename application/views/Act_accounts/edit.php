@@ -8,7 +8,7 @@
 
     <h4 class="font-weight-bold py-2 mb-4">
         <span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
-        <?php echo $breadcrumb; ?>
+        <?php echo $breadcrumb; print_r($status) ?>
     </h4>
     
 
@@ -34,7 +34,7 @@
                     </div>
                     
                     <div class="col-md-6">
-                        <label for="name" class="form-label"><span class="text-danger">*</span>Name</label>
+                        <label for="name" class="form-label"><span class="text-danger">*</span>Account Name</label>
                         <div class="form-group">
                             <input type="text" name="acc_name" value="<?php echo ($this->input->post('acc_name') ? $this->input->post('acc_name') : $status['acc_name']); ?>" class="form-control" id="acc_name" />
                             <span class="text-danger">

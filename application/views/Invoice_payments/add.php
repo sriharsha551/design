@@ -55,6 +55,13 @@
 								<span class="text-danger"><?php echo form_error('amount');?></span>
 							</div>
 						</div>
+						<div class="col-md-6">
+							<label for="percentage" class="form-label"><span class="text-danger">*</span>Amount Recieved</label>
+							<div class="form-group">
+								<input type="text" name="amount_recieved" value="<?php echo $this->input->post('amount_recieved'); ?>" class="form-control" id="amount_recieved" />
+								<span class="text-danger"><?php echo form_error('amount_recieved');?></span>
+							</div>
+						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Description</label>
 							<div class="form-group">

@@ -93,9 +93,12 @@
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Order Number</label>
 							<div class="form-group">
 							<select class="form-control" name="order_num" required>
-							<option value=''>select name</option>
+							<option value=''>Select Name</option>
 							<?php foreach($order_num as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->ponumber?></option>
+								<option value="<?php echo $row->id;?>" <?php echo $this->input->post('order_num') == $row->id? 'selected="selected"' : ""; ?>>
+										<?php echo $row->ponumber;?>
+									</option>
+								
 							<?php }?>
 							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('order_num');?></span>
@@ -107,7 +110,9 @@
 							<select class="form-control" name="invoice_status" required>
 							<option value=''>select name</option>
 							<?php foreach($inv_status as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+							  <option value="<?php echo $row->id;?>" <?php echo $this->input->post('invoice_status') == $row->id? 'selected="selected"' : ""; ?>>
+										<?php echo $row->name;?>
+									</option>
 							<?php }?>
 							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('invoice_status');?></span>
@@ -127,7 +132,10 @@
 							<select class="form-control" name="cr_days_id" required>
 							<option value=''>select name</option>
 							<?php foreach($credit as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+  							<!-- <option value='<?php echo $row->id?>'><?php echo $row->name?></option> -->
+							  <option value="<?php echo $row->id;?>" <?php echo $this->input->post('cr_days_id') == $row->id? 'selected="selected"' : ""; ?>>
+										<?php echo $row->name;?>
+									</option>
 							<?php }?>
 							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('cr_days_id');?></span>
@@ -141,7 +149,9 @@
 							<select class="form-control" name="invoice_item" required>
 							<option value=''>select name</option>
 							<?php foreach($invoice_item as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->item_name?></option>
+							  <option value="<?php echo $row->id;?>" <?php echo $this->input->post('invoice_item') == $row->id? 'selected="selected"' : ""; ?>>
+										<?php echo $row->item_name;?>
+									</option>
 							<?php }?>
 							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('invoice_item');?></span>
@@ -169,7 +179,9 @@
 							<select class="form-control" name="tax_id" required>
 							<option value=''>select name</option>
 							<?php foreach($tax as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+							  <option value="<?php echo $row->id;?>" <?php echo $this->input->post('tax_id') == $row->id? 'selected="selected"' : ""; ?>>
+										<?php echo $row->name;?>
+									</option>
 							<?php }?>
 							</select>
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('tax_id');?></span>

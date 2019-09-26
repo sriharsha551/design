@@ -43,6 +43,7 @@ class Invoice_payments extends Admin_Controller
         $this->form_validation->set_rules('coa_id','Coa id','required');
         $this->form_validation->set_rules('paid_dt','Paid Date','required');
         $this->form_validation->set_rules('amount','Amount','required');
+        $this->form_validation->set_rules('amount_recieved','Amount Recieved','required');       
         $this->form_validation->set_rules('description','Description','required');
         $this->form_validation->set_rules('pay_method','Pay Method','required');
         $this->form_validation->set_rules('remarks','Remarks','required');
@@ -78,6 +79,7 @@ class Invoice_payments extends Admin_Controller
             $this->form_validation->set_rules('coa_id','Coa id','required');
             $this->form_validation->set_rules('paid_dt','Paid Date','required');
             $this->form_validation->set_rules('amount','Amount','required');
+            $this->form_validation->set_rules('amount_recieved','Amount Recieved','required');       
             $this->form_validation->set_rules('description','Description','required');
             $this->form_validation->set_rules('pay_method','Pay Method','required');
             $this->form_validation->set_rules('remarks','Remarks','required');

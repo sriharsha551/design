@@ -49,10 +49,11 @@ class Invoice extends Admin_Controller
         $this->form_validation->set_rules('invoice_num', 'Invoice Number', 'required');
         $this->form_validation->set_rules('order_num', 'Order Number', 'required');
         $this->form_validation->set_rules('invoice_status', 'Invoice Status', 'required');
+        $this->form_validation->set_rules('invoice_item', 'Invoice Item', 'required');
         $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
         $this->form_validation->set_rules('quantity', 'Quantity', 'required');
         $this->form_validation->set_rules('price', 'Price', 'required');
-        $this->form_validation->set_rules('tax', 'Tax Id', 'required');
+        $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
         $this->form_validation->set_rules('tax_amount', 'Tax Amount', 'required');
         $this->form_validation->set_rules('remarks', 'Remarks', 'required');
 
