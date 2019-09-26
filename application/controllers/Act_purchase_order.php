@@ -5,10 +5,10 @@
             parent::__construct();
             $this->load->model('Act_purchase_order_model');
 
-            $this->page_title->push('Purchases');
+            $this->page_title->push('Purchase Orders');
             $this->data['pagetitle'] = $this->page_title->show();
 
-            $this->breadcrumbs->unshift(1, 'Purchases', 'Act_purchase_order');
+            $this->breadcrumbs->unshift(1, 'Purchase Orders', 'Act_purchase_order');
         }
 
         public function index()

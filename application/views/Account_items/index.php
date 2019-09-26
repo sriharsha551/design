@@ -21,8 +21,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Unit Price</th>
                             <th>Enabled</th>
                             <th>Actions</th>
                         </tr>
@@ -41,7 +40,6 @@
                             <td><?php echo $d['id']; ?></td>
                             <td><?php echo $d['name']; ?></td>
                             <td><?php echo $d['price']; ?></td>
-                            <td><?php echo $d['quantity']; ?></td>
                             <td><?php echo $d['enabled']; ?></td>
 
                             <td>

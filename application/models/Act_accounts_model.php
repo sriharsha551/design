@@ -15,6 +15,12 @@
             $this->db->select('id,name');
             return $this->db->get('act_coa')->result_array();
         }
+        public function get_balance($id){
+            $this->db->where('id',$id);
+            $this->db->select('cr_amt,db_amt');
+            $this->db->from('act_transaction');
+            return $this->db->get()->result_array();
+        }
 
         public function get_all_accounts(){
             $this->db->where('a.deleted_at',NULL);

@@ -15,39 +15,27 @@
         <h6 class="card-header">Edit</h6>
         <div class="card-body"> 
             <div class="box-body">
-                <?php echo form_open('Account_coa/edit/'.$coa_detail['id']); ?>
+                <?php echo form_open('Account_types/edit/'.$type_detail['id']); ?>
 
                 <div class="row clearfix">
                     <div class="col-md-6">
                         <label for="name" class="form-label"><span class="text-danger">*</span>Name</label>
                         <div class="form-group">
-                            <input type="text" name="name" value="<?php echo ($this->input->post('name') ? $this->input->post('name') : $coa_detail['name']); ?>" class="form-control" id="name" />
+                            <input type="text" name="name" value="<?php echo ($this->input->post('name') ? $this->input->post('name') : $type_detail['name']); ?>" class="form-control" id="name" />
                             <span class="text-danger"><?php echo form_error('name');?></span>
                         </div>
                     </div>
                     <div class="col-md-6">
-							<label  class="form-label"><span class="text-danger">*</span>Type</label>
+							<label  class="form-label"><span class="text-danger">*</span>Group</label>
 							<div class="form-group">
-                            <!-- <select name="type_id" class="form-control">
-								<option value="">Select Type</option>
-								<?php foreach ($type_list as $type) { ;?>
-									<option value="<?php echo $type['id'];?>" <?php echo ($this->input->post('type_id') == $type['id'] || $coa_detail['type_id'] == $type['id']  ) ? 'selected="selected"' : ""; ?>>
-										<?php echo $type['name'];?>
+                            <select name="group_id" class="form-control">
+								<option value="">Select Group</option>
+								<?php foreach ($group_list as $group) { ;?>
+									<option value="<?php echo $group['id'];?>" <?php echo ($this->input->post('group_id') == $group['id'] || $type_detail['group_id'] == $group['id']  ) ? 'selected="selected"' : ""; ?>>
+										<?php echo $group['name'];?>
 									</option>
 								<?php } ?>
-                            </select> -->
-                            <select name="type_id" class="form-control">
-									<option value="">Select Type</option>
-									<?php foreach(array_keys($dropdown_data) as $group) {?>
-										<optgroup label="<?php echo $group;?>">
-											<?php foreach($dropdown_data[$group] as $type) { ?>
-												<option value="<?php echo $type['id'];?>" <?php echo ($this->input->post('type_id') == $type['id'] ||  $coa_detail['type_id'] == $type['id'] ) ? 'selected="selected"' : ""; ?>>
-													<?php echo $type['name'];?>
-												</option>
-											<?php } ?>
-										</optgroup>
-									<?php }?>
-							</select>
+                            </select>
 								<span class="text-danger"><?php echo form_error('enabled');?></span>
 							</div>
 						</div>
@@ -55,8 +43,8 @@
 						<label for="enabled" class="form-label"><span class="text-danger">*</span>Enabled</label>
 						<div class="form-group">
                             <select name="enabled" class="form-control">
-                                <option value="1" <?php echo ($this->input->post('enabled') == "1" || $coa_detail['enabled'] == "1") ? 'selected="selected"' : ""; ?>>Yes</option>
-                                <option value="0" <?php echo ($this->input->post('enabled') == "0" || $coa_detail['enabled'] == "0") ? 'selected="selected"' : ""; ?>>No</option>
+                                <option value="1" <?php echo ($this->input->post('enabled') == "1" || $type_detail['enabled'] == "1") ? 'selected="selected"' : ""; ?>>Yes</option>
+                                <option value="0" <?php echo ($this->input->post('enabled') == "0" || $type_detail['enabled'] == "0") ? 'selected="selected"' : ""; ?>>No</option>
                             </select>
 								<span class="text-danger"><?php echo form_error('enabled');?></span>
 							</div>

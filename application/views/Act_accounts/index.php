@@ -21,20 +21,20 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Category ID</th>
-                            <th>Name</th>
+                            <th>COA</th>
                             <th>Opening Balance</th>
+                            <th>Available Balance</th>
                             <th>Bank Name</th>
-                            <th>Bank Address</th>
+                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <?php foreach ($taxes as $d) {?>
                         <tr>
                             <td><?php echo $d['id']; ?></td>
-                            <td><?php echo $d['name']; ?></td>
                             <td><?php echo $d['acc_name'] ?></td>
                             <td><?php echo $d['opening_balance'] ?></td>
+                            <td><?php echo $d['balance']?></td>
                             <td><?php echo $d['bank_name'] ?></td>
                             <td><?php echo $d['bank_address'] ?></td>
                             <td>

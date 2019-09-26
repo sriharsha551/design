@@ -67,7 +67,7 @@
                     </div>
                     
                     <div class="col-md-12">
-                        <label for="bank_address" class="form-label"><span class="text-danger">*</span>Bank Address</label>
+                        <label for="bank_address" class="form-label"><span class="text-danger">*</span>Address</label>
                         <div class="form-group">
                             <input type="text" name="bank_address" value="<?php echo ($this->input->post('bank_address') ? $this->input->post('bank_address') : $status['bank_address']); ?>" class="form-control" id="bank_address" />
                             <span class="text-danger">

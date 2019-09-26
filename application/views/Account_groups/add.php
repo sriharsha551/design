@@ -15,7 +15,7 @@
             <h6 class="card-header">ADD</h6>
 			<div class="card-body"> 
 				<div class="box-body"> 
-            		<?php echo form_open('Account_coa_category/add'); ?>
+            		<?php echo form_open('Account_groups/add'); ?>
 
 					<div class="row clearfix">
 						<div class="col-md-6">
