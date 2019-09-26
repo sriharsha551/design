@@ -129,17 +129,11 @@
 								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('cr_days_id');?></span>
 							</div>
                         </div>
-                        <!-- <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Item</label>
-							<div class="form-group">
-								<input type="text" name="invoice_item" value="<?php echo ($this->input->post('invoice_item') ? $this->input->post('invoice_item') : $invoices['invoice_item']); ?>" class="form-control" id="invoice_item" />
-								<span class="text-danger"><?php if($_SESSION['edit_error']==true)echo form_error('invoice_item');?></span>
-							</div>
-                        </div> -->
+                        
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Invoice Item</label>
 							<div class="form-group">
-							<select class="form-control" name="invoice_item"  >
+							<select class="form-control" name="invoice_item" required >
 							<?php foreach($invoice_item as $row) {?>
   							<option value='<?php echo $row->id?>' <?php echo ($row->id == $invoices['id']) ? 'selected="selected"' : "" ?> ><?php echo $row->item_name?></option>
 							<?php }?>

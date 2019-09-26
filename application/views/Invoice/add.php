@@ -110,7 +110,7 @@
   							<option value='<?php echo $row->id?>'><?php echo $row->name?></option>
 							<?php }?>
 							</select>
-								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('inv_status');?></span>
+								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('invoice_status');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">

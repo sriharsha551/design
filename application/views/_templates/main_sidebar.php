@@ -19,14 +19,14 @@
   <?php if ($this->ion_auth->is_admin()) {?>
 
     <!-- Dashboards -->
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "") {echo "active";}?>">
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "") {echo "active";}?>">
       <a href="<?php echo site_url('/'); ?>" class="sidenav-link"><i class="sidenav-icon ion ion-md-speedometer"></i>
         <div>Dashboards</div>
       </a>
-    </li>
+    </li> -->
 
     <!-- Layouts -->
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "Employee" || $this->uri->segment(1) == "Employee_appriasal" || $this->uri->segment(1) == "Employee_resign" || $this->uri->segment(1) == "Employee_termination") {echo "open active";}?>" >
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Employee" || $this->uri->segment(1) == "Employee_appriasal" || $this->uri->segment(1) == "Employee_resign" || $this->uri->segment(1) == "Employee_termination") {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-people"></i>
         <div>Employees</div>
       </a>
@@ -95,10 +95,10 @@
       <a href="<?php echo site_url('Interview_evaluation'); ?>" class="sidenav-link"><i class="sidenav-icon ion ion-ios-person-add d-block"></i>
         <div>Interview Evalution</div>
       </a>
-    </li>
+    </li> -->
 
     <!-- Attendance -->
-    <li class="sidenav-item">
+    <!-- <li class="sidenav-item">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-eye"></i>
         <div>Attendance</div>
       </a>
@@ -121,10 +121,10 @@
         </li>
 
       </ul>
-    </li>
+    </li> -->
 
     <!-- Office -->
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "Memo" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Memo" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-business"></i>
         <div>Office</div>
       </a>
@@ -151,10 +151,10 @@
           </a>
         </li>
       </ul>
-    </li>
+    </li> -->
 
     <!--  Projects -->
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "project") {echo "open active";}?>">
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "project") {echo "open active";}?>">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-md-business"></i>
         <div>Projects</div>
       </a>
@@ -182,10 +182,10 @@
         </li>
 
       </ul>
-    </li>
+    </li> -->
 
     <!--  Pay roles -->
-    <li class="sidenav-item">
+    <!-- <li class="sidenav-item">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-calculator"></i>
         <div>Pay Roles</div>
       </a>
@@ -198,10 +198,10 @@
         </li>
 
       </ul>
-    </li>
+    </li> -->
 
     <!--  Leave Management -->
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "Leave") {echo "open active";}?>" >
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Leave") {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
         <div>Leave Management</div>
       </a>
@@ -228,7 +228,7 @@
           </a>
         </li>
       </ul>
-    </li>
+    </li> -->
 
     <!-- Accounts -->
   <li class="sidenav-item <?php if ($this->uri->segment(1) == "Accounts") {echo "open active";}?>" >
@@ -330,14 +330,14 @@
       </ul>
     </li>
 
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "Designation" || $this->uri->segment(1) == "Department" || $this->uri->segment(1) == "Leave_type" || $this->uri->segment(1) == "holiday" ||$this->uri->segment(1) == "visitor" ) {echo "open active";}?>" >
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Designation" || $this->uri->segment(1) == "Department" || $this->uri->segment(1) == "Leave_type" || $this->uri->segment(1) == "holiday" ||$this->uri->segment(1) == "visitor" ) {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-tools"></i>
         <div>Settings</div>
       </a>
 
-      <ul class="sidenav-menu">
+      <ul class="sidenav-menu"> -->
         <!-- Designation -->
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Designation") {echo "open active";}?>">
+        <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Designation") {echo "open active";}?>">
           <a href="<?php echo site_url('Designation'); ?>" class="sidenav-link">
             <i class="sidenav-icon ion ion-md-person d-block"></i>
             <div>Designation</div>
@@ -370,16 +370,16 @@
 
   <?php
 
-  } else {?>
+  } else {?> -->
     <!-- Dashboards -->
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "") {echo "active";}?>">
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "") {echo "active";}?>">
         <a href="<?php echo site_url('/'); ?>" class="sidenav-link"><i class="sidenav-icon ion ion-md-speedometer"></i>
           <div>Dashboards</div>
         </a>
-      </li>
+      </li> -->
 
       <!-- Attendance -->
-      <li class="sidenav-item">
+      <!-- <li class="sidenav-item">
         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-eye"></i>
           <div>Attendance</div>
         </a>
@@ -402,10 +402,10 @@
           </li>
 
         </ul>
-      </li>
+      </li> -->
 
       <!-- Office -->
-      <li class="sidenav-item">
+      <!-- <li class="sidenav-item">
         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-business"></i>
           <div>Office</div>
         </a>
@@ -432,12 +432,12 @@
             </a>
           </li>
         </ul>
-      </li>
+      </li> -->
 
 
 
       <!--  Leave Management -->
-      <li class="sidenav-item <?php if ($this->uri->segment(1) == "Leave") {echo "open active";}?>" >
+      <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Leave") {echo "open active";}?>" >
         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
           <div>Leave Management</div>
         </a>
@@ -458,9 +458,9 @@
       </li>
 
     <?php
-  }?>
+  }?> -->
 
-      <!-- Site Management -->
+      <!-- Site Management
 <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs"></i>
         <div>Site Management</div>
@@ -488,7 +488,7 @@
 
 <!--Material-->
 
-<li class="sidenav-item">
+<!-- <li class="sidenav-item">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-calculator"></i>
         <div>Materials </div>
       </a>
@@ -532,8 +532,8 @@
 
       </ul>
     </li>
-    <!--Project Design-->  
-    <li class="sidenav-item <?php if ($this->uri->segment(1) == "project_design") {echo "open active";}?>" >
+    <!-- Project Design-->  
+    <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "project_design") {echo "open active";}?>" >
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-paper"></i>
         <div>Design</div>
       </a>
@@ -565,10 +565,10 @@
           </a>
         </li>
       </ul>
-    </li>
+    </li>  -->
 
 <!-- Project Settings -->
-<li class="sidenav-item <?php if ($this->uri->segment(1) == "Type" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
+<!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Type" || $this->uri->segment(1) == "Hr_policy") {echo "open active";}?>">
       <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs"></i>
         <div>Project Settings</div>
       </a>
@@ -601,7 +601,7 @@
         </li>
 
       </ul>
-    </li>
+    </li> -->
 
   </ul>
 </div>
