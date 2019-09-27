@@ -5,10 +5,10 @@ class Transaction extends Admin_Controller
     public function __construct() {
         parent :: __construct();
         $this->load->model('Transaction_model');
-        $this->page_title->push('Account Transaction');
+        $this->page_title->push('Transactions');
         $this->data['pagetitle'] = $this->page_title->show();
           /* Breadcrumbs :: Common */
-          $this->breadcrumbs->unshift(1, 'Amount transaction', 'Transaction');
+          $this->breadcrumbs->unshift(1, 'Transactions', 'Transaction');
 
     }
     public function index()

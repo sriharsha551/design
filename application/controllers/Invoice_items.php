@@ -5,10 +5,10 @@ class  Invoice_items extends Admin_Controller
     public function __construct() {
         parent :: __construct();
         $this->load->model('Invoice_items_model');
-        $this->page_title->push('Invoice items');
+        $this->page_title->push('Invoice Items');
         $this->data['pagetitle'] = $this->page_title->show();
           /* Breadcrumbs :: Common */
-          $this->breadcrumbs->unshift(1, 'invoice items', 'Invoice_items');
+          $this->breadcrumbs->unshift(1, 'Invoice Items', 'Invoice_items');
 
     }
     public function index()

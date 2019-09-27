@@ -6,11 +6,11 @@ class Account_inv_status extends Admin_Controller
     {
         parent :: __construct();
         $this->load->model('Account_inv_status_model');
-        $this->page_title->push('Invoice Status Names');
+        $this->page_title->push('Invoice Status');
         $this->data['pagetitle'] = $this->page_title->show();
 
         /* Breadcrumbs :: Common */
-        $this->breadcrumbs->unshift(1, 'Status Names', 'Account_inv_status');
+        $this->breadcrumbs->unshift(1, 'Invoice Status', 'Account_inv_status');
     }
 
     public function index() 

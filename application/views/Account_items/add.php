@@ -26,17 +26,10 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="price" class="form-label"><span class="text-danger">*</span>Price</label>
+							<label for="price" class="form-label"><span class="text-danger">*</span>Unit Price</label>
 							<div class="form-group">
 								<input type="text" name="price" value="<?php echo $this->input->post('price'); ?>" class="form-control" id="price" />
 								<span class="text-danger"><?php echo form_error('price');?></span>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<label for="quantity" class="form-label"><span class="text-danger">*</span>Quantity</label>
-							<div class="form-group">
-								<input type="text" name="quantity" value="<?php echo $this->input->post('quantity'); ?>" class="form-control" id="quantity" />
-								<span class="text-danger"><?php echo form_error('quantity');?></span>
 							</div>
 						</div>
 					</div>

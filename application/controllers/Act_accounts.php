@@ -16,7 +16,7 @@
         public function index() {
             $params['limit'] = RECORDS_PER_PAGE; 
             $params['offset'] = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
-            
+
             $config = $this->config->item('pagination');
             $config['base_url'] = site_url('Act_accounts/index?');
             $config['total_rows'] = $this->Act_accounts_model->get_count();
@@ -24,6 +24,11 @@
             /* Breadcrumbs */
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
             $this->data['taxes'] = $this->Act_accounts_model->get_all_accounts();
+            for($d=0;$d<count($this->data['taxes']);$d++)
+            {
+                $this->data['balance'][$d] = $this->Act_accounts_model->get_balance($this->data['taxes'][$d]['id']);
+            }
+            // print_r($this->data['balance']);
             $this->template->public_render('Act_accounts/index', $this->data);
     
         }

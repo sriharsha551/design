@@ -5,11 +5,11 @@
             parent :: __construct();
 
             $this->load->model('Act_tax_model');
-            $this->page_title->push('Taxes');
+            $this->page_title->push('Tax');
             $this->data['pagetitle'] = $this->page_title->show();
 
             /* Breadcrumbs :: Common */
-            $this->breadcrumbs->unshift(1, 'Taxes', 'Act_tax');
+            $this->breadcrumbs->unshift(1, 'Tax', 'Act_tax');
         }
 
         public function index() {

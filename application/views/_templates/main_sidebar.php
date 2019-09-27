@@ -237,19 +237,82 @@
       </a>
 
       <ul class="sidenav-menu">
+      <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_groups") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_groups'); ?>" class="sidenav-link">
+            <div>Account Groups</div>
+          </a>
+      </li>
+      <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_types") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_types'); ?>" class="sidenav-link">
+            <div>Account Types</div>
+          </a>
+      </li>
+      <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_coa'); ?>" class="sidenav-link">
+            <div>COA</div>
+          </a>
+      </li>
+      <li class="sidenav-item <?php if ($this->uri->segment(1) == "Credit_days") {echo "open active";}?>">
+          <a href="<?php echo site_url('Credit_days'); ?>" class="sidenav-link">
+            <div>Credit Days</div>
+          </a>
+      </li>
       <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_items") {echo "open active";}?>">
           <a href="<?php echo site_url('Account_items'); ?>" class="sidenav-link">
-            <div>Account Items</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_customer") {echo "open active";}?>">
-          <a href="<?php echo site_url('Account_customer'); ?>" class="sidenav-link">
-            <div>Account Customer</div>
+            <div>Items</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_accounts") {echo "open active";}?>">
           <a href="<?php echo site_url('Act_accounts'); ?>" class="sidenav-link">
             <div>Accounts</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_customer") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_customer'); ?>" class="sidenav-link">
+            <div>Customers</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_coa'); ?>" class="sidenav-link">
+            <div>Chart Of Accounts</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa_category") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_coa_category'); ?>" class="sidenav-link">
+            <div>Chart Of  Accounts Category</div>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Invoice_items") {echo "open active";}?>">
+          <a href="<?php echo site_url('Invoice_items'); ?>" class="sidenav-link">
+            <div>Invoice Items</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_inv_status") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_inv_status'); ?>" class="sidenav-link">
+            <div>Invoice Status</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_payment_method") {echo "open active";}?>">
+          <a href="<?php echo site_url('Account_payment_method'); ?>" class="sidenav-link">
+            <div>Payment Methods</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Invoice") {echo "open active";}?>">
+          <a href="<?php echo site_url('Invoice'); ?>" class="sidenav-link">
+            <div>Invoices</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(2) == "Invoice_payments") {echo "open active";}?>">
+          <a href="<?php echo site_url('Invoice_payments'); ?>" class="sidenav-link">
+            <div>Invoice Payments</div>
+          </a>
+        </li>  
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_purchase_order") {echo "open active";}?>">
+          <a href="<?php echo site_url('Act_purchase_order'); ?>" class="sidenav-link">
+            <div>Purchased Orders</div>
+          </a>
+        </li>
+        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_bill_status") {echo "open active";}?>">
+          <a href="<?php echo site_url('Act_bill_status'); ?>" class="sidenav-link">
+            <div>Bill Status</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Bills" && $this->uri->segment(2) == "") {echo "open active";}?>">
@@ -262,59 +325,9 @@
             <div>Bill Payments</div>
           </a>
         </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_bill_status") {echo "open active";}?>">
-          <a href="<?php echo site_url('Act_bill_status'); ?>" class="sidenav-link">
-            <div>Bill Status</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa") {echo "open active";}?>">
-          <a href="<?php echo site_url('Account_coa'); ?>" class="sidenav-link">
-            <div>Chart Of Accounts</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa_category") {echo "open active";}?>">
-          <a href="<?php echo site_url('Account_coa_category'); ?>" class="sidenav-link">
-            <div>Chart Of  Accounts Category</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Credit_days") {echo "open active";}?>">
-          <a href="<?php echo site_url('Credit_days'); ?>" class="sidenav-link">
-            <div>Credit Days</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Invoice") {echo "open active";}?>">
-          <a href="<?php echo site_url('Invoice'); ?>" class="sidenav-link">
-            <div>Invoices</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Invoice_items") {echo "open active";}?>">
-          <a href="<?php echo site_url('Invoice_items'); ?>" class="sidenav-link">
-            <div>Invoice Items</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(2) == "Invoice_payments") {echo "open active";}?>">
-          <a href="<?php echo site_url('Invoice_payments'); ?>" class="sidenav-link">
-            <div>Invoice Payments</div>
-          </a>
-        </li>  
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_inv_status") {echo "open active";}?>">
-          <a href="<?php echo site_url('Account_inv_status'); ?>" class="sidenav-link">
-            <div>Invoice Status</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_payment_method") {echo "open active";}?>">
-          <a href="<?php echo site_url('Account_payment_method'); ?>" class="sidenav-link">
-            <div>Payment Methods</div>
-          </a>
-        </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_purchase_order") {echo "open active";}?>">
-          <a href="<?php echo site_url('Act_purchase_order'); ?>" class="sidenav-link">
-            <div>Purchased Orders</div>
-          </a>
-        </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Act_tax") {echo "open active";}?>">
           <a href="<?php echo site_url('Act_tax'); ?>" class="sidenav-link">
-            <div>Taxes</div>
+            <div>Tax</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Transaction") {echo "open active";}?>">
@@ -322,11 +335,11 @@
             <div>Transactions</div>
           </a>
         </li>
-        <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_trans_type") {echo "open active";}?>">
+        <!-- <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_trans_type") {echo "open active";}?>">
           <a href="<?php echo site_url('Account_trans_type'); ?>" class="sidenav-link">
             <div>Transaction Types</div>
           </a>
-        </li>
+        </li> -->
       </ul>
     </li>
 

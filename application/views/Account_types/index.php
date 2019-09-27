@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="box-body card-datatable">
                     <div class="box-tools">
-                        <a href="<?php echo site_url('Account_coa/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
+                        <a href="<?php echo site_url('Account_types/add'); ?>" class="btn btn-success btn-sm float-right mb-2 ">Add</a>
                     </div>
 
                     <table class="datatables-demo table table-striped table-bordered">
@@ -17,20 +17,20 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Type</th>
+                            <th>Category</th>
                             <th>Enabled</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <?php foreach ($coa_details as $coa) {?>
+                        <?php foreach ($type_details as $type) {?>
                         <tr>
-                            <td><?php echo $coa['id']; ?></td>
-                            <td><?php echo $coa['name']; ?></td>
-                            <td><?php echo $coa['type_name']?></td>
-                            <td><?php echo $coa['enabled'] == "1" ? "Yes" : "No"; ?></td>
+                            <td><?php echo $type['id']; ?></td>
+                            <td><?php echo $type['name']; ?></td>
+                            <td><?php echo $type['group_name']?></td>
+                            <td><?php echo $type['enabled'] == "1" ? "Yes" : "No"; ?></td>
                             <td>
-                                <a href="<?php echo site_url('Account_coa/edit/' . $coa['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
-                                <a href="<?php echo site_url('Account_coa/remove/' . $coa['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
+                                <a href="<?php echo site_url('Account_types/edit/' . $type['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a>
+                                <a href="<?php echo site_url('Account_types/remove/' . $type['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
                     <?php } ?>                    

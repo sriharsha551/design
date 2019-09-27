@@ -6,11 +6,11 @@ class Account_coa extends Admin_Controller
     {
         parent :: __construct();
         $this->load->model('Account_coa_model');
-        $this->page_title->push('Accounts COA');
+        $this->page_title->push('COA');
         $this->data['pagetitle'] = $this->page_title->show();
 
         /* Breadcrumbs :: Common */
-        $this->breadcrumbs->unshift(1, 'Account COA', 'Account_coa');
+        $this->breadcrumbs->unshift(1, 'COA', 'Account_coa');
     }
 
     public function index() 
@@ -32,10 +32,11 @@ class Account_coa extends Admin_Controller
     {
         $this->breadcrumbs->unshift(2, 'Add', 'add');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        $this->form_validation->set_rules('name', 'Account COA Name', 'required');
+        $this->form_validation->set_rules('name', 'COA Name', 'required');
         $this->form_validation->set_rules('enabled', 'Enabled', 'required');
-        $this->form_validation->set_rules('coa_cat_id', 'Category', 'required');
-        $this->data['cat_list'] = $this->Account_coa_model->get_cat_list();
+        $this->form_validation->set_rules('type_id', 'Category', 'required');
+        $this->data['type_list'] = $this->Account_coa_model->get_types_list();
+        $this->data['dropdown_data'] = $this->Account_coa_model->get_group_data();
         if($this->form_validation->run())
         {
             $this->Account_coa_model->add_act_coa($this->input->post());
@@ -51,11 +52,11 @@ class Account_coa extends Admin_Controller
     {
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        $this->form_validation->set_rules('name', 'Account COA Name', 'required');
+        $this->form_validation->set_rules('name', 'COA Name', 'required');
         $this->form_validation->set_rules('enabled', 'Enabled', 'required');
-        $this->form_validation->set_rules('coa_cat_id', 'Category', 'required');
-        $this->data['cat_list'] = $this->Account_coa_model->get_cat_list();
-
+        $this->form_validation->set_rules('type_id', 'Category', 'required');
+        $this->data['type_list'] = $this->Account_coa_model->get_types_list();
+        $this->data['dropdown_data'] = $this->Account_coa_model->get_group_data();
         if($this->form_validation->run())
         {
             $this->Account_coa_model->edit_act_coa($id, $this->input->post());

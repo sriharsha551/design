@@ -10,11 +10,11 @@ class Account_customer extends Admin_Controller{
         parent::__construct();
         $this->load->model('Account_customer_model');
          /* Title Page :: Common */
-         $this->page_title->push('Account Customer');
+         $this->page_title->push('Customers');
          $this->data['pagetitle'] = $this->page_title->show();
  
          /* Breadcrumbs :: Common */
-         $this->breadcrumbs->unshift(1, 'Account Customer', 'Account_customer');
+         $this->breadcrumbs->unshift(1, 'Customers', 'Account_customer');
     } 
 
     /*

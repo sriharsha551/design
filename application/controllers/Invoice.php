@@ -7,10 +7,10 @@ class Invoice extends Admin_Controller
         parent::__construct();
         $this->load->model('Invoice_model');
 
-        $this->page_title->push('invoices');
+        $this->page_title->push('Invoices');
         $this->data['pagetitle'] = $this->page_title->show();
 
-        $this->breadcrumbs->unshift(1, 'Invoice', 'Invoice');
+        $this->breadcrumbs->unshift(1, 'Invoices', 'Invoice');
     }
 
     public function index()

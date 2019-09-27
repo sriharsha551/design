@@ -31,17 +31,10 @@
                                 $Account_items['enabled']='No';
                             }?>
 					<div class="col-md-6">
-						<label for="price" class="control-label"><span class="text-danger">*</span>Price</label>
+						<label for="price" class="control-label"><span class="text-danger">*</span>Unit Price</label>
 						<div class="form-group">
 							<input type="text" name="price" value="<?php echo ($this->input->post('price') ? $this->input->post('price') : $Account_items['price']); ?>" class="form-control" id="price" />
 							<span class="text-danger"><?php echo form_error('price');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="quantity" class="control-label"><span class="text-danger">*</span>Quantity</label>
-						<div class="form-group">
-							<input type="text" name="quantity" value="<?php echo ($this->input->post('quantity') ? $this->input->post('quantity') : $Account_items['quantity']); ?>" class="form-control" id="quantity" />
-							<span class="text-danger"><?php echo form_error('quantity');?></span>
 						</div>
 					</div>
 					<div class="form-group col-md-6">

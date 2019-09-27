@@ -4,21 +4,21 @@
  * www.crudigniter.com
  */
  
-class Account_coa_category extends Admin_Controller{
+class Account_groups extends Admin_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Account_coa_category_model');
+        $this->load->model('Account_groups_model');
          /* Title Page :: Common */
-         $this->page_title->push('Chartered Account Category');
+         $this->page_title->push('Account Groups');
          $this->data['pagetitle'] = $this->page_title->show();
  
          /* Breadcrumbs :: Common */
-         $this->breadcrumbs->unshift(1, 'Chartered_account_category', 'Account_coa_category');
+         $this->breadcrumbs->unshift(1, 'Account Groups', 'Account_groups');
     } 
 
     /*
-     * Listing of Account_coa_category
+     * Listing of Account_groups
      */
     function index()
     {
@@ -26,20 +26,20 @@ class Account_coa_category extends Admin_Controller{
         $params['offset'] = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
         
         $config = $this->config->item('pagination');
-        $config['base_url'] = site_url('Account_coa_category/index?');
-        $config['total_rows'] = $this->Account_coa_category_model->get_all_Account_coa_category_count();
+        $config['base_url'] = site_url('Account_groups/index?');
+        $config['total_rows'] = $this->Account_groups_model->get_all_Account_groups_count();
         $this->pagination->initialize($config);
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        $this->data['Account_coa_category'] = $this->Account_coa_category_model->get_all_Account_coa_category($params);
+        $this->data['Account_groups'] = $this->Account_groups_model->get_all_Account_groups($params);
         
-        $this->template->public_render('Account_coa_category/index', $this->data);
+        $this->template->public_render('Account_groups/index', $this->data);
 
    
     }
 
     /*
-     * Adding a new Account_coa_category
+     * Adding a new Account_groups
      */
     function add()
     {   
@@ -55,27 +55,27 @@ class Account_coa_category extends Admin_Controller{
 				'name' => $this->input->post('name'),
             );
             
-            $Account_coa_category_id = $this->Account_coa_category_model->add_Account_coa_category($params);
-            redirect('Account_coa_category/index');
+            $Account_groups_id = $this->Account_groups_model->add_Account_groups($params);
+            redirect('Account_groups/index');
         }
         else
         {      
-            $this->template->public_render('Account_coa_category/add', $this->data);      
+            $this->template->public_render('Account_groups/add', $this->data);      
            
         }
     }  
 
     /*
-     * Editing a Account_coa_category
+     * Editing a Account_groups
      */
     function edit($id)
     {   
         $this->breadcrumbs->unshift(2, 'Edit', 'edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
-        // check if the Account_coa_category exists before trying to edit it
-        $this->data['Account_coa_category'] = $this->Account_coa_category_model->get_Account_coa_category($id);
+        // check if the Account_groups exists before trying to edit it
+        $this->data['Account_groups'] = $this->Account_groups_model->get_Account_groups($id);
         
-        if(isset($this->data['Account_coa_category']['id']))
+        if(isset($this->data['Account_groups']['id']))
         {
             $this->load->library('form_validation');
 
@@ -88,37 +88,37 @@ class Account_coa_category extends Admin_Controller{
                     'enabled' => $this->input->post('enabled'),
                     'updated_at' => date("Y-m-d H:i:s"),
                 );
-                $this->Account_coa_category_model->update_Account_coa_category($id,$params);            
-                redirect('Account_coa_category/index');
+                $this->Account_groups_model->update_Account_groups($id,$params);            
+                redirect('Account_groups/index');
             }
             else
             {
-                $this->template->public_render('Account_coa_category/edit', $this->data); 
+                $this->template->public_render('Account_groups/edit', $this->data); 
             }
         }
         else
-            show_error('The Account_coa_category you are trying to edit does not exist.');
+            show_error('The Account_groups you are trying to edit does not exist.');
     } 
 
     /*
-     * Deleting Account_coa_category
+     * Deleting Account_groups
      */
     function remove($id)
     {
-        $Account_coa_category = $this->Account_coa_category_model->get_Account_coa_category($id);
+        $Account_groups = $this->Account_groups_model->get_Account_groups($id);
 
-        // check if the Account_coa_category exists before trying to delete it
-        if(isset($Account_coa_category['id']))
+        // check if the Account_groups exists before trying to delete it
+        if(isset($Account_groups['id']))
         {
             $params = array(
                 'deleted_at' => date("Y-m-d H:i:s"),
                 'delete_status'=> '1',
             );
-            $this->Account_coa_category_model->delete_Account_coa_category($id,$params);
-            redirect('Account_coa_category/index');
+            $this->Account_groups_model->delete_Account_groups($id,$params);
+            redirect('Account_groups/index');
         }
         else
-            show_error('The Account_coa_category you are trying to delete does not exist.');
+            show_error('The Account_groups you are trying to delete does not exist.');
     }
     
 }
