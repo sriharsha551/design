@@ -55,6 +55,13 @@
 								<span class="text-danger"><?php echo form_error('amount');?></span>
 							</div>
 						</div>
+						<div class="col-md-6">
+							<label for="percentage" class="form-label"><span class="text-danger">*</span>Amount Paid</label>
+							<div class="form-group">
+								<input type="text" name="amount_paid" value="<?php echo $this->input->post('amount_paid'); ?>" class="form-control" id="amount_paid" />
+								<span class="text-danger"><?php echo form_error('amount');?></span>
+							</div>
+						</div>
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Description</label>
 							<div class="form-group">
@@ -81,7 +88,7 @@
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
 							</div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Transaction Type</label>
 							<div class="form-group">
 							<select class="form-control" name="tran_type_id">
@@ -92,7 +99,7 @@
 							</select>
 								<span class="text-danger"><?php echo form_error('tran_type_id');?></span>
 							</div>
-                        </div>
+                        </div> -->
 					</div>
 					
 					<div class="box-footer">

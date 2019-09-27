@@ -42,16 +42,25 @@ class Bill_payments extends Admin_Controller
         $this->form_validation->set_rules('coa_id','Coa id','required');
         $this->form_validation->set_rules('paid_dt','Paid Date','required');
         $this->form_validation->set_rules('amount','Amount','required');
+        $this->form_validation->set_rules('amount_paid','Amount Paid','required');
         $this->form_validation->set_rules('description','Description','required');
         $this->form_validation->set_rules('payment_method','Pay Method','required');
         $this->form_validation->set_rules('remarks','Remarks','required');
-        $this->form_validation->set_rules('tran_type_id','Transactin type','required');
+        // $this->form_validation->set_rules('tran_type_id','Transactin type','required');
 
         if($this->form_validation->run())     
         {   
             $params = $this->input->post();
+            if($params['amount_[paid]'] < $params['amount'] && $params['amount_paid'] != 0 )
+            {
+                $status = 2;
+            }
+            else{
+                $status = 3;
+            }
             $concept_id = $this->Bill_payments_model->add_bill_pay($params);
             $this->Bill_payments_model->add_transaction($params);
+            $this->Bill_payments_model->update_bill($status,$params['bill_id']);
             redirect('Bill_payments/index');
         }
         else
@@ -80,7 +89,7 @@ class Bill_payments extends Admin_Controller
             $this->form_validation->set_rules('description','Description','required');
             $this->form_validation->set_rules('payment_method','Payment Method','required');
             $this->form_validation->set_rules('remarks','Remarks','required');
-            $this->form_validation->set_rules('tran_type_id','Transactin type','required');
+            // $this->form_validation->set_rules('tran_type_id','Transactin type','required');
 
             if($this->form_validation->run())     
             {   

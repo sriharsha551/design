@@ -16,10 +16,10 @@ class Bill_payments_model extends CI_Model
     
     function get_all_bill_pay()
     {
-        $this->db->select('t1.*,t2.name as coa_id,t3.name as payment_method,t4.trans_type as tran_type_id,t5.bill_num as bill_id');
+        $this->db->select('t1.*,t2.name as coa_id,t3.name as payment_method,,t5.bill_num as bill_id');
         $this->db->join('act_coa as t2', 't2.id = t1.coa_id', 'inner');
         $this->db->join('act_payment_method as t3','t1.payment_method = t3.id','inner');
-        $this->db->join('act_trans_type as t4', 't1.tran_type_id = t4.id', 'inner');
+        // $this->db->join('act_trans_type as t4', 't1.tran_type_id = t4.id', 'inner');
         $this->db->join('act_bills as t5', 't5.id = t1.bill_id', 'inner');
         return $this->db->get_where('act_bill_payment t1',array('t1.delete_status'=>'0'))->result_array();
     }
@@ -87,6 +87,14 @@ class Bill_payments_model extends CI_Model
         $params['updated_at'] = date("Y-m-d H:i:s");
         $this->db->where('id',$id);
         return $this->db->update('act_bill_payment',$params);
+    }
+
+    function update_bill($status,$id)
+    {
+        $params['bill_status'] = $status;
+        $params['updated_at'] = date("Y-m-d H:i:s");
+        $this->db->where('id',$id);
+        $this->db->update('act_bills',$params);
     }
 
     function delete_bill_pay($id)

@@ -14,7 +14,7 @@ class  Credit_days_model extends CI_Model
             $this->db->limit($params['limit'], $params['offset']);
         }
         $this->db->where('t1.delete_status', '0');
-        $this->db->select('t1.id,t1.name');    
+        $this->db->select('t1.id,t1.name,t1.days');    
         $this->db->from('act_cr_days as t1');
         $query = $this->db->get();
         return $query->result_array();
