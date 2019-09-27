@@ -53,7 +53,7 @@ class Bills extends Admin_Controller
         $this->form_validation->set_rules('bill_date', 'Bill Date', 'required');
         $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
         // $this->form_validation->set_rules('bill_item', 'Bill Item', 'required');
-        $this->form_validation->set_rules('qty', 'Quantity', 'required');
+        // $this->form_validation->set_rules('qty', 'Quantity', 'required');
         $this->form_validation->set_rules('price', 'Price', 'required');
         $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
         $this->form_validation->set_rules('tax_amt', 'Tax Amount', 'required');
@@ -94,7 +94,7 @@ class Bills extends Admin_Controller
             $this->form_validation->set_rules('bill_date', 'Bill Date', 'required');
             $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
             // $this->form_validation->set_rules('bill_item', 'Bill Item', 'required');
-            $this->form_validation->set_rules('qty', 'Quantity', 'required');
+            // $this->form_validation->set_rules('qty', 'Quantity', 'required');
             $this->form_validation->set_rules('price', 'Price', 'required');
             $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
             $this->form_validation->set_rules('tax_amt', 'Tax Amount', 'required');
@@ -110,6 +110,22 @@ class Bills extends Admin_Controller
         } else {
             show_error('The bills you are trying to edit does not exist.');
         }
+
+    }
+
+    public function bills_view($id) 
+    {
+        $this->breadcrumbs->unshift(2, 'Bills', 'bills_view');
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
+
+        $this->data['bills'] = $this->Bills_model->get_bills($id);
+        $this->data['suppliers'] = $this->Bills_model->get_sup();
+        $this->data['credit'] = $this->Bills_model->get_credit();
+        $this->data['tax'] = $this->Bills_model->get_tax();
+        $this->data['bill_item'] = $this->Bills_model->get_bill_items();
+        $this->data['bill_status'] = $this->Bills_model->get_bill_status();
+        $this->data['order_num'] = $this->Bills_model->get_order();
+        $this->template->public_render('Bills/bills_view', $this->data);
 
     }
 

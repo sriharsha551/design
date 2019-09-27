@@ -51,10 +51,11 @@ class Invoice extends Admin_Controller
         $this->form_validation->set_rules('invoice_status', 'Invoice Status', 'required');
         $this->form_validation->set_rules('invoice_item', 'Invoice Item', 'required');
         $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
-        $this->form_validation->set_rules('quantity', 'Quantity', 'required');
+        // $this->form_validation->set_rules('quantity', 'Quantity', 'required');
         $this->form_validation->set_rules('price', 'Price', 'required');
         $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
         $this->form_validation->set_rules('tax_amount', 'Tax Amount', 'required');
+        $this->form_validation->set_rules('total_amount', 'Total Amount', 'required');
         $this->form_validation->set_rules('remarks', 'Remarks', 'required');
 
        
@@ -94,10 +95,11 @@ class Invoice extends Admin_Controller
             $this->form_validation->set_rules('order_num', 'Order Number', 'required');
             $this->form_validation->set_rules('invoice_status', 'Invoice Status', 'required');
             $this->form_validation->set_rules('cr_days_id', 'Credit Days', 'required');
-            $this->form_validation->set_rules('quantity', 'Quantity', 'required');
+            // $this->form_validation->set_rules('quantity', 'Quantity', 'required');
             $this->form_validation->set_rules('price', 'Price', 'required');
             $this->form_validation->set_rules('tax_id', 'Tax Id', 'required');
             $this->form_validation->set_rules('tax_amount', 'Tax Amount', 'required');
+            $this->form_validation->set_rules('total_amount', 'Total Amount', 'required');
             $this->form_validation->set_rules('remarks', 'Remarks', 'required');
             if ($this->form_validation->run()) {
                 $params = $this->input->post();
@@ -110,6 +112,22 @@ class Invoice extends Admin_Controller
         } else {
             show_error('The bills you are trying to edit does not exist.');
         }
+
+    }
+
+    public function invoice_view($id) 
+    {
+        $this->breadcrumbs->unshift(2, 'Invoice', 'invoice_view');
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
+
+        $this->data['invoices'] = $this->Invoice_model->get_invoice($id);
+        $this->data['Customers'] = $this->Invoice_model->get_cut();
+        $this->data['credit'] = $this->Invoice_model->get_credit();
+        $this->data['tax'] = $this->Invoice_model->get_tax();
+        $this->data['invoice_item'] = $this->Invoice_model->get_invoice_items();
+        $this->data['invoice_status'] = $this->Invoice_model->get_inv_status();
+        $this->data['order_num'] = $this->Invoice_model->get_order();
+        $this->template->public_render('Invoice/invoice_view', $this->data);
 
     }
 

@@ -144,15 +144,15 @@
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('bill_item');?></span>
 							</div> 
                         </div>-->
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Quantity</label>
 							<div class="form-group">
 								<input type="text" name="qty" value="<?php echo $this->input->post('qty'); ?>" class="form-control" id="qty" />
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('qty');?></span>
 							</div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Price</label>
+							<label for="percentage" class="form-label"><span class="text-danger">*</span>Unit Price</label>
 							<div class="form-group">
 								<input type="text" name="price" value="<?php echo $this->input->post('price'); ?>" class="form-control" id="price" />
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('price');?></span>

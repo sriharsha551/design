@@ -9,23 +9,49 @@
 		<h4 class="font-weight-bold py-2 mb-4">
 			<span class="text-muted font-weight-light"><?php echo $pagetitle; ?></span>
 			<?php echo $breadcrumb;?>
+			<?php 
+				$GLOBALS['amount'] = null;
+				$GLOBALS['invoice_id'] = null;
+				if(isset($_POST['invoice_id']))
+				{
+					$GLOBALS['invoice_id'] = $_POST['invoice_id'];
+					foreach($amounts as $amount)
+					{
+						if($amount->id == $_POST['invoice_id'])
+						{
+							$GLOBALS['amount'] = $amount->total_amount;
+						}
+					}
+				}
+			?>
 		</h4>
     
 		<div class="card mb-4">
             <h6 class="card-header">ADD</h6>
 			<div class="card-body"> 
 				<div class="box-body"> 
-            		<?php echo form_open('Invoice_payments/add'); ?>
-					<div class="row clearfix">
-						<div class="col-md-6">
-						<label for="prj_id" class="form-label"><span class="text-danger">*</span>Invoice_Id</label>
-						<div class='form-group'>
-						<select class="form-control" name="inv_id">
+				<form action="" method="post" name="invoice_form">
+				<div class="row clearfix">
+				<div class="col-md-6">
+				<label for="prj_id" class="form-label"><span class="text-danger">*</span>Invoice_Id</label>
+				<div class='form-group'>
+				<select class="form-control" name="invoice_id" onchange="this.form.submit();">
 							<option value=''>select name</option>
 							<?php foreach($inv_ids as $row) {?>
-  							<option value='<?php echo $row->id?>'><?php echo $row->invoice_num?></option>
+  							<option value='<?php echo $row->id?>' <?php echo ($row->id == $GLOBALS['invoice_id']) ? 'selected="selected"' : "" ?>><?php echo $row->invoice_num?></option>
 							<?php }?>
 						</select>
+						<span class="text-danger"><?php echo form_error('invoice_id');?></span>
+				</div>
+				</div>
+				</div>
+				</form>
+            		<?php echo form_open('Invoice_payments/add'); ?>
+					<div class="row clearfix">
+						<div class="col-md-6" style="display:none">
+						<label for="prj_id" class="form-label"><span class="text-danger">*</span>Invoice_Id</label>
+						<div class='form-group'>
+						<input type="hidden" name="inv_id" value="<?php if(isset($GLOBALS['invoice_id'])){echo $GLOBALS['invoice_id'];} ?>" class="form-control" id="inv_id" />
 						<span class="text-danger"><?php echo form_error('inv_id');?></span>
 						</div>
 						</div>
@@ -51,7 +77,7 @@
                         <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Amount</label>
 							<div class="form-group">
-								<input type="text" name="amount" value="<?php echo $this->input->post('amount'); ?>" class="form-control" id="amount" />
+								<input type="text" name="amount" value="<?php if(isset($GLOBALS['amount']))echo $GLOBALS['amount']; ?>" class="form-control" id="amount" />
 								<span class="text-danger"><?php echo form_error('amount');?></span>
 							</div>
 						</div>
@@ -88,7 +114,7 @@
 								<span class="text-danger"><?php echo form_error('remarks');?></span>
 							</div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Transaction Type</label>
 							<div class="form-group">
 							<select class="form-control" name="tran_type_id">
@@ -99,7 +125,7 @@
 							</select>
 								<span class="text-danger"><?php echo form_error('tran_type_id');?></span>
 							</div>
-                        </div>
+                        </div> -->
 					</div>
 					
 					<div class="box-footer">

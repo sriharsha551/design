@@ -269,12 +269,12 @@
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa") {echo "open active";}?>">
           <a href="<?php echo site_url('Account_coa'); ?>" class="sidenav-link">
-            <div>Chartered Accounts</div>
+            <div>Chart Of Accounts</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Account_coa_category") {echo "open active";}?>">
           <a href="<?php echo site_url('Account_coa_category'); ?>" class="sidenav-link">
-            <div>Chartered  Accounts Category</div>
+            <div>Chart Of  Accounts Category</div>
           </a>
         </li>
         <li class="sidenav-item <?php if ($this->uri->segment(1) == "Credit_days") {echo "open active";}?>">

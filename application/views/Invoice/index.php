@@ -32,16 +32,15 @@
                         </thead>
                         <?php foreach ($invoice as $invoice) { ?>
                         <tr>
-                            <td><?php echo $invoice['invoice_num']; ?></td>
+                            <td><a href="<?php echo site_url('Invoice/invoice_view/'.$invoice['id']);?>"><?php echo $invoice['invoice_num']; ?></a></td>
                             <td><?php echo $invoice['order_num']; ?></td>
-                            <td><?php echo $invoice['invoice_date']; ?></td> 
+                            <td><a href="<?php echo site_url('Invoice/invoice_view/'.$invoice['id']);?>"><?php echo $invoice['invoice_date']; ?></a> </td> 
                             <td><?php echo $invoice['total_amount']; ?></td> 
                             <td><?php echo $invoice['invoice_status']; ?></td>
                             <td><?php echo $invoice['cr_days']; ?></td>
                             <td><?php echo $invoice['customer_name']; ?></td>
-                            <td><?php echo $invoice['due_date']; ?></td>
+                            <td><?php echo date('Y-m-d',strtotime($invoice['invoice_date'] . " + " . $invoice['days']."days"))?></td>
                             <td>
-                                <!-- <a href="<?php echo site_url('invoice/edit/' . $invoice['id']); ?>" class="btn btn-info btn-xs mr-1"><span class="fa fa-edit"></span></a> -->
                                 <a href="<?php echo site_url('invoice/delete/' . $invoice['id']); ?>" class="btn btn-danger btn-xs mr-1"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>

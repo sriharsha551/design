@@ -36,9 +36,9 @@ class Invoice_payments extends Admin_Controller
         $this->data['coa_ids'] = $this->Invoice_payments_model->get_coa_ids();
         $this->data['tran_ids'] = $this->Invoice_payments_model->get_tran_ids();
         $this->data['pay_ids'] = $this->Invoice_payments_model->get_pay_ids();
+        $this->data['amounts'] = $this->Invoice_payments_model->get_inv_amount();
         
         $this->load->library('form_validation');
-        // print_r($this->data['inv_ids']);
         $this->form_validation->set_rules('inv_id','Invoice Id','required');
         $this->form_validation->set_rules('coa_id','Coa id','required');
         $this->form_validation->set_rules('paid_dt','Paid Date','required');
@@ -47,13 +47,21 @@ class Invoice_payments extends Admin_Controller
         $this->form_validation->set_rules('description','Description','required');
         $this->form_validation->set_rules('pay_method','Pay Method','required');
         $this->form_validation->set_rules('remarks','Remarks','required');
-        $this->form_validation->set_rules('tran_type_id','Transactin type','required');
+        // $this->form_validation->set_rules('tran_type_id','Transactin type','required');
 
         if($this->form_validation->run())     
         {   
             $params = $this->input->post();
+            if($params['amount_recieved'] < $params['amount'] && $params['amount_recieved'] != 0 )
+            {
+                $status = 2;
+            }
+            else{
+                $status = 3;
+            }
             $concept_id = $this->Invoice_payments_model->add_invoice($params);
             $this->Invoice_payments_model->add_transaction($params);
+            $this->Invoice_payments_model->update_invoice($status,$params['inv_id']);
             redirect('Invoice_payments/index');
         }
         else
@@ -88,7 +96,7 @@ class Invoice_payments extends Admin_Controller
             if($this->form_validation->run())     
             {   
                 $params = $this->input->post();
-                $this->Invoice_payments_model->update_invoice($id,$params);
+                $this->Invoice_payments_model->update_invoice_pay($id,$params);
                 redirect('Invoice_payments/index');
             }
             else

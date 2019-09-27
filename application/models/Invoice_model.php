@@ -16,7 +16,7 @@ class Invoice_model extends CI_Model
     
     function get_all_Invoice()
     {
-        $this->db->select('t1.*,t2.name as invoice_status,t3.ponumber as order_num,t4.name as supplier,t5.name as cr_days,t6.name as tax,t7.item_name as invoice_item');
+        $this->db->select('t1.*,t2.name as invoice_status,t3.ponumber as order_num,t4.name as supplier,t5.name as cr_days,t5.days,t6.name as tax,t7.item_name as invoice_item');
         $this->db->join('act_inv_status as t2', 't2.id = t1.invoice_status', 'inner');
         $this->db->join('act_purchase_order as t3','t1.order_num = t3.id','inner');
         $this->db->join('act_customer as t4', 't1.customer_id = t4.id', 'inner');

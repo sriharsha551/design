@@ -158,15 +158,15 @@
 							</div>
                         </div>
  
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
 							<label for="percentage" class="form-label"><span class="text-danger">*</span>Quantity</label>
 							<div class="form-group">
 								<input type="text" name="quantity" value="<?php echo $this->input->post('quantity'); ?>" class="form-control" id="quantity" />
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('quantity');?></span>
 							</div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
-							<label for="percentage" class="form-label"><span class="text-danger">*</span>Price</label>
+							<label for="percentage" class="form-label"><span class="text-danger">*</span>Unit Price</label>
 							<div class="form-group">
 								<input type="text" name="price" value="<?php echo $this->input->post('price'); ?>" class="form-control" id="price" />
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('price');?></span>
@@ -194,6 +194,15 @@
 							<div class="form-group">
 								<input type="text" name="tax_amount" value="<?php echo $this->input->post('tax_amount'); ?>" class="form-control" id="tax_amount" />
 								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('tax_amount');?></span>
+							</div>
+                        </div>
+
+
+						<div class="col-md-6">
+							<label for="percentage" class="form-label"><span class="text-danger">*</span>Total Amount</label>
+							<div class="form-group">
+								<input type="text" name="total_amount" value="<?php echo $this->input->post('total_amount'); ?>" class="form-control" id="total_amount" />
+								<span class="text-danger"><?php if($_SESSION['error']==true)echo form_error('total_amount');?></span>
 							</div>
                         </div>
                         <div class="col-md-6">
