@@ -23,6 +23,7 @@ class Account_coa_model extends CI_Model
         return $query->result_array();
     }
 
+
     function get_group_data()
     {
         $query1 = $this->db->query('select id, name as group_name from act_groups where deleted_at is null');
@@ -31,7 +32,7 @@ class Account_coa_model extends CI_Model
         $types = $query2->result_array();
         $result = array();
         foreach($groups as $group) {
-            $result[$group['group_name']] = $this->get_types_list(array('id' => $group['id']));
+            $result[$group['group_name']] = $this->get_types_list(array('group_id' => $group['id']));
         }
         return $result;
     }

@@ -12,7 +12,6 @@
 		</h4>
     
 		<div class="card mb-4">
-		<?php print_r($dropdown_data);?>
             <h6 class="card-header">ADD</h6>
 			<div class="card-body"> 
 				<div class="box-body"> 
