@@ -106,16 +106,23 @@ class Account_groups extends Admin_Controller{
     function remove($id)
     {
         $Account_groups = $this->Account_groups_model->get_Account_groups($id);
-
+        $safe_delete = $this->Account_groups_model->get_safe_delete($id);
         // check if the Account_groups exists before trying to delete it
         if(isset($Account_groups['id']))
         {
-            $params = array(
-                'deleted_at' => date("Y-m-d H:i:s"),
-                'delete_status'=> '1',
-            );
-            $this->Account_groups_model->delete_Account_groups($id,$params);
-            redirect('Account_groups/index');
+            if($safe_delete)
+            {
+                $this->Account_groups_model->delete_Account_groups($id);
+                redirect('Account_groups/index');
+            }
+            else
+            {
+                echo '<script language="javascript">';
+                echo 'alert("Cant delete item!");';
+                echo '</script>';
+                redirect('Account_groups/index','refresh');
+            }
+           
         }
         else
             show_error('The Account_groups you are trying to delete does not exist.');

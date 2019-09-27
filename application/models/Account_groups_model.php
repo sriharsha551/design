@@ -60,6 +60,16 @@ class Account_groups_model extends CI_Model
         $this->db->where('id',$id);
         return $this->db->update('act_groups',$params);
     }
+
+    function get_safe_delete($id) 
+    {
+        $this->db->where(array('deleted_at' => null, 'group_id' => $id));
+        $query = $this->db->from('act_types');
+        if($this->db->count_all_results() > 0)
+            return FALSE;
+        else
+            return TRUE;
+    }
     
     /*
      * function to delete Account_groups

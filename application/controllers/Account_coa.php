@@ -72,11 +72,18 @@ class Account_coa extends Admin_Controller
     public function remove($id)
     {
         $type = $this->Account_coa_model->get_act_coa_detail($id);
-
+        $safe_delete = $this->Account_coa_model->get_safe_delete($id);
         // check if the Design layout exists before trying to delete it
         if (isset($type['id'])) {
-            $this->Account_coa_model->delete_act_coa($id);
-            redirect('Account_coa/index');
+           if($safe_delete) {
+                $this->Account_coa_model->delete_act_coa($id);
+                redirect('Account_coa/index');
+           } else {
+            echo '<script language="javascript">';
+            echo 'alert("Cant delete item!");';
+            echo '</script>';
+            redirect('Account_coa/index','refresh');
+           }
         } else {
             show_error('The Account COA you are trying to delete does not exist.');
         }

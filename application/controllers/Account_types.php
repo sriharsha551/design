@@ -71,11 +71,22 @@ class Account_types extends Admin_Controller
     public function remove($id)
     {
         $type = $this->Account_types_model->get_act_types_detail($id);
-
+        $safe_delete = $this->Account_types_model->get_safe_delete($id);
         // check if the Design layout exists before trying to delete it
         if (isset($type['id'])) {
-            $this->Account_types_model->delete_act_types($id);
-            redirect('Account_types/index');
+            if($safe_delete)
+            {
+                $this->Account_types_model->delete_act_types($id);
+                redirect('Account_types/index');
+            }
+            else
+            {
+                echo '<script language="javascript">';
+                echo 'alert("Cant delete item!");';
+                echo '</script>';
+                redirect('Account_types/index','refresh');
+            }
+           
         } else {
             show_error('The Account COA you are trying to delete does not exist.');
         }

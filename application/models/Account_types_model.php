@@ -60,6 +60,16 @@ class Account_types_model extends CI_Model
         return $this->db->update('act_types',$params);
     }
 
+    function get_safe_delete($id) 
+    {
+        $this->db->where(array('deleted_at' => null, 'type_id' => $id));
+        $query = $this->db->from('act_coa');
+        if($this->db->count_all_results() > 0)
+            return FALSE;
+        else
+            return TRUE;
+    }
+
     function delete_act_types($id)
     {
         $this->db->where('id',$id);

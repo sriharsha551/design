@@ -75,6 +75,18 @@ class Account_coa_model extends CI_Model
         return $this->db->update('act_coa',$params);
     }
 
+    function get_safe_delete($id) 
+    {
+        $count = $this->db->where(['coa_id'=>$id])->from("act_bill_payment")->count_all_results();
+        $count = $count + $this->db->where(['coa_id'=>$id])->from("act_inv_payment")->count_all_results();
+        $count = $count + $this->db->where(['coa_id'=>$id])->from("act_transaction")->count_all_results();
+        $count = $count + $this->db->where(['coa_id'=>$id])->from("act_accounts")->count_all_results();
+        if($count == 0)
+            return TRUE;
+        else
+            return FALSE;
+    }
+
     function delete_act_coa($id)
     {
         $this->db->where('id',$id);
